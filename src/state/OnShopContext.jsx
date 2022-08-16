@@ -1,0 +1,79 @@
+import { useState, useEffect, createContext, useContext } from "react";
+import { BsStarFill } from "react-icons/bs";
+import {
+  addToBasket,
+  removeFromBasket,
+  selectItems,
+} from "../slices/BasketSlice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { urlFor, client } from "../client";
+
+const ShopContext = createContext({});
+export const ShopProvider = ({ children }) => {
+  const dispatch = useDispatch();
+  ///
+  const [showCart, setShowCart] = useState(false);
+  const [products, setProducts] = useState([]);
+
+  ////___________________________SANITY CONNECT___________________///////
+  // useEffect(() => {
+  //   let cancelled = false;
+  //   const productQuery = '*[_type == "product"]';
+  //   client.fetch(productQuery).then((data) => {
+  //     !cancelled && setProducts(data);
+  //   });
+  //   return () => {
+  //     console.log("products fetched");
+  //     cancelled = true;
+  //   };
+  // }, []);
+  useEffect(() => {
+    const socialQuery = '*[_type == "product"]';
+    try {
+      client.fetch(socialQuery).then((data) => {
+        console.log(data);
+        setProducts(data);
+      });
+    } catch (error) {
+      console.log(
+        `The Error Message ${error?.response?.body?.error?.description}`
+      );
+      throw new error();
+    }
+  }, []);
+  console.log(products);
+  ////___________________________SANITY CONNECT___________________///////
+  const handleAddToBasket = () => {
+    const product = {
+      id,
+      name,
+      title,
+    };
+    // sending product in to the redux store
+    dispatch(addToBasket(product));
+  };
+  const handleItemAdd = () => {
+    const product = {
+      id,
+      name,
+      title,
+    };
+    dispatch(addToBasket(product));
+  };
+
+  const removeItem = () => {
+    dispatch(removeFromBasket({ id }));
+  };
+  //
+  const items = useSelector(selectItems);
+  return (
+    <ShopContext.Provider
+      value={{ BsStarFill, showCart, setShowCart, products }}
+    >
+      {children}
+    </ShopContext.Provider>
+  );
+};
+
+export const useStateShopContext = () => useContext(ShopContext);
