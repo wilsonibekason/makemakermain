@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Currency from "react-currency-formatter";
+import { Link } from "react-router-dom";
 import { urlFor } from "../../../client";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import styles from "../../../style";
@@ -8,7 +9,7 @@ const MAX_RATING = 5;
 const MIN_RATING = 1;
 const ShopCardMain = () => {
   const { BsStarFill, products } = useStateShopContext();
-  console.log("====================================");
+  TODO: console.log("====================================");
   console.log(products);
   console.log("====================================");
   // destruture all products
@@ -21,11 +22,10 @@ const ShopCardMain = () => {
     <>
       {products &&
         products.map((product, index) => {
-          const { title, defaultProductVariant, tags } = product;
+          const { title, defaultProductVariant, tags, slug } = product;
           const { description, images, tax, price, grams, barcode } =
             defaultProductVariant;
           const image = images[0];
-          console.log(images[0]);
 
           return (
             <div
@@ -35,13 +35,15 @@ const ShopCardMain = () => {
               <p className="absolute top-2 right-2 text-xs italic text-gray-400 ">
                 {tags}
               </p>
-              <img
-                src={urlFor(image)}
-                alt=""
-                width={200}
-                height={200}
-                className="object-contain  hover:scale-110  ease-linear transition duration-150"
-              />
+              <Link to={`/product/${slug?.current}`}>
+                <img
+                  src={urlFor(image)}
+                  alt=""
+                  width={200}
+                  height={200}
+                  className="object-contain  hover:scale-110  ease-linear transition duration-150"
+                />
+              </Link>
               <h4 className={`${styles.span1} mt-2`}>{title}</h4>
               <div className="flex ">
                 {Array(rating)

@@ -1,7 +1,15 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { urlFor } from "../../../client";
+import { useStateShopContext } from "../../../state/OnShopContext";
 import styles from "../../../style";
 
 const Banner = () => {
+  const { productBanner } = useStateShopContext();
+  const navigate = useNavigate();
+  const { title, description, image } = productBanner;
+  // remove console
+  TODO: console.log(urlFor(productBanner.image));
   return (
     <>
       <div className="border  border-gray-500 bg-gray-200 rounded-lg">
@@ -15,7 +23,7 @@ const Banner = () => {
                 className={`font-robotoCondensed font-semibold text-black xs:text-[40px] text-[40px] xs:leading-[40px] leading-[40px] my-4 py-3
                 `}
               >
-                smart products
+                {productBanner?.title}
               </div>
               <div>
                 <button
@@ -29,11 +37,13 @@ const Banner = () => {
           </div>
           <div className="col-span-1 lg:col-span-6">
             <div className=" items-center">
-              <img
-                src="https://flone.jamstacktemplates.dev/assets/img/slider/single-slide-1.png"
-                alt=""
-                className="w-[60%] h-[60%] object-cover"
-              />
+              {productBanner.image && (
+                <img
+                  src={urlFor(productBanner?.image)}
+                  alt=""
+                  className="w-[60%] h-[60%] object-cover"
+                />
+              )}
             </div>
           </div>
         </div>

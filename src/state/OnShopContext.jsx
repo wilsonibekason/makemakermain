@@ -26,7 +26,7 @@ export const ShopProvider = ({ children }) => {
     });
     const bannerQuery = '*[_type == "productBanner"]';
     client.fetch(bannerQuery).then((data) => {
-      !cancelled && setProductBanner(data);
+      !cancelled && setProductBanner(data[0]);
     });
     return () => {
       console.log("products and productBanner fetched");
