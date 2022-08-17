@@ -44,27 +44,27 @@ export const ShopProvider = ({ children }) => {
   }, []);
   console.log(products);
   ////___________________________SANITY CONNECT___________________///////
-  const handleAddToBasket = () => {
-    const product = {
-      id,
-      name,
-      title,
-    };
-    // sending product in to the redux store
-    dispatch(addToBasket(product));
-  };
-  const handleItemAdd = () => {
-    const product = {
-      id,
-      name,
-      title,
-    };
-    dispatch(addToBasket(product));
-  };
+  // const handleAddToBasket = () => {
+  //   const product = {
+  //     id,
+  //     name,
+  //     title,
+  //   };
+  //   // sending product in to the redux store
+  //   dispatch(addToBasket(product));
+  // };
+  // const handleItemAdd = () => {
+  //   const product = {
+  //     id,
+  //     name,
+  //     title,
+  //   };
+  //   dispatch(addToBasket(product));
+  // };
 
-  const removeItem = () => {
-    dispatch(removeFromBasket({ id }));
-  };
+  // const removeItem = () => {
+  //   dispatch(removeFromBasket({ id }));
+  // };
   //
   const items = useSelector(selectItems);
   return (

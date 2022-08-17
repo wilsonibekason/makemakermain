@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import Layout from "./wrapper/Layout";
-import { HomeProvider } from "./state/onLandingContext";
+import { HomeProvider } from "./state/OnLandingContext";
 import { BlogProvider } from "./state/OnBlogContext";
 import { ShopProvider } from "./state/OnShopContext";
 import { store } from "./app/store";
@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <HomeProvider>
             <BlogProvider>
               <ShopProvider>
-                <Toaster /> <App />
+                <Toaster /> <App /> 
               </ShopProvider>
             </BlogProvider>
           </HomeProvider>
