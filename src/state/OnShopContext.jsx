@@ -15,6 +15,7 @@ export const ShopProvider = ({ children }) => {
   ///
   const [showCart, setShowCart] = useState(false);
   const [products, setProducts] = useState([]);
+  const [productBanner, setProductBanner] = useState([]);
 
   ////___________________________SANITY CONNECT___________________///////
   useEffect(() => {
@@ -23,8 +24,12 @@ export const ShopProvider = ({ children }) => {
     client.fetch(productQuery).then((data) => {
       !cancelled && setProducts(data);
     });
+    const bannerQuery = '*[_type == "productBanner"]';
+    client.fetch(bannerQuery).then((data) => {
+      !cancelled && setProductBanner(data);
+    });
     return () => {
-      console.log("products fetched");
+      console.log("products and productBanner fetched");
       cancelled = true;
     };
   }, []);
@@ -61,7 +66,7 @@ console.log(priceSplitter(72500));
   const items = useSelector(selectItems);
   return (
     <ShopContext.Provider
-      value={{ BsStarFill, showCart, setShowCart, products }}
+      value={{ BsStarFill, showCart, setShowCart, products, productBanner }}
     >
       {children}
     </ShopContext.Provider>

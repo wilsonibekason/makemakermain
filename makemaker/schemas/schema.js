@@ -9,6 +9,7 @@ import category from "./category";
 import product from "./product";
 import vendor from "./vendor";
 import productVariant from "./productVariant";
+import productBanner from "./productBanner";
 
 import localeString from "./locale/String";
 import localeText from "./locale/Text";
@@ -47,5 +48,6 @@ export default createSchema({
     footerlink,
     socialmedia,
     stats,
+    productBanner,
   ]),
 });
