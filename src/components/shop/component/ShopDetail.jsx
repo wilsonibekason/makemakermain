@@ -13,6 +13,7 @@ const ShopDetail = ({
 }) => {
   const { rating } = useStateShopContext();
   const { description, price } = defaultProductVariant;
+
   return (
     <>
       <div className="w-full ml-auto mr-auto ">
@@ -80,15 +81,8 @@ const ShopDetail = ({
                     <span className="uppercase text-red-200"> Date Added</span>{" "}
                     :{"  "}
                     <ul>
-                      {categories &&
-                        categories?.map((category, index) => (
-                          <li key={index}>{category}</li>
-                        ))}
-                      {/* {productDetails
-                      ? moment(productDetails?.publishedAt)
-                          .utc()
-                          .format("YYYY-MM-DD")
-                      : "DATE ADDED"} */}
+                      {tags &&
+                        tags?.map((tag, index) => <li key={index}>{tag}</li>)}
                     </ul>
                   </h4>
                 </div>
