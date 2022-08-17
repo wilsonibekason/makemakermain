@@ -1,68 +1,8 @@
 import React, { useState } from "react";
 import PortableText from "react-portable-text";
-import { getImageDimensions } from " @sanity/asset-utils";
-import { urlBuilder } from "@sanity-image/url";
+
 const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
   const [openTab, setOpenTab] = useState(1);
-
-  const SampleImageComponent = ({ value, isInline }) => {
-    const { width, height } = getImageDimensions(value);
-    return (
-      <img
-        src={urlBuilder()
-          .image(value)
-          .width(isInline ? 100 : 800)
-          .fit("max")
-          .auto("format")
-          .url()}
-        alt={value.alt || " "}
-        loading="lazy"
-        style={{
-          // Display alongside text if image appears inside a block text span
-          display: isInline ? "inline-block" : "block",
-
-          // Avoid jumping around with aspect-ratio CSS property
-          aspectRatio: width / height,
-        }}
-      />
-    );
-  };
-  const components = {
-    block: {
-      // Ex. 1: customizing common block types
-      h1: ({ children }) => <h1 className="text-2xl">{children}</h1>,
-      blockquote: ({ children }) => (
-        <blockquote className="border-l-purple-500">{children}</blockquote>
-      ),
-
-      // Ex. 2: rendering custom styles
-      customHeading: ({ children }) => (
-        <h2 className="text-lg text-primary text-purple-700">{children}</h2>
-      ),
-    },
-    types: {
-      image: SampleImageComponent,
-    },
-    list: {
-      // Ex. 1: customizing common list types
-      bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
-      number: ({ children }) => <ol className="mt-lg">{children}</ol>,
-
-      // Ex. 2: rendering custom lists
-      checkmarks: ({ children }) => (
-        <ol className="m-auto text-lg">{children}</ol>
-      ),
-    },
-    listItem: {
-      // Ex. 1: customizing common list types
-      bullet: ({ children }) => (
-        <li style={{ listStyleType: "disclosure-closed" }}>{children}</li>
-      ),
-
-      // Ex. 2: rendering custom list items
-      checkmarks: ({ children }) => <li>✅ {children}</li>,
-    },
-  };
   return (
     <>
       <div className="flex flex-wrap ">
@@ -134,7 +74,7 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <PortableText
+                  {/* <PortableText
                     dataset={"production"}
                     projectId={"zyte9ttg"}
                     content={body}
@@ -171,7 +111,8 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
                         </a>
                       ),
                     }}
-                  />
+                  /> */}
+                  This is a description section
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <p className="text-blueGray-500 text-sm font-semibold font-sans">

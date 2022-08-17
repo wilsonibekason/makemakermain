@@ -20,6 +20,12 @@ import feedback from "./landing/feedback";
 import footerlink from "./landing/footerlink";
 import socialmedia from "./landing/socialmedia";
 import stats from "./landing/stats";
+import author from "./blogs/author";
+import blockContents from "./blogs/blockContents";
+import post from "./blogs/post";
+import comment from "./blogs/comment";
+import newsletter from "./blogs/newsletter";
+import blogComments from "./blogs/blogComments";
 // import { features, feedback, footerLinks } from '../../src/utils/data'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -49,5 +55,12 @@ export default createSchema({
     socialmedia,
     stats,
     productBanner,
+    /// blog schemas
+    author,
+    blockContents,
+    blogComments,
+    comment,
+    newsletter,
+    post,
   ]),
 });
