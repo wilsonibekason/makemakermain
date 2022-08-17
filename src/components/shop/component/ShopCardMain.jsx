@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Currency from "react-currency-formatter";
+import { urlFor } from "../../../client";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import styles from "../../../style";
 import Button from "./Button";
@@ -21,6 +22,11 @@ const ShopCardMain = () => {
       {products &&
         products.map((product, index) => {
           const { title, defaultProductVariant, tags } = product;
+          const { description, images, tax, price, grams, barcode } =
+            defaultProductVariant;
+          const image = images[0];
+          console.log(images[0]);
+
           return (
             <div
               className="relative flex flex-col m-5 bg-white z-30 p-10 shadow-lg"
@@ -30,7 +36,7 @@ const ShopCardMain = () => {
                 {tags}
               </p>
               <img
-                src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+                src={urlFor(image)}
                 alt=""
                 width={200}
                 height={200}
