@@ -149,32 +149,34 @@ export const productReview = `*[_type == "reviews"]{
       _updatedAt,
       _createdAt,
     }`;
-// initialising productDetailQuery
+// initialising productDetailQuery image{  asset->{   url   }  },
 export const productDetailQuery = (productId) => {
-  const query = `*[_type == "banner" && _id == '${productId}']{
-          image{
-              asset->{
-                  url
-              }
-          },
+  const query = `*[_type == "product" && slug.current == '${productId}']{
           _id,
           title,
-          description,
           tags,
-          saleTime,
-          price,
+          slug,
+          defaultProductVariant->{
+        price,
+        grams,
+        title,
+        description,
+        taxable,
+        images,
+        barcode,
+          },
           product,
           publishedAt,
           discount,
           productImage,
-          category,
+          category
       }`;
   return query;
 };
 
 // initialising productDetailMoreQuery
 export const productDetailMoreQuery = (product) => {
-  const query = `*[_type == "banner" && category == '${product?.category}' && _id != '${product?._id}']{
+  const query = `*[_type == "product" && category == '${product?.category}' && _id != '${product?._id}']{
       image{
           asset->{
               url

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { client } from "../../client";
-import { productDetailQuery, productDetailMoreQuery } from "../../utils/GROC";
+import { client } from "../../../client";
+import {
+  productDetailQuery,
+  productDetailMoreQuery,
+} from "../../../utils/GROC";
 import { shopLayout } from "../../../style";
 import {
   Banner,
