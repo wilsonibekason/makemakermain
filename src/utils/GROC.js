@@ -156,6 +156,12 @@ export const productDetailQuery = (productId) => {
           title,
           tags,
           slug,
+          categories[] {
+            category->{ 
+             title,
+             slug,
+            },
+          },
           defaultProductVariant,
       }`;
   return query;

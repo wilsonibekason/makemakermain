@@ -1,28 +1,37 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
+import Currency from "react-currency-formatter";
 import Button from "./Button";
 import { useStateShopContext } from "../../../state/OnShopContext";
 
-const ShopDetail = ({ title, defaultProductVariant, tags, slug }) => {
-  const { index, setIndex } = useStateShopContext();
-  const { description, images, tax, price, grams, barcode } =
-    defaultProductVariant;
+const ShopDetail = ({
+  title,
+  defaultProductVariant,
+  tags,
+  slug,
+  categories,
+}) => {
+  const { rating } = useStateShopContext();
+  const { description, price } = defaultProductVariant;
   return (
     <>
       <div className="w-full ml-auto mr-auto ">
         <div className="md:pr-12 mb-12">
           <h1 className=" text-2xl font-bold uppercase">{title}</h1>
           <div className="flex items-center mt-2.5 mb-5">
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
+            {Array(rating)
+              .fill()
+              .map((i) => (
+                <AiFillStar key={i} />
+              ))}
+
             <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
               5.0
             </span>
           </div>
-          <h1 className=" text-2xl font-bold uppercase -mt-4">{`$${price}`}</h1>
+          <h1 className=" text-2xl font-bold uppercase -mt-4">
+            <Currency quantity={price} currency="GBP" />
+          </h1>
           <h4 className=" text-gray-500 text-sm font-semibold">Description</h4>
           <p className="mt-4 text-sm leading-relaxed text-gray-500 line-clamp-2">
             {description}
@@ -70,12 +79,17 @@ const ShopDetail = ({ title, defaultProductVariant, tags, slug }) => {
                   <h4 className="text-gray-500 text-sm">
                     <span className="uppercase text-red-200"> Date Added</span>{" "}
                     :{"  "}
-                    21-8-2022
-                    {/* {productDetails
+                    <ul>
+                      {categories &&
+                        categories?.map((category, index) => (
+                          <li key={index}>{category}</li>
+                        ))}
+                      {/* {productDetails
                       ? moment(productDetails?.publishedAt)
                           .utc()
                           .format("YYYY-MM-DD")
                       : "DATE ADDED"} */}
+                    </ul>
                   </h4>
                 </div>
               </div>

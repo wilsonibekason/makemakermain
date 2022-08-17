@@ -11,6 +11,8 @@ import { urlFor, client } from "../client";
 
 const ShopContext = createContext({});
 export const ShopProvider = ({ children }) => {
+  const MAX_RATING = 5;
+  const MIN_RATING = 1;
   // productdetails carousel effect
   const [index, setIndex] = useState(0);
   const dispatch = useDispatch();
@@ -19,6 +21,10 @@ export const ShopProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [productBanner, setProductBanner] = useState([]);
 
+  // for randomizing ratings
+  const [rating] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1) * MIN_RATING)
+  );
   // STATES FOR FILTERING PRODUCTS
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [filterProducts, setFilterProducts] = useState([]);
@@ -27,9 +33,16 @@ export const ShopProvider = ({ children }) => {
   useEffect(() => {
     let cancelled = false;
     const productQuery = '*[_type == "product"]';
-    client.fetch(productQuery).then((data) => {
-      !cancelled && setProducts(data);
-    });
+    client
+      .fetch(productQuery)
+      .then((data) => {
+        !cancelled && setProducts(data);
+      })
+      .catch((error) =>
+        console.log(
+          `SANITY ERROR SAYS --->  ${error?.response?.body?.error?.description} `
+        )
+      );
     const bannerQuery = '*[_type == "productBanner"]';
     client.fetch(bannerQuery).then((data) => {
       !cancelled && setProductBanner(data[0]);
@@ -106,6 +119,7 @@ console.log(priceSplitter(72500));
         animateCard,
         index,
         setIndex,
+        rating,
       }}
     >
       {children}
