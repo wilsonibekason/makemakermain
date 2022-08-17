@@ -11,12 +11,18 @@ import { urlFor, client } from "../client";
 
 const ShopContext = createContext({});
 export const ShopProvider = ({ children }) => {
+  // productdetails carousel effect
+  const [index, setIndex] = useState(0);
   const dispatch = useDispatch();
   ///
   const [showCart, setShowCart] = useState(false);
   const [products, setProducts] = useState([]);
   const [productBanner, setProductBanner] = useState([]);
 
+  // STATES FOR FILTERING PRODUCTS
+  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [filterProducts, setFilterProducts] = useState([]);
+  const [animateFilter, setAnimateFilter] = useState("all");
   ////___________________________SANITY CONNECT___________________///////
   useEffect(() => {
     let cancelled = false;
@@ -63,10 +69,44 @@ export const ShopProvider = ({ children }) => {
 
 console.log(priceSplitter(72500));
      */
+
   const items = useSelector(selectItems);
+  // SECTION FOR FILTERING PRODUCTS
+
+  const handleProductFilter = (productItem) => {
+    setAnimateFilter(productItem);
+    setAnimateCard([{ y: 100, opacity: 0 }]);
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+      if (productItem === "all") {
+        setFilterProducts(productBanner);
+      } else {
+        setFilterProducts(
+          productBanner?.filter((product) =>
+            product?.tags?.includes(productItem)
+          )
+        );
+      }
+    }, 500);
+  };
+  // SECTION FOR FILTERING PRODUCTS
+
+  // FILTER BUTTON ACTIONS
+
   return (
     <ShopContext.Provider
-      value={{ BsStarFill, showCart, setShowCart, products, productBanner }}
+      value={{
+        BsStarFill,
+        showCart,
+        setShowCart,
+        products,
+        productBanner,
+        handleProductFilter,
+        animateFilter,
+        animateCard,
+        index,
+        setIndex,
+      }}
     >
       {children}
     </ShopContext.Provider>

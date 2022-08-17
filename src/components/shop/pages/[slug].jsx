@@ -6,6 +6,7 @@ import {
   productDetailMoreQuery,
 } from "../../../utils/GROC";
 import { shopLayout } from "../../../style";
+import { useStateShopContext } from "../../../state/OnShopContext";
 import {
   Banner,
   Layout,
@@ -16,6 +17,7 @@ import {
 import ProductDetailsMore from "../component/ProductDetailsMore";
 
 const ShopDetails = () => {
+  const { index, setIndex } = useStateShopContext();
   let id = useParams();
   let productId = id.id;
   ///////////////

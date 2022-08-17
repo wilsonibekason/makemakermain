@@ -156,20 +156,7 @@ export const productDetailQuery = (productId) => {
           title,
           tags,
           slug,
-          defaultProductVariant->{
-        price,
-        grams,
-        title,
-        description,
-        taxable,
-        images,
-        barcode,
-          },
-          product,
-          publishedAt,
-          discount,
-          productImage,
-          category
+          defaultProductVariant,
       }`;
   return query;
 };
