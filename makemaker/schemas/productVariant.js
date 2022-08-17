@@ -9,6 +9,12 @@ export default {
       type: 'string',
     },
     {
+name: "description",
+title: "Description",
+type: "text",
+description: "This should include only the little description your produts needs",
+    },
+    {
       title: 'Weight in grams',
       name: 'grams',
       type: 'number',

@@ -53,6 +53,11 @@ export const ShopProvider = ({ children }) => {
   //   dispatch(removeFromBasket({ id }));
   // };
   //
+  /**
+     * const priceSplitter = (number) => (number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+console.log(priceSplitter(72500));
+     */
   const items = useSelector(selectItems);
   return (
     <ShopContext.Provider

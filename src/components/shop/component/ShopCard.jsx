@@ -1,6 +1,10 @@
 import React from "react";
+import { useStateBlogContext } from "../../../state/OnBlogContext";
 import styles from "../../../style";
 const ShopCard = () => {
+  const { products } = useStateBlogContext();
+  console.log(products);
+  console.log(products.title);
   return (
     <>
       <div className="relative h-72">
