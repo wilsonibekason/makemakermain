@@ -3,9 +3,9 @@ import { useStateBlogContext } from "../../../state/OnBlogContext";
 import styles, { layout } from "../../../style";
 const PostCard = () => {
   const { BsArrowRightCircleFill, products } = useStateBlogContext();
-  console.log("====================================");
-  console.log(products);
-  console.log("====================================");
+  // console.log("====================================");
+  // console.log(products);
+  // console.log("====================================");
   return (
     <>
       <div className="hidden lg:block md:block bg-white rounded-lg p-0 lg:p-8 pb-12 mb-8 shadow">
