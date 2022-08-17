@@ -37,7 +37,7 @@ const ShopDetails = () => {
       client
         .fetch(query)
         .then((data) => {
-          setProductDetails(data[0]);
+          setProductDetails(data);
           console.log(data);
           setLoading(false);
           if (data[0]) {
@@ -69,24 +69,34 @@ const ShopDetails = () => {
   useEffect(() => {
     fetchProductDetails();
   }, [productId]);
-
+  //TODO:
+  console.log(productDetails);
   return (
     <>
       <Layout>
         <div className={`${shopLayout.section} mt-24`}>
           <div className={`${shopLayout.sectionGrid}`}>
             <div className={`${shopLayout.sectionGridDivider}`}>
-              <ShopImages />
+              {productDetails &&
+                productDetails?.map((productDetail, index) => (
+                  <ShopImages {...productDetail} key={index} />
+                ))}
             </div>
             <div className={`${shopLayout.sectionGridDivider2}`}>
-              <ShopDetail />
+              {productDetails &&
+                productDetails?.map((productDetail, index) => (
+                  <ShopDetail {...productDetail} key={index} />
+                ))}
             </div>
           </div>
           {/** banner and advertisement **/}
           <div className={`${shopLayout.sectionTripplix} mt-4 mx-[1rem]`}>
             <div className={`${shopLayout.sectionTripplix1}`} />
             <div className={`${shopLayout.sectionTripplix2}`}>
-              <ProductDetailsMore />
+              {productDetails &&
+                productDetails?.map((productDetail, index) => (
+                  <ProductDetailsMore {...productDetail} key={index} />
+                ))}
             </div>
             <div className={`${shopLayout.sectionTripplix3}`} />
           </div>

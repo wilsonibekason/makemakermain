@@ -11,10 +11,7 @@ const ShopDetail = ({ title, defaultProductVariant, tags, slug }) => {
     <>
       <div className="w-full ml-auto mr-auto ">
         <div className="md:pr-12 mb-12">
-          <h1 className=" text-2xl font-bold">
-            {/* {productDetails ? productDetails?.title : "Title"} */}
-            arduino KIt
-          </h1>
+          <h1 className=" text-2xl font-bold uppercase">{title}</h1>
           <div className="flex items-center mt-2.5 mb-5">
             <AiFillStar />
             <AiFillStar />
@@ -25,12 +22,10 @@ const ShopDetail = ({ title, defaultProductVariant, tags, slug }) => {
               5.0
             </span>
           </div>
+          <h1 className=" text-2xl font-bold uppercase -mt-4">{`$${price}`}</h1>
           <h4 className=" text-gray-500 text-sm font-semibold">Description</h4>
           <p className="mt-4 text-sm leading-relaxed text-gray-500 line-clamp-2">
-            {/* {productDetails ? productDetails?.description : "Description"} */}
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi,
-            ducimu Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus, similique.
+            {description}
           </p>
           <div className="flex flex-wrap">
             <div className="flex">

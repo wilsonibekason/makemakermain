@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ProductDetailsMore = () => {
+const ProductDetailsMore = ({ title, defaultProductVariant }) => {
   const [openTab, setOpenTab] = useState(1);
   return (
     <>

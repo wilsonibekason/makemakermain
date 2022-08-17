@@ -6,8 +6,6 @@ import styles from "../../../style";
 
 const Banner = () => {
   const { productBanner } = useStateShopContext();
-  const navigate = useNavigate();
-  const { title, description, image } = productBanner;
   // remove console
   TODO: console.log(urlFor(productBanner.image));
   return (
@@ -18,7 +16,7 @@ const Banner = () => {
         {/** SECOND BANNER DESIGN */}
         <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12">
           <div className="col-span-1 lg:col-span-6">
-            <div className="flex flex-1 flex-col items-center">
+            <div className="flex flex-1 flex-col items-center mx-4">
               <div
                 className={`font-robotoCondensed font-semibold text-black xs:text-[40px] text-[40px] xs:leading-[40px] leading-[40px] my-4 py-3
                 `}

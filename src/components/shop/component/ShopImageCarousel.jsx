@@ -20,7 +20,7 @@ const responsive = {
     items: 1,
   },
 };
-const ShopImageCarousel = () => {
+const ShopImageCarousel = ({ images }) => {
   const customLeftArrow = (
     <div className="absolute arrow-btn left-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full">
       <svg
@@ -68,11 +68,10 @@ const ShopImageCarousel = () => {
           responsive={responsive}
           //itemClass="px-4"
         >
-          <ImageItem />
-          <ImageItem />
-          <ImageItem />
-          <ImageItem />
-          <ImageItem />
+          {images &&
+            images?.map((image, index) => (
+              <ImageItem key={index} image={image} />
+            ))}
         </Carousel>
       </div>
     </>

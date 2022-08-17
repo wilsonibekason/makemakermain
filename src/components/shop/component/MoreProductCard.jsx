@@ -54,7 +54,7 @@ console.log(priceSplitter(72500));
             <p className="text-xs ">free next day delivery</p>
           </div>
         )}
-        <Button mt="4" />
+        <Button mt="4" message={"add to cart"} />
       </div>
       {/** button component */}
     </>
