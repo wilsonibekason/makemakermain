@@ -1,8 +1,12 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import Button from "./Button";
+import { useStateShopContext } from "../../../state/OnShopContext";
 
-const ShopDetail = () => {
+const ShopDetail = ({ title, defaultProductVariant, tags, slug }) => {
+  const { index, setIndex } = useStateShopContext();
+  const { description, images, tax, price, grams, barcode } =
+    defaultProductVariant;
   return (
     <>
       <div className="w-full ml-auto mr-auto ">
