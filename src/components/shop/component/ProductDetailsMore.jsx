@@ -1,7 +1,68 @@
 import React, { useState } from "react";
-
-const ProductDetailsMore = ({ title, defaultProductVariant }) => {
+import PortableText from "react-portable-text";
+import { getImageDimensions } from " @sanity/asset-utils";
+import { urlBuilder } from "@sanity-image/url";
+const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
   const [openTab, setOpenTab] = useState(1);
+
+  const SampleImageComponent = ({ value, isInline }) => {
+    const { width, height } = getImageDimensions(value);
+    return (
+      <img
+        src={urlBuilder()
+          .image(value)
+          .width(isInline ? 100 : 800)
+          .fit("max")
+          .auto("format")
+          .url()}
+        alt={value.alt || " "}
+        loading="lazy"
+        style={{
+          // Display alongside text if image appears inside a block text span
+          display: isInline ? "inline-block" : "block",
+
+          // Avoid jumping around with aspect-ratio CSS property
+          aspectRatio: width / height,
+        }}
+      />
+    );
+  };
+  const components = {
+    block: {
+      // Ex. 1: customizing common block types
+      h1: ({ children }) => <h1 className="text-2xl">{children}</h1>,
+      blockquote: ({ children }) => (
+        <blockquote className="border-l-purple-500">{children}</blockquote>
+      ),
+
+      // Ex. 2: rendering custom styles
+      customHeading: ({ children }) => (
+        <h2 className="text-lg text-primary text-purple-700">{children}</h2>
+      ),
+    },
+    types: {
+      image: SampleImageComponent,
+    },
+    list: {
+      // Ex. 1: customizing common list types
+      bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
+      number: ({ children }) => <ol className="mt-lg">{children}</ol>,
+
+      // Ex. 2: rendering custom lists
+      checkmarks: ({ children }) => (
+        <ol className="m-auto text-lg">{children}</ol>
+      ),
+    },
+    listItem: {
+      // Ex. 1: customizing common list types
+      bullet: ({ children }) => (
+        <li style={{ listStyleType: "disclosure-closed" }}>{children}</li>
+      ),
+
+      // Ex. 2: rendering custom list items
+      checkmarks: ({ children }) => <li>✅ {children}</li>,
+    },
+  };
   return (
     <>
       <div className="flex flex-wrap ">
@@ -73,14 +134,44 @@ const ProductDetailsMore = ({ title, defaultProductVariant }) => {
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <p className="text-blueGray-400 text-sm font-semibold">
-                    {/* {description} */}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quis magnam quasi suscipit.
-                    <br />
-                    <br /> Dramatically visualize customer directed convergence
-                    without revolutionary ROI.
-                  </p>
+                  <PortableText
+                    dataset={"production"}
+                    projectId={"zyte9ttg"}
+                    content={body}
+                    serializers={{
+                      h1: (props) => (
+                        <h1
+                          className="text-2xl font-bold my-5 text-white"
+                          {...props}
+                        />
+                      ),
+                      h2: (props) => (
+                        <h2
+                          className="text-xl font-bold my-5 text-white"
+                          {...props}
+                        />
+                      ),
+                      p: (props) => (
+                        <p
+                          className="text-sm font-semibold text-white"
+                          {...props}
+                        ></p>
+                      ),
+                      li: ({ children }) => (
+                        <li className="ml-4 list-none text-gray-100">
+                          {children}
+                        </li>
+                      ),
+                      link: ({ href, children }) => (
+                        <a
+                          href={href}
+                          className="inline-block py-2 text-base leading-7 text-white hover:text-gray-800 dark:text-gray-300 dark:hover hover:underline "
+                        >
+                          {children}
+                        </a>
+                      ),
+                    }}
+                  />
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <p className="text-blueGray-500 text-sm font-semibold font-sans">

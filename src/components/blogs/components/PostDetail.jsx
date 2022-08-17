@@ -53,6 +53,8 @@ const PostDetail = () => {
             height={obj.height}
           />
         );
+      default:
+        return "";
     }
   };
   return (
