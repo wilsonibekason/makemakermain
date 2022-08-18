@@ -8,9 +8,35 @@ export const INITIAL_STATE = {
   isLocalStorageSave: false,
   isError: null || "",
   isLoading: false,
+  items: [],
+};
+//// initialsatte fro the reviewform submit
+export const INITIAL_REVIEW_STATE = {
+  _type: "reviews",
+  email: "",
+  name: "",
+  review: "",
 };
 
-const { FORM_CHANGE, SUBMIT_FORM } = BLOG_ACTION_TYPE;
+const {
+  FORM_CHANGE,
+  SUBMIT_FORM,
+  ADD_TO_BASKET,
+  REMOVE_FROM_BASKET,
+  SUBMIT_REVIEW,
+} = BLOG_ACTION_TYPE;
+
+export const ReviewState = (state, action) => {
+  switch (action.type) {
+    case SUBMIT_REVIEW:
+      return {
+        ...state,
+      };
+    default:
+      return state;
+  }
+};
+
 export const BlogReducer = (state, action) => {
   switch (action.type) {
     case FORM_CHANGE:
@@ -22,6 +48,19 @@ export const BlogReducer = (state, action) => {
       return {
         ...state,
       };
+    case ADD_TO_BASKET:
+      return (state.items = [...state.items, action.payload]);
+    case REMOVE_FROM_BASKET:
+      const index = state.items.findIndex(
+        (basketItem) => basketItem.id === action.payload.id
+      );
+      let newBasket = [...state.items];
+      index >= 0
+        ? newBasket.splice(index, 1)
+        : console.warn(
+            `cannot remove product ${action.payload.id} because it is not found`
+          );
+      return (state.items = newBasket);
     default:
       return state;
   }
