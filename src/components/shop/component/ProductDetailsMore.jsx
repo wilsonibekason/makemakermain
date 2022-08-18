@@ -1,12 +1,21 @@
-import React, { useState, useDispatch } from "react";
+import React, { useReducer, useState } from "react";
 import PortableText from "react-portable-text";
 import { BLOG_ACTION_TYPE } from "../../../state/actions/BlogActionTypes";
 import { INITIAL_STATE, BlogReducer } from "../../../state/reducer/BlogReducer";
 
 const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
   const [openTab, setOpenTab] = useState(1);
-  const [state, dispatch] = useDispatch(INITIAL_STATE, BlogReducer);
-  const { CHANGE_INPUT } = BLOG_ACTION_TYPE;
+  const [state, dispatch] = useReducer(INITIAL_STATE, BlogReducer);
+  const { FORM_CHANGE } = BLOG_ACTION_TYPE;
+  const handleChange = (e) => {
+    dispatch({
+      type: FORM_CHANGE,
+      payload: {
+        name: e.target.name,
+        value: e.target.value,
+      },
+    });
+  };
   return (
     <>
       <div className="flex flex-wrap ">
@@ -159,9 +168,9 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
                       className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600
                       bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
                       name="email"
-                      //value={email}
+                      value={state.email}
                       required
-                      onChange={() => dispatch({ type: CHANGE_INPUT })}
+                      onChange={handleChange}
                     />
                     <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                       <i className="fas fa-envelope"></i>
