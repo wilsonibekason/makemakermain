@@ -81,7 +81,11 @@ export const ShopProvider = ({ children }) => {
           review: "",
         });
       })
-      .catch((error) => console.log(error?.response?.body?.error?.description));
+      .catch(
+        (error) =>
+          console.log(error?.response?.body?.error?.description) &&
+          setIsLoaded(false)
+      );
   };
   ////_________ __________________SANITY CONNECT___________________///////
   // const handleAddToBasket = () => {

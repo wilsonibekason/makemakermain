@@ -1,5 +1,5 @@
 import React from "react";
-import styles, { blogLayout } from "../../../style";
+import { blogLayout } from "../../../style";
 import { Link } from "react-router-dom";
 const AdjacentPostCard = ({ position }) => {
   return (

@@ -5,7 +5,14 @@ import { INITIAL_STATE, BlogReducer } from "../../../state/reducer/BlogReducer";
 
 import styles from "../../../style";
 
-const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
+const ProductDetailsMore = ({
+  title,
+  defaultProductVariant,
+  body,
+  reviewSubmit,
+  isLoaded,
+  isReviewSubmitted,
+}) => {
   // useReducer()
   const [openTab, setOpenTab] = useState(1);
   const [state, dispatch] = useReducer(BlogReducer, INITIAL_STATE);
@@ -213,24 +220,24 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
                     </span>
                   </div>
                   {/**button */}
-                  {/* {!isReviewCreated ? ( */}
-                  <div className="relative flex w-full flex-wrap items-stretch mb-3">
-                    <button
-                      className=" border border-blue-500 text-blueGray-600 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                      type="button"
-                      //   onClick={handleReviewSubmit}
-                    >
-                      {/* {`${!reviewLoaded ? "submit review" : "sending"} `} */}
-                      submit review
-                    </button>
-                  </div>
-                  {/* ) : ( */}
-                  <div className="relative flex w-full flex-wrap items-stretch mb-3">
-                    <p className="text-md text-blueGray-600 font-bold">
-                      Thanks for your review
-                    </p>
-                  </div>
-                  {/* )} */}
+                  {!isReviewSubmitted ? (
+                    <div className="relative flex w-full flex-wrap items-stretch mb-3">
+                      <button
+                        className=" border border-blue-500 text-blueGray-600 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button"
+                        onClick={reviewSubmit}
+                      >
+                        {`${!isLoaded ? "submit review" : "sending"} `}
+                        submit review
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="relative flex w-full flex-wrap items-stretch mb-3">
+                      <p className="text-md text-blueGray-600 font-bold">
+                        Thanks for your review
+                      </p>
+                    </div>
+                  )}
 
                   {/**button */}
                 </div>
