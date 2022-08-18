@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext, useContext } from "react";
-import { client } from "../client";
+import { client, urlFor } from "../client";
 const HomeContext = createContext({});
 
 export const HomeProvider = ({ children }) => {
@@ -8,6 +8,7 @@ export const HomeProvider = ({ children }) => {
   const [stats, setStats] = useState([]);
   const [footerLinks, setFooterLinks] = useState([]);
   const [socialMedia, setSocialMedia] = useState([]);
+  const [logoImage, setlogoImage] = useState([]);
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
@@ -26,6 +27,12 @@ export const HomeProvider = ({ children }) => {
         !cancelled && setStats(data);
       })
       .catch((err) => console.log(err));
+    /// load make  maker logo
+    const logoQuery = '*[_type == "logo"]';
+    client
+      .fetch(logoQuery)
+      .then((data) => !cancelled && setlogoImage(data[0]))
+      .catch((error) => console.log(error?.response?.body?.error?.description));
     const FooterLinkQuery = '*[_type == "footerLinks"]';
     client
       .fetch(FooterLinkQuery)
@@ -47,15 +54,27 @@ export const HomeProvider = ({ children }) => {
         !cancelled && setClients(data);
       })
       .catch((err) => console.log(err));
+
     return () => {
       console.log("Everything is cancelled");
       cancelled = true;
     };
   }, []);
+  const logoIMG = logoImage?.image;
+  console.log(urlFor(logoIMG));
 
+  // const logoIMG = logoImage?.map((img) => urlFor(img));
   return (
     <HomeContext.Provider
-      value={{ features, feedback, stats, footerLinks, socialMedia, clients }}
+      value={{
+        features,
+        feedback,
+        stats,
+        footerLinks,
+        socialMedia,
+        clients,
+        logoIMG,
+      }}
     >
       {children}
     </HomeContext.Provider>

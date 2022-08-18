@@ -29,7 +29,7 @@ const ShopDetails = () => {
   const [error, setError] = useState(null);
 
   // DEFINE STATES
-
+  
   // fetching productDetails
   const fetchProductDetails = () => {
     const query = productDetailQuery(productId);
@@ -71,6 +71,9 @@ const ShopDetails = () => {
   }, [productId]);
   //TODO:
   console.log(productDetails);
+  console.log("====================================");
+  console.log("Everything: ", productDetails);
+  console.log("====================================");
   return (
     <>
       <Layout>

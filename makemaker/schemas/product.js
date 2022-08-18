@@ -58,6 +58,17 @@ export default {
       type: "localeString",
     },
     {
+      name: "productCategories",
+      title: "ProductCategories",
+      type: "array",
+      of: [
+        {
+          type: "string",
+          name: "category",
+        },
+      ],
+    },
+    {
       name: "categories",
       title: "Categories",
       type: "array",

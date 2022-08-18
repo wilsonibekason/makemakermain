@@ -26,6 +26,7 @@ import post from "./blogs/post";
 import comment from "./blogs/comment";
 import newsletter from "./blogs/newsletter";
 import blogComments from "./blogs/blogComments";
+import logo from "./logo";
 // import { features, feedback, footerLinks } from '../../src/utils/data'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -62,5 +63,7 @@ export default createSchema({
     comment,
     newsletter,
     post,
+    // logo
+    logo,
   ]),
 });

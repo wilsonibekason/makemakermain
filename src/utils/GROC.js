@@ -157,12 +157,16 @@ export const productDetailQuery = (productId) => {
           tags,
           slug,
           body,
+          defaultProductVariant,
           categories[] {
             category->{
                title,
+               description,
+               slug,
+               family,
             },
-          },
-          defaultProductVariant,
+            },
+        
       }`;
   return query;
 };

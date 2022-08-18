@@ -39,9 +39,7 @@ export const ShopProvider = ({ children }) => {
         !cancelled && setProducts(data);
       })
       .catch((error) =>
-        console.log(
-          `SANITY ERROR SAYS --->  ${error?.response?.body?.error?.description} `
-        )
+        console.log(`SANITY ERROR SAYS --->  ${error?.details?.description} `)
       );
     const bannerQuery = '*[_type == "productBanner"]';
     client.fetch(bannerQuery).then((data) => {

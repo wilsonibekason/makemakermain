@@ -134,49 +134,49 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
                   </div>
 
                   {/** username */}
-                  <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                  <div className="relative flex w-full flex-wrap items-stretch mb-3">
                     <input
                       type="text"
                       placeholder="Your Name"
-                      class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
+                      className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
                       //value={name}
                       name="name"
                       //onChange={handleChange}
                     />
-                    <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
-                      <i class="fas fa-user"></i>
+                    <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
+                      <i className="fas fa-user"></i>
                     </span>
                   </div>
                   {/** useremail */}
-                  <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                  <div className="relative flex w-full flex-wrap items-stretch mb-3">
                     <input
                       type="email"
                       placeholder="Email Address"
-                      class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600
+                      className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600
                       bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
                       name="email"
                       //value={email}
                       required
                       //onChange={handleChange}
                     />
-                    <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
-                      <i class="fas fa-envelope"></i>
+                    <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
+                      <i className="fas fa-envelope"></i>
                     </span>
                   </div>
                   {/** userreview */}
-                  <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                  <div className="relative flex w-full flex-wrap items-stretch mb-3">
                     <textarea
                       rows={3}
                       cols={6}
                       type="text"
                       placeholder="type in your review ..."
-                      class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
+                      className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
                       name="review"
                       //value={review}
                       //onChange={handleChange}
                     />
-                    <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
-                      <i class="fas fa-star"></i>
+                    <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
+                      <i className="fas fa-star"></i>
                     </span>
                   </div>
                   {/**button */}
