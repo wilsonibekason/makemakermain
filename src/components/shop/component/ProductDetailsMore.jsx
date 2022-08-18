@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useDispatch } from "react";
 import PortableText from "react-portable-text";
+import { BLOG_ACTION_TYPE } from "../../../state/actions/BlogActionTypes";
+import { INITIAL_STATE, BlogReducer } from "../../../state/reducer/BlogReducer";
 
 const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
   const [openTab, setOpenTab] = useState(1);
+  const [state, dispatch] = useDispatch(INITIAL_STATE, BlogReducer);
+  const { CHANGE_INPUT } = BLOG_ACTION_TYPE;
   return (
     <>
       <div className="flex flex-wrap ">
@@ -157,7 +161,7 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
                       name="email"
                       //value={email}
                       required
-                      //onChange={handleChange}
+                      onChange={() => dispatch({ type: CHANGE_INPUT })}
                     />
                     <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                       <i className="fas fa-envelope"></i>
