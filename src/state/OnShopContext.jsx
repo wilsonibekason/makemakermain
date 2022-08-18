@@ -1,5 +1,6 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import { BsStarFill } from "react-icons/bs";
+import { createPopper } from "@popperjs/core";
 import {
   addToBasket,
   removeFromBasket,
@@ -37,6 +38,10 @@ export const ShopProvider = ({ children }) => {
     email: "",
     review: "",
   });
+  //// dropdown state
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const btnRef = React.useRef();
+  const popOverRef = React.useRef();
   ////___________________________SANITY CONNECT___________________///////
   useEffect(() => {
     let cancelled = false;
@@ -86,6 +91,14 @@ export const ShopProvider = ({ children }) => {
           console.log(error?.response?.body?.error?.description) &&
           setIsLoaded(false)
       );
+  };
+
+  // handleopen dropdown
+  const handleOpenDropDown = () => {
+    createPopper(btnRef.current, popOverRef.current, {
+      placement: "bottom-start",
+    });
+    setIsDropDownOpen(true);
   };
   ////_________ __________________SANITY CONNECT___________________///////
   // const handleAddToBasket = () => {
@@ -156,6 +169,10 @@ console.log(priceSplitter(72500));
         reviewSubmit,
         isLoaded,
         isReviewSubmitted,
+        handleOpenDropDown,
+        isDropDownOpen,
+        btnRef,
+        popOverRef,
       }}
     >
       {children}

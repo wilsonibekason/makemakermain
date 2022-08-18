@@ -98,21 +98,7 @@ const ProductDetailsMore = ({
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <PortableText
-                    dataset="production"
-                    projectId="zyte9ttg"
-                    content={[
-                      {
-                        text: "wilson ibekason",
-                      },
-                    ]}
-                    serializers={{
-                      h1: (props) => (
-                        <h1 className={`${styles.heading2}`} {...props}></h1>
-                      ),
-                    }}
-                    className="align-middle"
-                  />
+                
                   {/* TODO: REMOVE THIS COMMENTED CODE */}
                   {/* <PortableText
                     dataset={"production"}

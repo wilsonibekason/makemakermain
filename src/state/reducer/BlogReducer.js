@@ -9,6 +9,7 @@ export const INITIAL_STATE = {
   isError: null || "",
   isLoading: false,
   items: [],
+  isCartOpen: false,
 };
 //// initialsatte fro the reviewform submit
 export const INITIAL_REVIEW_STATE = {
@@ -18,20 +19,23 @@ export const INITIAL_REVIEW_STATE = {
   review: "",
 };
 
+export const CART_INITIAL = {
+  isCartOpen: false,
+};
+
 const {
   FORM_CHANGE,
   SUBMIT_FORM,
   ADD_TO_BASKET,
   REMOVE_FROM_BASKET,
   SUBMIT_REVIEW,
+  CART_OPEN,
 } = BLOG_ACTION_TYPE;
 
 export const ReviewState = (state, action) => {
   switch (action.type) {
-    case SUBMIT_REVIEW:
-      return {
-        ...state,
-      };
+    case CART_OPEN:
+      return !state;
     default:
       return state;
   }
