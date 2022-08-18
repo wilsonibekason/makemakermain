@@ -3,6 +3,8 @@ import PortableText from "react-portable-text";
 import { BLOG_ACTION_TYPE } from "../../../state/actions/BlogActionTypes";
 import { INITIAL_STATE, BlogReducer } from "../../../state/reducer/BlogReducer";
 
+import styles from "../../../style";
+
 const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
   // useReducer()
   const [openTab, setOpenTab] = useState(1);
@@ -88,6 +90,15 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+                  <PortableText
+                    dataset="production"
+                    projectId="zyte9ttg"
+                    content={body}
+                    serializers={{
+                      h1: (props) => <h1 className={`${styles.heading2}`}></h1>,
+                    }}
+                    className="align-middle"
+                  />
                   {/* <PortableText
                     dataset={"production"}
                     projectId={"zyte9ttg"}

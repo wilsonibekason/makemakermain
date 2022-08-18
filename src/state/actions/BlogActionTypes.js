@@ -1,3 +1,4 @@
 export const BLOG_ACTION_TYPE = {
   FORM_CHANGE: "FORM_CHANGE",
+  SUBMIT_FORM: "SUBMIT_FORM",
 };

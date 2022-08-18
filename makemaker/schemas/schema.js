@@ -8,7 +8,6 @@ import blockContent from "./blockContent";
 import category from "./category";
 import product from "./product";
 import vendor from "./vendor";
-import review from "./review";
 import productVariant from "./productVariant";
 import productBanner from "./productBanner";
 
@@ -28,6 +27,7 @@ import comment from "./blogs/comment";
 import newsletter from "./blogs/newsletter";
 import blogComments from "./blogs/blogComments";
 import logo from "./logo";
+import review from "./review";
 // import { features, feedback, footerLinks } from '../../src/utils/data'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -42,7 +42,7 @@ export default createSchema({
     product,
     vendor,
     category,
-    review
+    review,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
@@ -65,7 +65,7 @@ export default createSchema({
     comment,
     newsletter,
     post,
-    
+
     // logo
     logo,
   ]),
