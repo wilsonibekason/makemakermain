@@ -8,6 +8,7 @@ import blockContent from "./blockContent";
 import category from "./category";
 import product from "./product";
 import vendor from "./vendor";
+import review from "./review";
 import productVariant from "./productVariant";
 import productBanner from "./productBanner";
 
@@ -41,6 +42,7 @@ export default createSchema({
     product,
     vendor,
     category,
+    review
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
@@ -63,6 +65,7 @@ export default createSchema({
     comment,
     newsletter,
     post,
+    
     // logo
     logo,
   ]),

@@ -3,7 +3,7 @@ import { BLOG_ACTION_TYPE } from "../actions/BlogActionTypes";
 export const INITIAL_STATE = {
   name: "",
   email: "",
-  message: "",
+  review: "",
   isLocalStorageSave: false,
   isError: null || "",
   isLoading: false,

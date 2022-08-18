@@ -4,8 +4,9 @@ import { BLOG_ACTION_TYPE } from "../../../state/actions/BlogActionTypes";
 import { INITIAL_STATE, BlogReducer } from "../../../state/reducer/BlogReducer";
 
 const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
+  // useReducer()
   const [openTab, setOpenTab] = useState(1);
-  const [state, dispatch] = useReducer(INITIAL_STATE, BlogReducer);
+  const [state, dispatch] = useReducer(BlogReducer, INITIAL_STATE);
   const { FORM_CHANGE } = BLOG_ACTION_TYPE;
   const handleChange = (e) => {
     dispatch({
@@ -152,9 +153,9 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
                       type="text"
                       placeholder="Your Name"
                       className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
-                      //value={name}
+                      value={state.name}
                       name="name"
-                      //onChange={handleChange}
+                      onChange={handleChange}
                     />
                     <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                       <i className="fas fa-user"></i>
@@ -185,8 +186,8 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
                       placeholder="type in your review ..."
                       className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
                       name="review"
-                      //value={review}
-                      //onChange={handleChange}
+                      value={state.review}
+                      onChange={handleChange}
                     />
                     <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                       <i className="fas fa-star"></i>
