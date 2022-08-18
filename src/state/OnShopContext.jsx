@@ -6,8 +6,8 @@ import {
   selectItems,
 } from "../slices/BasketSlice";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { urlFor, client } from "../client";
+// import { useSelector } from "react-redux";
+import { client } from "../client";
 
 const ShopContext = createContext({});
 export const ShopProvider = ({ children }) => {
@@ -29,6 +29,14 @@ export const ShopProvider = ({ children }) => {
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [filterProducts, setFilterProducts] = useState([]);
   const [animateFilter, setAnimateFilter] = useState("all");
+  ////
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isReviewSubmitted, setIsReviewSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    review: "",
+  });
   ////___________________________SANITY CONNECT___________________///////
   useEffect(() => {
     let cancelled = false;
@@ -52,7 +60,30 @@ export const ShopProvider = ({ children }) => {
   }, []);
 
   console.log(products);
-  ////___________________________SANITY CONNECT___________________///////
+  const { name, email, review } = formData;
+  const reviewSubmit = (e) => {
+    e.preventDefault();
+    setIsLoaded(true);
+    const reviewDetails = {
+      _type: "reviews",
+      name,
+      email,
+      review,
+    };
+    client
+      .create(reviewDetails)
+      .then(() => {
+        setIsReviewSubmitted(true);
+        setIsLoaded(true);
+        setFormData({
+          name: "",
+          email: "",
+          review: "",
+        });
+      })
+      .catch((error) => console.log(error?.response?.body?.error?.description));
+  };
+  ////_________ __________________SANITY CONNECT___________________///////
   // const handleAddToBasket = () => {
   //   const product = {
   //     id,
@@ -81,7 +112,7 @@ export const ShopProvider = ({ children }) => {
 console.log(priceSplitter(72500));
      */
 
-  const items = useSelector(selectItems);
+  //const items = useSelector(selectItems);
   // SECTION FOR FILTERING PRODUCTS
 
   const handleProductFilter = (productItem) => {
@@ -118,6 +149,9 @@ console.log(priceSplitter(72500));
         index,
         setIndex,
         rating,
+        reviewSubmit,
+        isLoaded,
+        isReviewSubmitted,
       }}
     >
       {children}

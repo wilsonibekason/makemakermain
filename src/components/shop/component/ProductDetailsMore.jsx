@@ -10,6 +10,7 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
   const [openTab, setOpenTab] = useState(1);
   const [state, dispatch] = useReducer(BlogReducer, INITIAL_STATE);
   const { FORM_CHANGE } = BLOG_ACTION_TYPE;
+  console.log("body:", body);
   const handleChange = (e) => {
     dispatch({
       type: FORM_CHANGE,
@@ -93,12 +94,19 @@ const ProductDetailsMore = ({ title, defaultProductVariant, body }) => {
                   <PortableText
                     dataset="production"
                     projectId="zyte9ttg"
-                    content={body}
+                    content={[
+                      {
+                        text: "wilson ibekason",
+                      },
+                    ]}
                     serializers={{
-                      h1: (props) => <h1 className={`${styles.heading2}`}></h1>,
+                      h1: (props) => (
+                        <h1 className={`${styles.heading2}`} {...props}></h1>
+                      ),
                     }}
                     className="align-middle"
                   />
+                  {/* TODO: REMOVE THIS COMMENTED CODE */}
                   {/* <PortableText
                     dataset={"production"}
                     projectId={"zyte9ttg"}

@@ -18,7 +18,7 @@ export default {
     {
       name: "review",
       title: "Review",
-      type: "textarea",
+      type: "text",
       maxLength: 40,
       minLength: 20,
     },
