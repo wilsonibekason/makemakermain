@@ -166,7 +166,6 @@ export const productDetailQuery = (productId) => {
                family,
             },
             },
-        
       }`;
   return query;
 };
@@ -191,3 +190,15 @@ export const productDetailMoreQuery = (product) => {
 };
 
 // initialising relatedproductsQuery
+/// initialising categories item schema quary
+export const category = () => {
+  const query = `*[_type == "category"]{
+    title,
+    slug,
+    description,
+    _created,
+    _updated,
+    _type,
+    family
+  }`;
+};
