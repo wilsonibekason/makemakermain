@@ -1,7 +1,10 @@
 import React from "react";
 import Button from "./Button";
-
+import { useStateShopContext } from "../../../state/OnShopContext";
 const CheckoutProduct = () => {
+  const { productQuantities } = useStateShopContext();
+  //TODO:
+  console.log("cart details");
   return (
     <>
       <div className="grid grid-cols-5">
