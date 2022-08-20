@@ -29,7 +29,7 @@ const ShopDetails = () => {
   const [error, setError] = useState(null);
 
   // DEFINE STATES
-  
+
   // fetching productDetails
   const fetchProductDetails = () => {
     const query = productDetailQuery(productId);
@@ -88,7 +88,11 @@ const ShopDetails = () => {
             <div className={`${shopLayout.sectionGridDivider2}`}>
               {productDetails &&
                 productDetails?.map((productDetail, index) => (
-                  <ShopDetail {...productDetail} key={index} />
+                  <ShopDetail
+                    {...productDetail}
+                    productDetail={productDetail}
+                    key={index}
+                  />
                 ))}
             </div>
           </div>

@@ -1,10 +1,15 @@
 import React from "react";
 import { Header, Footer } from ".";
+import Currency from "react-currency-formatter";
+
 import styles, { shopLayout } from "../../../style";
 import Button from "./Button";
+import { useStateShopContext } from "../../../state/OnShopContext";
 import CheckoutProduct from "./CheckoutProduct";
 
 const Carts = () => {
+  const { cartItems, totalPrice } = useStateShopContext();
+  console.log(cartItems);
   return (
     <>
       <div>
@@ -21,8 +26,13 @@ const Carts = () => {
               />
               <div className={`${shopLayout.cartLayout}`}>
                 <h1>helo world</h1>
-                <CheckoutProduct />
-                <CheckoutProduct />
+                {cartItems?.map((cartItem, index) => (
+                  <CheckoutProduct
+                    {...cartItem}
+                    cartItem={cartItem}
+                    key={index}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -36,7 +46,10 @@ const Carts = () => {
               <div>
                 <h1 className={`${styles.CheckoutHeading}`}>total</h1>
               </div>
-              <div className={`${styles.CheckoutHeading}`}>{`$202`}</div>
+              <div className={`${styles.CheckoutHeading}`}>
+                {/* <Currency quantity={totalPrice} currency="GBP" /> */}
+                {totalPrice}
+              </div>
             </div>
             <div>
               <button

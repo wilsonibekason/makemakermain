@@ -171,7 +171,7 @@ console.log(priceSplitter(72500));
     setTotalQuantities((previousQuantity) => previousQuantity + quantity);
     if (checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
-        if (cartProduct?._id == product?._id) {
+        if (cartProduct?._id === product?._id) {
           return { ...cartItems, quantity: cartProduct?.quantity + quantity };
         }
       });
@@ -206,7 +206,7 @@ console.log(priceSplitter(72500));
   const toggleCartItemsQuantities = (id, value) => {
     foundProduct = cartItems?.find((item) => item._id === id);
     itemIndex = cartItems.findIndex((product) => product?._id === id);
-    const newCartItem = cartItems.filter((item) => item?._id != id);
+    const newCartItem = cartItems.filter((item) => item?._id !== id);
     if (value === "increase") {
       let newCartItems = [
         ...newCartItem,
@@ -313,6 +313,9 @@ console.log(priceSplitter(72500));
         totalPrice,
         totalQuantities,
         productQuantity,
+        onRemove,
+        toggleCartItemsQuantities,
+        cartItems,
       }}
     >
       {children}

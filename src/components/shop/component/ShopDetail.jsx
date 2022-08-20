@@ -1,7 +1,6 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import Currency from "react-currency-formatter";
-import Button from "./Button";
 import { useStateShopContext } from "../../../state/OnShopContext";
 
 const ShopDetail = ({
@@ -10,10 +9,18 @@ const ShopDetail = ({
   tags,
   slug,
   categories,
+  productDetail,
 }) => {
-  const { rating } = useStateShopContext();
+  const {
+    rating,
+    onAdd,
+    totalQuantities,
+    decreQuantity,
+    productQuantity,
+    inQTY,
+  } = useStateShopContext();
   const { description, price } = defaultProductVariant;
-
+  console.log(productDetail);
   return (
     <>
       <div className="w-full ml-auto mr-auto ">
@@ -44,23 +51,29 @@ const ShopDetail = ({
               </div>
               <div
                 className="w-1/6 bg-gray-400 h-12 px-4 border border-solid  shadow-md my-auto py-3 font-bold  mx-auto"
-                // onClick={decreQuantity}
+                onClick={decreQuantity}
               >
                 -
               </div>
               <div className="w-1/6 bg-gray-500 h-12 px-4 border border-solid   shadow-md my-4 py-3 font-bold">
-                {/* {productQuantity} */} 2
+                {productQuantity}
               </div>
               <div
                 className="w-1/6 bg-gray-400 h-12 px-4 border border-solid  shadow-md my-4 py-3 font-bold text-gray-500"
-                // onClick={inQTY}
+                onClick={inQTY}
               >
                 +
               </div>
             </div>
           </div>
           <div className="flex justify-between">
-            <Button message={"add to cart"} />
+            <button
+              type="button"
+              onClick={() => onAdd(productDetail, productQuantity)}
+              className={`border border-blue-400 text-gray-300  active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
+            >
+              add to Cart
+            </button>
             <button
               className="border border-gray-500 text-black active:bg-gray-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button"

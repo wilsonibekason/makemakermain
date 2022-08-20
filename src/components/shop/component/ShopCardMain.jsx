@@ -8,8 +8,10 @@ import Button from "./Button";
 const MAX_RATING = 5;
 const MIN_RATING = 1;
 const ShopCardMain = () => {
-  const { BsStarFill, products } = useStateShopContext();
-  TODO: console.log("====================================");
+  const { BsStarFill, products, onAdd, totalQuantities } =
+    useStateShopContext();
+  // TODO:
+  console.log("====================================");
   console.log(products);
   console.log("====================================");
   // destruture all products
@@ -23,8 +25,7 @@ const ShopCardMain = () => {
       {products &&
         products.map((product, index) => {
           const { title, defaultProductVariant, tags, slug } = product;
-          const { description, images, tax, price, grams, barcode } =
-            defaultProductVariant;
+          const { images } = defaultProductVariant;
           const image = images[0];
 
           return (

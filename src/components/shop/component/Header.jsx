@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { BiCartAlt } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import { close, logo, menu } from "../../../assets/assets";
 import { urlFor } from "../../../client";
 import { useStateContext } from "../../../state/OnLandingContext";
+import { useStateShopContext } from "../../../state/OnShopContext";
 import { navLinks } from "../../../utils/data";
 import Button from "./Button";
 import Carts from "./Carts";
@@ -11,6 +13,8 @@ import ButtonOutline from "./ButtonOutline";
 
 const Navbar = () => {
   const { logoIMG } = useStateContext();
+  const { totalQuantities } = useStateShopContext();
+  const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
   const handleOpen = () => setToggle(true);
   toggle && <Carts />;
@@ -34,14 +38,21 @@ const Navbar = () => {
                 alt="Flowbite Logo"
               />
             )}
-
             <span className="self-center text-lg font-poppins font-semibold whitespace-nowrap dark:text-white">
               MakeMaker
             </span>
           </a>
           <div className="flex md:order-2">
-            <Button message="open cart" handleClick={handleOpen} />
-
+            <button
+              type="button"
+              onClick={() => navigate("/product/cart", { replace: true })}
+              className={`border border-blue-400 text-gray-300  active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
+            >
+              open cart
+            </button>
+            <span className="border border-solid bg-white p-2 mx-2 rounded-full font-poppins font-semibold text-lg text-center ">
+              {totalQuantities}
+            </span>
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
