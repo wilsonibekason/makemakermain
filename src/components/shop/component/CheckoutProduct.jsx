@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import Button from "./Button";
+// import Button from "./Button";
 import Currency from "react-currency-formatter";
 import styles from "../../../style";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import { urlFor } from "../../../client";
 import { BsShieldExclamation } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
-import { GlobalModal } from "./GlobalModal";
+// import { GlobalModal } from "./GlobalModal";
 import { Cancel } from "./buttons/CancelBTN";
+import { Agree } from "./buttons/AgreeBTN";
 const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
   const { onRemove, totalQuantities, toggleCartItemsQuantities } =
     useStateShopContext();
@@ -31,17 +32,17 @@ const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
               <div className="p-6 text-center">
                 <BsShieldExclamation className="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" />
 
-                <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                  {`Are you sure you want to remove`} <span>{title}</span>
+                <h3 className="mb-5 text-sm lg:text-lg font-normal text-gray-500 dark:text-gray-400">
+                  {`Are you sure you want to remove`}{" "}
+                  <span className="text-white uppercase font-poppins font-semibold ">
+                    {title}
+                  </span>
                 </h3>
-                <button
-                  data-modal-toggle="popup-modal"
-                  type="button"
-                  className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
-                  onClick={() => onRemove(cartItem)}
-                >
-                  Yes, I'm sure
-                </button>
+                <Agree
+                  message={"yes, i'm sure"}
+                  onRemove={onRemove}
+                  cartItem={cartItem}
+                />
                 <Cancel setToggleModal={setToggleModal} />
               </div>
             </div>
