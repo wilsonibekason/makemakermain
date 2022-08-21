@@ -7,7 +7,6 @@ import { emptyCart } from "../../../assets/assets";
 import Button from "./Button";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import CheckoutProduct from "./CheckoutProduct";
-import GlobalModal from "./GlobalModal";
 const Carts = () => {
   let navigate = useNavigate();
 
@@ -31,7 +30,7 @@ const Carts = () => {
                 <h1 className="font-poppins font-bold text-xl text-gray-400 graline-height-2 text-center uppercase">
                   your products summary
                 </h1>
-                <GlobalModal />
+
                 {cartItems?.length < 1 && (
                   <div className="items-center mx-auto">
                     <h1 className="font-poppins text-center text-xl lg:text-2xl font-semibold text-gray-400 ">

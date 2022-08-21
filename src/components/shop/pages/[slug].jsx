@@ -15,7 +15,6 @@ import {
   ShopImages,
 } from "../component";
 import ProductDetailsMore from "../component/ProductDetailsMore";
-import GlobalModal from "../component/GlobalModal";
 
 const ShopDetails = () => {
   const { index, setIndex } = useStateShopContext();
@@ -77,7 +76,6 @@ const ShopDetails = () => {
   return (
     <>
       <Layout>
-        <GlobalModal />
         <div className={`${shopLayout.section} mt-24`}>
           <div className={`${shopLayout.sectionGrid}`}>
             <div className={`${shopLayout.sectionGridDivider}`}>
