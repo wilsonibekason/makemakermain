@@ -2,7 +2,6 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import Currency from "react-currency-formatter";
 import { useStateShopContext } from "../../../state/OnShopContext";
-
 const ShopDetail = ({
   title,
   defaultProductVariant,
@@ -11,14 +10,8 @@ const ShopDetail = ({
   categories,
   productDetail,
 }) => {
-  const {
-    rating,
-    onAdd,
-    totalQuantities,
-    decreQuantity,
-    productQuantity,
-    inQTY,
-  } = useStateShopContext();
+  const { rating, onAdd, decreQuantity, productQuantity, inQTY } =
+    useStateShopContext();
   const { description, price } = defaultProductVariant;
   console.log(productDetail);
   return (

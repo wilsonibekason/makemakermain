@@ -1,13 +1,13 @@
 import React from "react";
 import { Header, Footer } from ".";
 import { useNavigate } from "react-router-dom";
-// import Currency from "react-currency-formatter";
+import Currency from "react-currency-formatter";
 import styles, { shopLayout } from "../../../style";
 import { emptyCart } from "../../../assets/assets";
 import Button from "./Button";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import CheckoutProduct from "./CheckoutProduct";
-
+import GlobalModal from "./GlobalModal";
 const Carts = () => {
   let navigate = useNavigate();
 
@@ -31,6 +31,7 @@ const Carts = () => {
                 <h1 className="font-poppins font-bold text-xl text-gray-400 graline-height-2 text-center uppercase">
                   your products summary
                 </h1>
+                <GlobalModal />
                 {cartItems?.length < 1 && (
                   <div className="items-center mx-auto">
                     <h1 className="font-poppins text-center text-xl lg:text-2xl font-semibold text-gray-400 ">
@@ -75,8 +76,8 @@ const Carts = () => {
                 <h1 className={`${styles.CheckoutHeading}`}>total</h1>
               </div>
               <div className={`${styles.CheckoutHeading}`}>
-                {/* <Currency quantity={totalPrice} currency="GBP" /> */}
-                {totalPrice}
+                <Currency quantity={totalPrice} currency="GBP" />
+                {/* {parseInt(totalPrice)} */}
               </div>
             </div>
             <div>

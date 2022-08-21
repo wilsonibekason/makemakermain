@@ -15,6 +15,7 @@ import {
   ShopImages,
 } from "../component";
 import ProductDetailsMore from "../component/ProductDetailsMore";
+import GlobalModal from "../component/GlobalModal";
 
 const ShopDetails = () => {
   const { index, setIndex } = useStateShopContext();
@@ -24,12 +25,10 @@ const ShopDetails = () => {
   // DEFINE STATES
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [productDetails, setProductDetails] = useState();
-  const [productDetailsMore, setProductDetailsMore] = useState();
+  const [productDetails, setProductDetails] = useState([]);
+  // const [productDetailsMore, setProductDetailsMore] = useState([]);
   const [error, setError] = useState(null);
-
   // DEFINE STATES
-
   // fetching productDetails
   const fetchProductDetails = () => {
     const query = productDetailQuery(productId);
@@ -69,6 +68,7 @@ const ShopDetails = () => {
   useEffect(() => {
     fetchProductDetails();
   }, [productId]);
+
   //TODO:
   console.log(productDetails);
   console.log("====================================");
@@ -77,6 +77,7 @@ const ShopDetails = () => {
   return (
     <>
       <Layout>
+        <GlobalModal />
         <div className={`${shopLayout.section} mt-24`}>
           <div className={`${shopLayout.sectionGrid}`}>
             <div className={`${shopLayout.sectionGridDivider}`}>
@@ -123,5 +124,4 @@ const ShopDetails = () => {
     </>
   );
 };
-
 export default ShopDetails;

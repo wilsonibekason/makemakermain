@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import Currency from "react-currency-formatter";
 import styles from "../../../style";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import { urlFor } from "../../../client";
+import GlobalModal from "./GlobalModal";
 const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
   const { onRemove, totalQuantities, toggleCartItemsQuantities } =
     useStateShopContext();
   const { price, images } = defaultProductVariant;
+  const [toggleModal, setToggleModal] = useState(false);
 
   return (
     <>
+      {/* {toggleModal && (
+        <GlobalModal setToggler={setToggleModal} cartItem={cartItem} />
+      )} */}
+      <GlobalModal />
       <div className="grid grid-cols-5">
         <img
           // src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
@@ -48,7 +54,8 @@ const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
           </div>
           <button
             type="button"
-            onClick={() => onRemove(cartItem)}
+            // onClick={() => onRemove(cartItem)}
+            onClick={() => setToggleModal(true)}
             className={`border border-blue-400 text-gray-300 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
           >
             remove
@@ -56,6 +63,7 @@ const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
         </div>
         {/** right add and remove buttons */}
       </div>
+      {toggleModal ? <GlobalModal /> : null}
     </>
   );
 };
