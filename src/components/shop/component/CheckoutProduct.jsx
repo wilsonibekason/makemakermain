@@ -7,7 +7,7 @@ import { urlFor } from "../../../client";
 const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
   const { onRemove, totalQuantities, toggleCartItemsQuantities } =
     useStateShopContext();
-  const { description, price, images } = defaultProductVariant;
+  const { price, images } = defaultProductVariant;
 
   return (
     <>

@@ -1,8 +1,7 @@
 import React from "react";
 import { Header, Footer } from ".";
 import { useNavigate } from "react-router-dom";
-import Currency from "react-currency-formatter";
-
+// import Currency from "react-currency-formatter";
 import styles, { shopLayout } from "../../../style";
 import { emptyCart } from "../../../assets/assets";
 import Button from "./Button";
@@ -10,8 +9,8 @@ import { useStateShopContext } from "../../../state/OnShopContext";
 import CheckoutProduct from "./CheckoutProduct";
 
 const Carts = () => {
-  const navigate = useNavigate();
-  const ShopNavigate = navigate("/product", { replace: true });
+  let navigate = useNavigate();
+
   const { cartItems, totalPrice } = useStateShopContext();
   console.log(cartItems);
   return (
@@ -29,24 +28,32 @@ const Carts = () => {
                 className=" object-contain rounded shadow-sm"
               />
               <div className={`${shopLayout.cartLayout}`}>
-                <h1 className="font-poppins font-semibold text-xl text-black underline line-height-2 text-center capitalize">
-                  your products summery
+                <h1 className="font-poppins font-bold text-xl text-gray-400 graline-height-2 text-center uppercase">
+                  your products summary
                 </h1>
-                {cartItems >= 0 && (
-                  <div className="items-center ">
+                {cartItems?.length < 1 && (
+                  <div className="items-center mx-auto">
+                    <h1 className="font-poppins text-center text-xl lg:text-2xl font-semibold text-gray-400 ">
+                      Your shoping cart is empty
+                    </h1>
                     <img
                       src={emptyCart}
                       alt="empty_cart"
-                      className="w-[600px] h-[300px] align-middle object-contain"
+                      className="w-[600px] h-[300px]  object-contain"
                     />
-                    <Button
-                      message="back to shop"
-                      handleClick={ShopNavigate}
-                    ></Button>
+                    <div className="flex justify-center items-center">
+                      <button
+                        type="button"
+                        onClick={() => navigate("/product", { replace: true })}
+                        className={`border border-blue-400 text-gray-400  active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 xt-linear transition-all duration-150`}
+                      >
+                        back to shop
+                      </button>
+                    </div>
                   </div>
                 )}
 
-                {cartItems >= 1 &&
+                {cartItems?.length >= 1 &&
                   cartItems?.map((cartItem, index) => (
                     <CheckoutProduct
                       {...cartItem}
