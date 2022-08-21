@@ -197,7 +197,7 @@ console.log(priceSplitter(72500));
     );
     setCartItems(newCartItem);
     toast.success(
-      `${foundProduct?.quantity} ${product?.title} removed from the cart`
+      `${foundProduct?.quantity} pieces  ${product?.title} removed from the cart`
     );
   };
   //-----------------------REMOVING LOGIC---------------------//

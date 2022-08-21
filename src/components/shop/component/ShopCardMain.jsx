@@ -8,7 +8,7 @@ import Button from "./Button";
 const MAX_RATING = 5;
 const MIN_RATING = 1;
 const ShopCardMain = () => {
-  const { BsStarFill, products, onAdd, totalQuantities } =
+  const { BsStarFill, products, onAdd, productQuantity } =
     useStateShopContext();
   // TODO:
   console.log("====================================");
@@ -74,7 +74,13 @@ const ShopCardMain = () => {
                   <p className="text-xs ">free next day delivery</p>
                 </div>
               )}
-              <Button message="add to cart" mt="4" />
+              <button
+                type="button"
+                onClick={() => onAdd(product, productQuantity)}
+                className={`border border-blue-400 text-gray-300 mt-2 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
+              >
+                add to cart
+              </button>
             </div>
           );
         })}

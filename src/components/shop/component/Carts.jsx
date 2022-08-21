@@ -1,13 +1,17 @@
 import React from "react";
 import { Header, Footer } from ".";
+import { useNavigate } from "react-router-dom";
 import Currency from "react-currency-formatter";
 
 import styles, { shopLayout } from "../../../style";
+import { emptyCart } from "../../../assets/assets";
 import Button from "./Button";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import CheckoutProduct from "./CheckoutProduct";
 
 const Carts = () => {
+  const navigate = useNavigate();
+  const ShopNavigate = navigate("/product", { replace: true });
   const { cartItems, totalPrice } = useStateShopContext();
   console.log(cartItems);
   return (
@@ -25,14 +29,31 @@ const Carts = () => {
                 className=" object-contain rounded shadow-sm"
               />
               <div className={`${shopLayout.cartLayout}`}>
-                <h1>helo world</h1>
-                {cartItems?.map((cartItem, index) => (
-                  <CheckoutProduct
-                    {...cartItem}
-                    cartItem={cartItem}
-                    key={index}
-                  />
-                ))}
+                <h1 className="font-poppins font-semibold text-xl text-black underline line-height-2 text-center capitalize">
+                  your products summery
+                </h1>
+                {cartItems >= 0 && (
+                  <div className="items-center ">
+                    <img
+                      src={emptyCart}
+                      alt="empty_cart"
+                      className="w-[600px] h-[300px] align-middle object-contain"
+                    />
+                    <Button
+                      message="back to shop"
+                      handleClick={ShopNavigate}
+                    ></Button>
+                  </div>
+                )}
+
+                {cartItems >= 1 &&
+                  cartItems?.map((cartItem, index) => (
+                    <CheckoutProduct
+                      {...cartItem}
+                      cartItem={cartItem}
+                      key={index}
+                    />
+                  ))}
               </div>
             </div>
           </div>

@@ -1,15 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { BiCartAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import { close, logo, menu } from "../../../assets/assets";
 import { urlFor } from "../../../client";
 import { useStateContext } from "../../../state/OnLandingContext";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import { navLinks } from "../../../utils/data";
-import Button from "./Button";
 import Carts from "./Carts";
-import ButtonOutline from "./ButtonOutline";
 
 const Navbar = () => {
   const { logoIMG } = useStateContext();
@@ -20,27 +16,18 @@ const Navbar = () => {
   toggle && <Carts />;
   return (
     <>
-      <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 absolute w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+      <nav className="bg-white px-2 sm:px-4 dark:bg-gray-900 absolute w-full h-20 z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="https://jambekcom.com" className="flex items-center">
             {logoIMG ? (
-              <img
-                src={urlFor(logoIMG)}
-                className="mr-3 sm:h-9"
-                width={100}
-                height={200}
-                alt="Flowbite Logo"
-              />
+              <img src={urlFor(logoIMG)} className="w-32" alt="makemake logo" />
             ) : (
               <img
-                src="https://flowbite.com/docs/images/logo.svg"
+                src="https://MakeMaker.com/docs/images/logo.svg"
                 className="mr-3 h-6 w-6 sm:h-9"
-                alt="Flowbite Logo"
+                alt="MakeMaker Logo"
               />
             )}
-            <span className="self-center text-lg font-poppins font-semibold whitespace-nowrap dark:text-white">
-              MakeMaker
-            </span>
           </a>
           <div className="flex md:order-2">
             <button
