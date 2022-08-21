@@ -157,6 +157,7 @@ export const productDetailQuery = (productId) => {
           tags,
           slug,
           body,
+          specificCategory,
           defaultProductVariant,
           categories[] {
             category->{
@@ -170,24 +171,48 @@ export const productDetailQuery = (productId) => {
   return query;
 };
 
-// initialising productDetailMoreQuery
-export const productDetailMoreQuery = (product) => {
-  const query = `*[_type == "product" && category == '${product?.category}' && _id != '${product?._id}']{
-      image{
-          asset->{
-              url
-          }
+// initialising moreproductDetai ls query
+
+export const moreProductQuery = (product) => {
+  const query = `*[_type == "product" && specificCategory == '${product?.specificCategory}' && _id != '${product?._id}']
+  {
+    _id,
+    title,
+    tags,
+    slug,
+    body,
+    specificCategory,
+    defaultProductVariant,
+    categories[] {
+      category->{
+         title,
+         description,
+         slug,
+         family,
       },
-      _id,
-      title,
-      product,
-      publishedAt,
-      description,
-      price,   
-      productImage
-     }`;
+      },
+}`;
   return query;
 };
+
+// initialising productDetailMoreQuery
+// export const moreProductQuery = (product) => {
+//   const query = `*[_type == "product" && category == '${product?.category}' && _id != '${product?._id}']{
+//       image{
+//           asset->{
+//               url
+//           }
+//       },
+//       _id,
+//       title,
+//       product,
+//       publishedAt,
+//       description,
+//       price,
+//       productImage
+//      }`;
+//   return query;
+// };
 
 // initialising relatedproductsQuery
 /// initialising categories item schema quary
@@ -201,4 +226,5 @@ export const category = () => {
     _type,
     family
   }`;
+  return query;
 };

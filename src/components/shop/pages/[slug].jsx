@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { client } from "../../../client";
-import {
-  productDetailQuery,
-  productDetailMoreQuery,
-} from "../../../utils/GROC";
+import { productDetailQuery, moreProductQuery } from "../../../utils/GROC";
 import { shopLayout } from "../../../style";
-import { useStateShopContext } from "../../../state/OnShopContext";
+// import { useStateShopContext } from "../../../state/OnShopContext";
 import {
   Banner,
   Layout,
@@ -17,7 +14,7 @@ import {
 import ProductDetailsMore from "../component/ProductDetailsMore";
 
 const ShopDetails = () => {
-  const { index, setIndex } = useStateShopContext();
+  // const { index, setIndex } = useStateShopContext();
   let id = useParams();
   let productId = id.id;
   ///////////////
@@ -39,12 +36,13 @@ const ShopDetails = () => {
           console.log(data);
           setLoading(false);
           if (data[0]) {
-            const queryMore = productDetailMoreQuery(data[0]);
+            const queryMore = moreProductQuery(data[0]);
             client
               .fetch(queryMore)
               .then((data) => {
                 setProducts(data);
-                console.log(data[0]);
+                /// TODO:
+                console.log("recommeded products console", data[0]);
                 console.log(data);
               })
               .catch((error) => {
@@ -66,6 +64,7 @@ const ShopDetails = () => {
   // CALL FUNCTIONS
   useEffect(() => {
     fetchProductDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
   //TODO:
@@ -107,7 +106,13 @@ const ShopDetails = () => {
             <div className={`${shopLayout.sectionTripplix3}`} />
           </div>
           <div className={`${shopLayout.sectionGridMultix}`}>
-            <MoreProductCard />
+            {products ? (
+              products.map((product, index) => (
+                <MoreProductCard {...product} key={index} product={product} />
+              ))
+            ) : (
+              <h1>none </h1>
+            )}
           </div>
           {/** banner and advertisement **/}
           <div className={`${shopLayout.sectionTripplix} mt-4 mx-[1rem]`}>

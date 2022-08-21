@@ -1,13 +1,15 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { urlFor } from "../../../client";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import styles from "../../../style";
 
 const Banner = () => {
-  const { productBanner } = useStateShopContext();
-  // remove console
-  TODO: console.log(urlFor(productBanner.image));
+  const { productBanner, products } = useStateShopContext();
+  const navigate = useNavigate();
+  const randomizer = products[Math.floor(Math.random() * products?.length)];
+  console.log(randomizer);
+
   return (
     <>
       <div className="border  border-gray-500 bg-gray-200 rounded-lg">
@@ -27,6 +29,11 @@ const Banner = () => {
                 <button
                   type="button"
                   className={`${styles.buttonOutline} text-black border-black`}
+                  onClick={() =>
+                    navigate(`/product/${randomizer?.slug?.current}`, {
+                      replace: true,
+                    })
+                  }
                 >
                   Shop now
                 </button>

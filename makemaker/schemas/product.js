@@ -47,6 +47,13 @@ export default {
       },
     },
     {
+      name: "specificCategory",
+      title: "SpecificCategory",
+      type: "string",
+      description: "This is optional for the recommendation system",
+      required: true,
+    },
+    {
       name: "vendor",
       title: "Vendor",
       type: "reference",
