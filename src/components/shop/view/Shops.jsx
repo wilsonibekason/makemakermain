@@ -3,9 +3,9 @@ import { blogLayout, layout } from "../../../style";
 import {
   Banner,
   Banners,
-  BannerShop,
+  // BannerShop,
   Categories,
-  ShopCard,
+  // ShopCard,
   ShopCardMain,
   ShopWidgets,
 } from "../component";
