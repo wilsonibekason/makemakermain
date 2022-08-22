@@ -1,5 +1,20 @@
 // initialising postBlogQuery
 
+/*
+
+const posts = await Sanity.fetch(`*[_type == 'post' && _id == '${currentPost.id}' ][0] {
+  'currentPost': {
+    ...
+  },
+  'previousPost': *[_type == 'post' && _createdAt < ^._createdAt][0],
+  'nextPost': *[_type == 'post' && _createdAt > ^._createdAt] | order(_createdAt asc)[0]
+}`);
+
+const currentPostIndex = posts.findIndex(post => post.id === currentPost.id);
+const previousPost = posts[currentPostIndex - 1];
+const nextPost = posts[currentPostIndex + 1];
+
+*/
 export const postBlogQuery = `*[_type == "post"]{
     _id,
      title,
