@@ -103,7 +103,8 @@ const PostDetails = () => {
               <div className="relative lg:sticky top-8">
                 {/** pass the post slug and the post category slug */}
                 <PostWidget related={blogRelated} />
-                <Categories />
+                {blogDetail &&
+                  blogDetail?.map((blog) => <Categories {...blog} />)}
               </div>
             </div>
           </div>

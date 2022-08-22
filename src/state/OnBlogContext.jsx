@@ -15,6 +15,44 @@ export const BlogProvider = ({ children }) => {
   const slideRef = useRef();
   let count = 0;
   let slideInterval;
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isReviewSubmitted, setIsReviewSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    review: "",
+  });
+
+  const { name, email, review } = formData;
+  const reviewSubmit = (e) => {
+    e.preventDefault();
+    setIsLoaded(true);
+    const reviewDetails = {
+      _type: "comment",
+      name,
+      email,
+      review,
+    };
+    client
+      .create(reviewDetails)
+      .then(() => {
+        setIsReviewSubmitted(true);
+        setIsLoaded(true);
+        setFormData({
+          name: "",
+          email: "",
+          review: "",
+        });
+      })
+      .catch(
+        (error) =>
+          console.log(error?.response?.body?.error?.description) &&
+          setIsLoaded(false)
+      );
+  };
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
 
   useEffect(() => {
     /// for generating blogs
@@ -84,6 +122,14 @@ export const BlogProvider = ({ children }) => {
         TbPlayerTrackPrev,
         /// blogs
         blogs,
+        // blog comments
+        isLoaded,
+        isReviewSubmitted,
+        reviewSubmit,
+        handleChange,
+        name,
+        email,
+        review,
       }}
     >
       {children}

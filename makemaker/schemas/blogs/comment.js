@@ -15,7 +15,12 @@ export default {
       description: "Name of personm who commented on blog",
     },
     {
-      name: "message",
+      name: "email",
+      title: "Email",
+      type: "string",
+    },
+    {
+      name: "review",
       title: "Message",
       type: "text",
     },
