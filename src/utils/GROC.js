@@ -16,7 +16,7 @@ export const postBlogQuery = `*[_type == "post"]{
    categories[] {
      categorys->{ 
       title,
-      slug
+      slug 
      },
     },
     }`;
