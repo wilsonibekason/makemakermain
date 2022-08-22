@@ -1,5 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { FeaturedPostCard } from "../components";
 
 const responsive = {
@@ -22,6 +23,8 @@ const responsive = {
 };
 
 const FeaturedPost = () => {
+  const { blogs } = useStateBlogContext();
+
   const customLeftArrow = (
     <div className="absolute arrow-btn left-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full">
       <svg
@@ -69,7 +72,10 @@ const FeaturedPost = () => {
           responsive={responsive}
           itemClass="px-4"
         >
-          <FeaturedPostCard />
+          {blogs &&
+            blogs?.map((blog, index) => (
+              <FeaturedPostCard {...blog} key={index} />
+            ))}
         </Carousel>
       </div>
     </>
