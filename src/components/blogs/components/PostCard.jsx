@@ -2,6 +2,7 @@ import React from "react";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { urlFor } from "../../../client";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 import styles from "../../../style";
 const PostCard = ({
   title,
@@ -13,6 +14,7 @@ const PostCard = ({
   mainImage,
 }) => {
   const { BsArrowRightCircleFill } = useStateBlogContext();
+  const navigate = useNavigate();
   const date = moment(publishedAt).utc().format("YYYY-MMM-DD");
   console.log(author);
   return (
@@ -41,7 +43,12 @@ const PostCard = ({
         </p>
         <div className="flex-1 flex flex-wrap items-center">
           <BsArrowRightCircleFill className="w-[13px] h-[13px] mr-2" />
-          <p className={`${styles.span2}${styles.transitionTextEffect}`}>
+          <p
+            className={`${styles.span2}${styles.transitionTextEffect}`}
+            onClick={() =>
+              navigate(`/blog/${slug?.current}`, { replace: true })
+            }
+          >
             read more
           </p>
         </div>

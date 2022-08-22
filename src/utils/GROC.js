@@ -89,7 +89,7 @@ export const blogMoreQuery = () => {
 // {singlePost.categories.map { |c| c.category.name }.join(", ")
 /// fetching each blog query
 export const blogDetailQuery = (postId) => {
-  const query = `*[_type == "post" && _id == '${postId}']{
+  const query = `*[_type == "post" && slug.current == '${postId}']{
       mainImage{
         asset->{
           url
