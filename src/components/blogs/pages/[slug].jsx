@@ -9,12 +9,12 @@ import {
   PostDetail,
   PostWidget,
 } from "../components";
+import MoreBlogs from "../components/moreBlogs/MoreBlogs";
 import { AdjacentPosts } from "../sections";
 import {
   blogDetailMoreQuery,
   blogDetailQuery,
-  moreProductQuery,
-  productDetailQuery,
+  // productDetailQuery,
 } from "../../../utils/GROC";
 import { client } from "../../../client";
 
@@ -27,7 +27,7 @@ const PostDetails = () => {
 
   const fetchBlogDetails = () => {
     const query = blogDetailQuery(blogId);
-    if (productDetailQuery(blogId)) {
+    if (blogDetailQuery(blogId)) {
       client
         .fetch(query)
         .then((data) => {
@@ -47,6 +47,7 @@ const PostDetails = () => {
                 console.log("====================================");
               });
           }
+          // else if(data[0])
         })
         .catch((error) => {
           console.log(error);
@@ -71,7 +72,9 @@ const PostDetails = () => {
 
               {/** pass the post cms slug */}
               {blogDetail && blogDetail.map((author) => <Author {...author} />)}
+              {/** more blog posts */}
 
+              <MoreBlogs blogs={blogMore} />
               {/** pass the post cms slug */}
               <AdjacentPosts />
               {/** pass the comment form */}
