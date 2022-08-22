@@ -19,6 +19,7 @@ const styles = {
   span1: "text-[12px] text-gray-400 font-semibold font-poppins uppercase",
   span2: "text-[12px] text-blue-400 font-semibold font-poppins uppercase",
   span3: "text-[12px] text-dimwhite font-semibold font-poppins uppercase",
+  span4: "text-[12px] text-white font-semibold font-poppins uppercase",
   flexCenter: "flex justify-center items-center",
   flexStart: "flex justify-center items-start",
 

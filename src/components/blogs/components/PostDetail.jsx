@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import PortableText from "react-portable-text";
 import styles from "../../../style";
 import { urlFor } from "../../../client";
 
@@ -100,8 +101,8 @@ const PostDetail = ({
             {/** for author name and authors image */}
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 ">
               <img
-               // src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
-               src={urlFor(author?.image)}
+                // src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+                src={urlFor(author?.image)}
                 alt=""
                 className=" w-[30px] h-[30px] align-middle rounded-3xl "
               />
@@ -129,6 +130,31 @@ const PostDetail = ({
             </div>
           </div>
           {/**render the main post here*/}
+          <PortableText
+            dataset={"production"}
+            projectId={"zyte9ttg"}
+            content={body}
+            serializers={{
+              h1: (props) => (
+                <h1
+                  className="text-2xl font-poppins font-semibold text-gray-300 "
+                  {...props}
+                >
+                  {" "}
+                </h1>
+              ),
+              span: (props) => (
+                <span className={styles.span2} {...props}></span>
+              ),
+              li: ({ children }) => (
+                <li className="ml-4 list-none text-lg font-semibold capitalize text-black ">
+                  {children}
+                </li>
+              ),
+              img: (src) => <img className="rounded" alt="post_img" />,
+              link: ({ href, children }) => <a href={href}>{children}</a>,
+            }}
+          />
         </div>
       </div>
     </>
