@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import {
   Author,
@@ -10,35 +10,55 @@ import {
   PostWidget,
 } from "../components";
 import { AdjacentPosts } from "../sections";
-import { blogDetailMoreQuery, blogDetailQuery } from "../../../utils/GROC";
+import {
+  blogDetailMoreQuery,
+  blogDetailQuery,
+  moreProductQuery,
+  productDetailQuery,
+} from "../../../utils/GROC";
 import { client } from "../../../client";
 
 const PostDetails = () => {
   let id = useParams();
   let blogId = id.id;
+  console.log(blogId);
   const [blogDetail, setBlogDetail] = useState([]);
   const [blogMore, setBlogMore] = useState([]);
-  useEffect(() => {
-    let bloDetailQuery = blogDetailQuery(blogId);
-    if (bloDetailQuery) {
-      client.fetch(blogDetailQuery).then((data) => {
-        setBlogDetail(data[0]);
-        console.log("blogDetail", data[0]);
-        if (data[0]) {
-          let queryMore = blogDetailMoreQuery(data[0]);
-          client
-            .fetch(queryMore)
-            .then((data) => {
-              setBlogMore(data);
-              console.log("moreblog:", data);
-            })
-            .catch((err) =>
-              console.log(err?.response?.body?.error?.description)
-            );
-        }
-      });
+
+  const fetchBlogDetails = () => {
+    const query = blogDetailQuery(blogId);
+    if (productDetailQuery(blogId)) {
+      client
+        .fetch(query)
+        .then((data) => {
+          setBlogDetail(data);
+          if (data[0]) {
+            const queryMore = blogDetailMoreQuery(data[0]);
+            client
+              .fetch(queryMore)
+              .then((data) => {
+                setBlogMore(data);
+                console.log("recommeded products console", data[0]);
+                console.log(data);
+              })
+              .catch((error) => {
+                console.log("====================================");
+                console.log(error);
+                console.log("====================================");
+              });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
-  });
+  };
+  useEffect(() => {
+    fetchBlogDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [blogId]);
+
+  console.log(blogDetail);
   return (
     <>
       <Layout>
@@ -46,9 +66,12 @@ const PostDetails = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="col-span-1 lg:col-span-8">
               {/**pass the post from the CMS */}
-              <PostDetail blog={blogDetail} />
+              {blogDetail &&
+                blogDetail?.map((blog) => <PostDetail {...blog} />)}
+
               {/** pass the post cms slug */}
-              <Author />
+              {blogDetail && blogDetail.map((author) => <Author {...author} />)}
+
               {/** pass the post cms slug */}
               <AdjacentPosts />
               {/** pass the comment form */}

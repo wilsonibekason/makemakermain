@@ -1,7 +1,23 @@
 import React from "react";
+import moment from "moment";
 import styles from "../../../style";
+import { urlFor } from "../../../client";
 
-const PostDetail = () => {
+const PostDetail = ({
+  title,
+  description,
+  mainImage,
+  slug,
+  _id,
+  body,
+  category,
+  tags,
+  author,
+  publishedAt,
+}) => {
+  const date = moment(publishedAt).utc().format("YYYY-MMM-DD");
+  console.log(mainImage);
+  console.log(author);
   // add logic to render the data when a blog is clicked
   const getContentFragment = (index, text, obj, type) => {
     // define the modified text
@@ -62,19 +78,18 @@ const PostDetail = () => {
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
         <div className="mb-4">
           <div>
-            <h1 className={`${styles.BlogHeading1} text-center`}>
-              Lorem ipsum dolor sit.
-            </h1>
+            <h1 className={`${styles.BlogHeading1} text-center`}>{title}</h1>
           </div>
           <div className="flex-1 flex flex-row justify-evenly">
             <p className={`${styles.span1}`}>2 days ago</p>
             <h1 className={`${styles.span1}`}>9 minutes read</h1>
-            <span className={`${styles.span2}`}>educational website</span>
+            <span className={`${styles.span2}`}>{category}</span>
           </div>
         </div>
         <div className="relative overflow-hidden shadow-md mb-6">
           <img
-            src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+            //src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+            src={urlFor(mainImage).url()}
             alt="post_card"
             className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
           />
@@ -85,12 +100,13 @@ const PostDetail = () => {
             {/** for author name and authors image */}
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 ">
               <img
-                src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+               // src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+               src={urlFor(author?.image)}
                 alt=""
                 className=" w-[30px] h-[30px] align-middle rounded-3xl "
               />
               <p className={`align-middle ${styles.span2} px-2`}>
-                wilson ibekason
+                {author?.name}
               </p>
             </div>
             {/** for date post was added */}
@@ -109,7 +125,7 @@ const PostDetail = () => {
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              <h1 className={`${styles.span1} align-middle`}>2021-10-19</h1>
+              <h1 className={`${styles.span1} align-middle`}>{date}</h1>
             </div>
           </div>
           {/**render the main post here*/}

@@ -87,29 +87,6 @@ export const blogMoreQuery = () => {
 //   category-> { name }
 // }
 // {singlePost.categories.map { |c| c.category.name }.join(", ")
-/// fetching each blog query
-export const blogDetailQuery = (postId) => {
-  const query = `*[_type == "post" && slug.current == '${postId}']{
-      mainImage{
-        asset->{
-          url
-        }
-      },
-      _id,
-      _createdAt,
-      title,
-      author ->{
-        name,
-        image,
-      } ,
-      'blogComments': *[_type == "blogComments" && post._ref == ^._id && approved == true],
-      description,
-      slug,
-      body,
-      category
-    }`;
-  return query;
-};
 
 // query for recentpost
 
@@ -149,6 +126,39 @@ export const productReview = `*[_type == "reviews"]{
       _updatedAt,
       _createdAt,
     }`;
+
+/// fetching each blog query
+/**
+ *  mainImage{
+        asset->{
+          url
+        }
+      },
+ */
+export const blogDetailQuery = (postId) => {
+  const query = `*[_type == "post" && slug.current == '${postId}']{
+     mainImage{
+      asset->{
+        url
+      }
+     },
+      _id,
+      _createdAt,
+      title,
+      author ->{
+        name,
+        image,
+        bio,
+      },
+      'blogComments': *[_type == "blogComments" && post._ref == ^._id && approved == true],
+      description,
+      slug,
+      body,
+      tags,
+      category
+    }`;
+  return query;
+};
 // initialising productDetailQuery image{  asset->{   url   }  },
 export const productDetailQuery = (productId) => {
   const query = `*[_type == "product" && slug.current == '${productId}']{
