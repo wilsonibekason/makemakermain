@@ -1,36 +1,43 @@
 import React from "react";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
-import styles, { layout } from "../../../style";
-const PostCard = () => {
-  const { BsArrowRightCircleFill, products } = useStateBlogContext();
-  // console.log("====================================");
-  // console.log(products);
-  // console.log("====================================");
+import { urlFor } from "../../../client";
+import moment from "moment";
+import styles from "../../../style";
+const PostCard = ({
+  title,
+  description,
+  slug,
+  author,
+  category,
+  publishedAt,
+  mainImage,
+}) => {
+  const { BsArrowRightCircleFill } = useStateBlogContext();
+  const date = moment(publishedAt).utc().format("YYYY-MMM-DD");
+  console.log(author);
   return (
     <>
       <div className="hidden lg:block md:block bg-white rounded-lg p-0 lg:p-8 pb-12 mb-8 shadow">
         {/** image section */}
         <div className="relative overflow-hidden  pb-80 mb-6">
           <img
-            src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+            //src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+            src={urlFor(mainImage)}
             alt=""
             className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
           />
         </div>
         {/** end of image section */}
         <div>
-          <h1 className={`${styles.BlogHeading1} text-center`}>
-            Lorem ipsum dolor sit.
-          </h1>
+          <h1 className={`${styles.BlogHeading1} text-center`}>{title}</h1>
         </div>
         <div className="flex-1 flex flex-row justify-evenly">
-          <p className={`${styles.span1}`}>2 days ago</p>
+          <p className={`${styles.span1}`}>{date}</p>
           <h1 className={`${styles.span1}`}>9 minutes read</h1>
-          <span className={`${styles.span2}`}>educational website</span>
+          <span className={`${styles.span2}`}>{category}</span>
         </div>
-        <p className={`${styles.paragraph2} max-w-full mt-5 `}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-          sequi ducimus iste, tempora iusto voluptate.
+        <p className={`${styles.paragraph2} max-w-full mt-5 line-clamp-2 `}>
+          {description}
         </p>
         <div className="flex-1 flex flex-wrap items-center">
           <BsArrowRightCircleFill className="w-[13px] h-[13px] mr-2" />
@@ -42,12 +49,13 @@ const PostCard = () => {
         <div className="flex  justify-between">
           <div className="flex-1 flex flex-wrap items-center">
             <img
-              src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+              //  src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+              src={urlFor(author?.image)}
               alt=""
               className="w-[30px] h-[30px] rounded-full mr-3"
             />
             <p className={`${styles.span1} `}>
-              By <span className={`${styles.span2}`}>wilson ibekason</span>
+              By <span className={`${styles.span2}`}>{author?.name}</span>
             </p>
           </div>
           <div className={`${styles.span2}`}>save post</div>
@@ -73,6 +81,7 @@ const PostCard = () => {
               width="30px"
               className="align-middle rounded-full"
               src={""}
+              alt="post_card"
             />
             <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
               jddjdjddj
