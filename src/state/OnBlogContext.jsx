@@ -28,7 +28,7 @@ export const BlogProvider = ({ children }) => {
     e.preventDefault();
     setIsLoaded(true);
     const reviewDetails = {
-      _type: "comment",
+      _type: "post",
       name,
       email,
       review,

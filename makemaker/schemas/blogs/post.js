@@ -29,24 +29,7 @@ export default {
       type: "reference",
       to: { type: "author" },
     },
-    /** for commenting */
-    {
-      name: "name",
-      title: "Name",
-      type: "string",
-      description: "Name of person who commented on blog",
-    },
-    {
-      name: "email",
-      title: "Email",
-      type: "string",
-    },
-    {
-      name: "review",
-      title: "Message",
-      type: "text",
-    },
-    /** for commenting */
+
     {
       name: "mainImage",
       title: "Main image",
@@ -90,6 +73,24 @@ export default {
       title: "Body",
       type: "blockContents",
     },
+    /** for commenting */
+    {
+      name: "name",
+      title: "Name",
+      type: "string",
+      description: "Name of person who commented on blog",
+    },
+    {
+      name: "email",
+      title: "Email",
+      type: "string",
+    },
+    {
+      name: "review",
+      title: "Message",
+      type: "text",
+    },
+    /** for commenting */
   ],
 
   preview: {
