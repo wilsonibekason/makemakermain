@@ -38,6 +38,26 @@ export const getFeaturedPosts = () => {
   return query;
 };
 
+//// querying for related post
+export const getRelatedPost = (post) => {
+  const query = `*[_type == "post" && categry == '${post?.category}' && _id != '${post?._id}']{
+  mainImage{
+    asset->{
+      url
+    }
+  },
+  _id,
+  slug,
+  title,
+  description,
+  author->{
+    name,
+    image,
+  }
+}`;
+  return query;
+};
+
 /// fetching category based blogs for our blogs
 export const blogDetailMoreQuery = (product) => {
   const query = `*[_type == "post" && category == '${product?.category}' && _id != '${product?._id}']{

@@ -14,6 +14,7 @@ import { AdjacentPosts } from "../sections";
 import {
   blogDetailMoreQuery,
   blogDetailQuery,
+  getRelatedPost,
   // productDetailQuery,
 } from "../../../utils/GROC";
 import { client } from "../../../client";
@@ -24,6 +25,7 @@ const PostDetails = () => {
   console.log(blogId);
   const [blogDetail, setBlogDetail] = useState([]);
   const [blogMore, setBlogMore] = useState([]);
+  const [blogRelated, setBlogRelated] = useState([]);
 
   const fetchBlogDetails = () => {
     const query = blogDetailQuery(blogId);
@@ -46,8 +48,21 @@ const PostDetails = () => {
                 console.log(error);
                 console.log("====================================");
               });
+          } else if (data[0]) {
+            const relatedQuery = getRelatedPost(data[0]);
+            client
+              .fetch(relatedQuery)
+              .then((data) => {
+                setBlogRelated(data);
+                console.log("recommeded products console", data[0]);
+                console.log(data);
+              })
+              .catch((error) => {
+                console.log("====================================");
+                console.log(error);
+                console.log("====================================");
+              });
           }
-          // else if(data[0])
         })
         .catch((error) => {
           console.log(error);
@@ -60,6 +75,7 @@ const PostDetails = () => {
   }, [blogId]);
 
   console.log(blogDetail);
+  console.log(blogRelated);
   return (
     <>
       <Layout>
@@ -86,7 +102,7 @@ const PostDetails = () => {
             <div className="col-span-1 lg:col-span-4">
               <div className="relative lg:sticky top-8">
                 {/** pass the post slug and the post category slug */}
-                <PostWidget />
+                <PostWidget related={blogRelated} />
                 <Categories />
               </div>
             </div>
