@@ -179,6 +179,62 @@ export const blogDetailQuery = (postId) => {
     }`;
   return query;
 };
+
+/*
+const posts = await Sanity.fetch(`*[_type == 'post' && _id == '${currentPost.id}' ][0] {
+  'currentPost': {
+    ...
+  },
+  'previousPost': *[_type == 'post' && _createdAt < ^._createdAt][0],
+  'nextPost': *[_type == 'post' && _createdAt > ^._createdAt] | order(_createdAt asc)[0]
+}`);
+const currentPostIndex = posts.findIndex(post => post.id === currentPost.id);
+const previousPost = posts[currentPostIndex - 1];
+const nextPost = posts[currentPostIndex + 1];
+*/
+
+// *[_type == 'post' && _id == '9df01ee4-8758-481b-9578-91b558b18413' ][0] {
+//   'currentPost': {
+//     ...
+//   },
+//   'previousPost': *[_type == 'post' && _createdAt < ^._createdAt][0],
+//   'nextPost': *[_type == 'post' && _createdAt > ^._createdAt] | order(_createdAt asc)[0]
+// }
+
+export const getAdjacentPosts = (currentPost) => {
+  const query = ` *[_type == 'post' && _id == '${currentPost._id}' ][0] {
+    'currentPost': {
+      ...
+    },
+    'previousPost': *[_type == 'post' && _createdAt < ^._createdAt][0],
+    'nextPost': *[_type == 'post' && _createdAt > ^._createdAt] | order(_createdAt asc)[0]
+  }
+  `;
+  return query;
+};
+
+export const CurrentPost = (currentPost) => {
+  const query = `*[_type == "post" && _id == '${currentPost.id}' ]{
+    mainImage{
+      asset->{
+        url
+      }
+    },
+    _id,
+    title,
+    slug,
+    description,
+    publishedAt,
+    author->{
+      name,
+      image
+    }
+  }`;
+  return query;
+};
+// export const previousPost = () => {
+//   const query = `*[_type == "post" ]`
+// }
 // initialising productDetailQuery image{  asset->{   url   }  },
 export const productDetailQuery = (productId) => {
   const query = `*[_type == "product" && slug.current == '${productId}']{

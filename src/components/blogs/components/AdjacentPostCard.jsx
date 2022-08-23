@@ -1,26 +1,30 @@
 import React from "react";
+import moment from "moment";
+import { urlFor } from "../../../client";
 import { blogLayout } from "../../../style";
 import { Link } from "react-router-dom";
-const AdjacentPostCard = ({ position }) => {
+const AdjacentPostCard = ({ post, position }) => {
+  console.log("post logged", post);
   return (
     <>
       <div
         className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72"
         style={{
           backgroundImage: `url("https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg")`,
+          //backgroundImage: `url("${urlFor(post?.mainImage)}")`,
         }}
       />
       <div className="absolute rounded-lg bg-center bg-gradient-to-b opacity-50 from-gray-400 via-gray-700 to-black w-full h-72" />
       <div className="flex flex-col rounded-lg p-4 items-center justify-center absolute w-full h-full">
         <p className="text-white text-shadow font-semibold text-xs">
-          {/* {moment(post.createdAt).format('MMM DD, YYYY')} */}
+          {/* {moment(post.publishedAt).format("MMM DD, YYYY")} */}
           2002-2-20
         </p>
         <p className="text-white text-shadow font-semibold text-2xl text-center">
           web development
         </p>
       </div>
-      <Link to={""}>
+      <Link to={`/blog/${post?.slug?.current}`}>
         <span className="z-10 cursor-pointer absolute w-full h-full"></span>
       </Link>
       {position === "LEFT" && (

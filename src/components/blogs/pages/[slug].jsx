@@ -9,32 +9,51 @@ import {
   PostDetail,
   PostWidget,
 } from "../components";
+import { useStateBlogContext } from "../../../state/OnBlogContext";
 import MoreBlogs from "../components/moreBlogs/MoreBlogs";
 import { AdjacentPosts } from "../sections";
 import {
   blogDetailMoreQuery,
   blogDetailQuery,
   getRelatedPost,
-  // productDetailQuery,
+  CurrentPost,
+  getAdjacentPosts,
 } from "../../../utils/GROC";
 import { client } from "../../../client";
 
 const PostDetails = () => {
+  const { blogs } = useStateBlogContext();
   let id = useParams();
   let blogId = id.id;
   console.log(blogId);
   const [blogDetail, setBlogDetail] = useState([]);
   const [blogMore, setBlogMore] = useState([]);
   const [blogRelated, setBlogRelated] = useState([]);
-
+  const [currentPosts, setCurrentPosts] = useState([]);
+  const [adjacentPosts, setAdjacentPosts] = useState([]);
   const fetchBlogDetails = () => {
     const query = blogDetailQuery(blogId);
     if (blogDetailQuery(blogId)) {
       client
         .fetch(query)
         .then((data) => {
+          console.log("productDetails products console", data);
           setBlogDetail(data);
           if (data[0]) {
+            const adjacentQuery = getAdjacentPosts(data[0]);
+            client
+              .fetch(adjacentQuery)
+              .then((data) => {
+                setAdjacentPosts(data);
+                console.log("adjacent products console", data);
+                console.log(data);
+              })
+              .catch((error) => {
+                console.log("====================================");
+                console.log(error);
+                console.log("====================================");
+              });
+          } else if (data[0]) {
             const queryMore = blogDetailMoreQuery(data[0]);
             client
               .fetch(queryMore)
@@ -62,6 +81,19 @@ const PostDetails = () => {
                 console.log(error);
                 console.log("====================================");
               });
+          } else if (data[0]) {
+            const currentQuery = CurrentPost(data[0]);
+            client
+              .fetch(currentQuery)
+              .then((data) => {
+                console.log("the currentposts items ", data);
+                setCurrentPosts(data);
+              })
+              .catch((error) => {
+                console.log("====================================");
+                console.log(error);
+                console.log("====================================");
+              });
           }
         })
         .catch((error) => {
@@ -74,8 +106,21 @@ const PostDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blogId]);
 
-  console.log(blogDetail);
-  console.log(blogRelated);
+  console.log(adjacentPosts);
+  console.log(blogs);
+  // console.log(blogRelated);
+  const currentBlog = blogDetail.map((item) => item);
+  const currentBlog2 = blogDetail.map((item) => item?._id);
+
+  console.log("blogcurrnt", currentBlog[0]?._id);
+  console.log("blogcurrnt2", currentBlog2);
+  //// grabing the previous and next posts{post?._id === currentBlog?._id}
+  const currentPostIndex = blogs.findIndex((post) => post._id === currentBlog2);
+  const previousPosts = currentPosts[currentPostIndex - 1];
+  const nextPosts = currentPosts[currentPostIndex + 1];
+  /// log for the prevouspost and nextpost
+  console.log("the previous blog post", previousPosts);
+  console.log("the next blog post", nextPosts);
   return (
     <>
       <Layout>
@@ -92,7 +137,7 @@ const PostDetails = () => {
 
               <MoreBlogs blogs={blogMore} />
               {/** pass the post cms slug */}
-              <AdjacentPosts />
+              <AdjacentPosts adjacentPost={adjacentPosts} />
               {/** pass the comment form */}
               <CommentForm />
               {/** render the comments from the cms */}

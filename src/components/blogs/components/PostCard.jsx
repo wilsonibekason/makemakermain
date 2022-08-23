@@ -56,7 +56,7 @@ const PostCard = ({
         <div className="flex  justify-between">
           <div className="flex-1 flex flex-wrap items-center">
             <img
-              //  src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+              //src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
               src={urlFor(author?.image)}
               alt=""
               className="w-[30px] h-[30px] rounded-full mr-3"
