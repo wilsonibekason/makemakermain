@@ -5,12 +5,13 @@ import { client } from "../client";
 import { TbPlayerTrackNext, TbPlayerTrackPrev } from "react-icons/tb";
 import { useRef } from "react";
 import { shopImages } from "../utils/data";
-import { postBlogQuery } from "../utils/GROC";
+import { getBlogComments, postBlogQuery } from "../utils/GROC";
 const BlogContext = createContext({});
 
 export const BlogProvider = ({ children }) => {
   const [DataLoaded, setDataLoaded] = useState(false);
   const [blogs, setBlogs] = useState([]);
+  const [comments, setComments] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideRef = useRef();
   let count = 0;
@@ -28,7 +29,7 @@ export const BlogProvider = ({ children }) => {
     e.preventDefault();
     setIsLoaded(true);
     const reviewDetails = {
-      _type: "post",
+      _type: "comment",
       name,
       email,
       review,
@@ -73,6 +74,12 @@ const nextPost = posts[currentPostIndex + 1];
     client.fetch(blogQuery).then((data) => !cancelled && setBlogs(data));
     // const posts = client.fetch()
     //// for local carousel logic
+    //// fetch comments
+    let commentQuery = getBlogComments();
+    client
+      .fetch(commentQuery)
+      .then((data) => !cancelled && setComments(data?.[0]));
+
     slideRef.current?.addEventListener("animationend", removeAnimation);
     slideRef.current?.addEventListener("mouseenter", clearSlider);
     slideRef.current?.addEventListener("mouseleave", startSlider);

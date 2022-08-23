@@ -37,7 +37,9 @@ const PostDetails = () => {
       client
         .fetch(query)
         .then((data) => {
+          console.log("--------------------------------");
           console.log("productDetails products console", data);
+          console.log("--------------------------------");
           setBlogDetail(data);
           if (data[0]) {
             const adjacentQuery = getAdjacentPosts(data[0]);
@@ -107,21 +109,21 @@ const PostDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blogId]);
 
-  console.log(adjacentPosts);
-  console.log(blogs);
+  console.log(blogDetail);
+  // console.log(blogs);
   // console.log(blogRelated);
-  const currentBlog = blogDetail.map((item) => item);
-  const currentBlog2 = blogDetail.map((item) => item?._id);
+  // const currentBlog = blogDetail.map((item) => item);
+  // const currentBlog2 = blogDetail.map((item) => item?._id);
 
-  console.log("blogcurrnt", currentBlog[0]?._id);
-  console.log("blogcurrnt2", currentBlog2);
+  // console.log("blogcurrnt", currentBlog[0]?._id);
+  // console.log("blogcurrnt2", currentBlog2);
   //// grabing the previous and next posts{post?._id === currentBlog?._id}
-  const currentPostIndex = blogs.findIndex((post) => post._id === currentBlog2);
-  const previousPosts = currentPosts[currentPostIndex - 1];
-  const nextPosts = currentPosts[currentPostIndex + 1];
+  // const currentPostIndex = blogs.findIndex((post) => post._id === currentBlog2);
+  // const previousPosts = currentPosts[currentPostIndex - 1];
+  // const nextPosts = currentPosts[currentPostIndex + 1];
   /// log for the prevouspost and nextpost
-  console.log("the previous blog post", previousPosts);
-  console.log("the next blog post", nextPosts);
+  // console.log("the previous blog post", previousPosts);
+  // console.log("the next blog post", nextPosts);
   return (
     <>
       <Layout>
@@ -142,7 +144,8 @@ const PostDetails = () => {
               {/** pass the comment form */}
               <CommentForm />
               {/** render the comments from the cms */}
-              <Comments />
+              {blogDetail &&
+                blogDetail?.map((comments) => <Comments {...comments} />)}
             </div>
             {/** add the structure for the side content*/}
             <div className="col-span-1 lg:col-span-4">

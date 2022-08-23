@@ -2,8 +2,8 @@ import React from "react";
 import { AdjacentPostCard } from "../components";
 
 const AdjacentPosts = (adjacentPost) => {
-  console.log("pre post", adjacentPost?.adjacentPost?.currentPost);
-  console.log("pre post", adjacentPost?.adjacentPost?.previousPost);
+  // console.log("pre post", adjacentPost?.adjacentPost?.currentPost);
+  // console.log("pre post", adjacentPost?.adjacentPost?.previousPost);
   /**currentPost
 previousPost
 nextPost */

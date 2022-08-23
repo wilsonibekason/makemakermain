@@ -171,7 +171,7 @@ export const productReview = `*[_type == "reviews"]{
       },
  */
 export const blogDetailQuery = (postId) => {
-  const query = `*[_type == "post" && slug.current == '${postId}']{
+  const query = `*[_type == "post" && slug.current == '${postId}']  | order(_updatedAt desc) {
      mainImage{
       asset->{
         url
@@ -185,7 +185,7 @@ export const blogDetailQuery = (postId) => {
         image,
         bio,
       },
-      'blogComments': *[_type == "blogComments" && post._ref == ^._id && approved == true],
+      'blogComments': *[_type == "comment" && post._ref == ^._id && approved == true],
       description,
       slug,
       body,
@@ -195,6 +195,35 @@ export const blogDetailQuery = (postId) => {
   return query;
 };
 
+export const getBlogComments = (productId) => {
+  const query = `*[_type == "post" && slug.current == '${productId}'] | order(_updatedAt desc) {
+ 
+    _id,
+    title,
+    tags,
+    slug,
+    body,
+    specificCategory,
+    defaultProductVariant,
+    categories[] {
+      category->{
+         title,
+         description,
+         slug,
+         family,
+      },
+      },
+    body,
+    'comments': *[_type == "comment" && post._ref == ^._id && approved == true]{
+      _id,
+      name,
+      email,
+      review,
+      _createdAt
+    }
+  }`;
+  return query;
+};
 /*
 const posts = await Sanity.fetch(`*[_type == 'post' && _id == '${currentPost.id}' ][0] {
   'currentPost': {
@@ -271,6 +300,8 @@ export const productDetailQuery = (productId) => {
       }`;
   return query;
 };
+
+///// queying for the blogcomments
 
 // initialising moreproductDetai ls query
 
