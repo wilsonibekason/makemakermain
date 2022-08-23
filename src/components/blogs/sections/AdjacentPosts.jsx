@@ -39,12 +39,12 @@ nextPost */
             />
           </div>
         )}
-        <div className={`col-span-1 lg:col-span-4 rounded-lg relative h-72`}>
+        {/* <div className={`col-span-1 lg:col-span-4 rounded-lg relative h-72`}>
           <AdjacentPostCard postiob="LEFT" />
         </div>
         <div className={`col-span-1 lg:col-span-4 rounded-lg relative h-72`}>
           <AdjacentPostCard postiob="RIGHT" />
-        </div>
+        </div> */}
       </div>
     </>
   );

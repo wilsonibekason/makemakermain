@@ -47,6 +47,7 @@ const PostDetails = () => {
                 setAdjacentPosts(data);
                 console.log("adjacent products console", data);
                 console.log(data);
+                console.log("posts", data);
               })
               .catch((error) => {
                 console.log("====================================");
