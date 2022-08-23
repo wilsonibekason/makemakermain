@@ -53,13 +53,25 @@ export const BlogProvider = ({ children }) => {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
+  /*
+const posts = await Sanity.fetch(`*[_type == 'post' && _id == '${currentPost.id}' ][0] {
+  'currentPost': {
+    ...
+  },
+  'previousPost': *[_type == 'post' && _createdAt < ^._createdAt][0],
+  'nextPost': *[_type == 'post' && _createdAt > ^._createdAt] | order(_createdAt asc)[0]
+}`);
+const currentPostIndex = posts.findIndex(post => post.id === currentPost.id);
+const previousPost = posts[currentPostIndex - 1];
+const nextPost = posts[currentPostIndex + 1];
+*/
   useEffect(() => {
     /// for generating blogs
     let cancelled = false;
     // const blogQuery = '*[_type == "post"]';
     let blogQuery = postBlogQuery;
     client.fetch(blogQuery).then((data) => !cancelled && setBlogs(data));
+    // const posts = client.fetch()
     //// for local carousel logic
     slideRef.current?.addEventListener("animationend", removeAnimation);
     slideRef.current?.addEventListener("mouseenter", clearSlider);
@@ -106,6 +118,7 @@ export const BlogProvider = ({ children }) => {
     setCurrentIndex(count);
     slideRef.current?.classList?.add("fade-anim");
   };
+
   return (
     <BlogContext.Provider
       value={{
