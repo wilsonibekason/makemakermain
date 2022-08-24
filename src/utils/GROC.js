@@ -196,10 +196,10 @@ export const blogDetailQuery = (postId) => {
 };
 /// querying foBlogr categories blogs
 export const getBlogCategories = (productspecificCategory) => {
-  const query = `*[_type == "post" && specificCategory == '${productspecificCategory}']{
+  const query = `*[_type == "post" && category == '${productspecificCategory}']{
     _id,
     title,
-       slug,
+       slug, 
        publishedAt,
        author->{
    name,

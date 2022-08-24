@@ -31,6 +31,7 @@ const PostDetails = () => {
   const [blogRelated, setBlogRelated] = useState([]);
   const [currentPosts, setCurrentPosts] = useState([]);
   const [adjacentPosts, setAdjacentPosts] = useState([]);
+
   const fetchBlogDetails = () => {
     const query = blogDetailQuery(blogId);
     if (blogDetailQuery(blogId)) {

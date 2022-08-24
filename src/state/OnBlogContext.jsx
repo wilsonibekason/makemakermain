@@ -70,21 +70,33 @@ const currentPostIndex = posts.findIndex(post => post.id === currentPost.id);
 const previousPost = posts[currentPostIndex - 1];
 const nextPost = posts[currentPostIndex + 1];
 */
+  const handleCategoryFetch = () => {
+    let blogQuery = postBlogQuery;
+    client.fetch(blogQuery).then((data) => {
+      setBlogs(data);
+      if (data[0]) {
+        let categoryQuery = getBlogCategories(data[0]?.specificCategory);
+        client
+          .fetch(categoryQuery)
+          .then((data) => setBlogs(data) && setIsLoaded(true));
+      }
+    });
+  };
   useEffect(() => {
     /// for generating blogs
     let cancelled = false;
     // const blogQuery = '*[_type == "post"]';
-    let blogQuery = postBlogQuery;
-    client.fetch(blogQuery).then((data) => {
-      if (!cancelled) setBlogs(data);
-      else if (data[0]) {
-        let categoryQuery = getBlogCategories(data[0]?.specificCategory);
-        client
-          .fetch(categoryQuery)
-          .then((data) => !cancelled && setBlogs(data));
-      }
-    });
-
+    // let blogQuery = postBlogQuery;
+    // client.fetch(blogQuery).then((data) => {
+    //   if (!cancelled) setBlogs(data);
+    //   // else if (data[0]) {
+    //   //   let categoryQuery = getBlogCategories(data[0]?.specificCategory);
+    //   //   client
+    //   //     .fetch(categoryQuery)
+    //   //     .then((data) => !cancelled && setBlogs(data) && setIsLoaded(true));
+    //   // }
+    // });
+    // if (!cancelled) handleCategoryFetch();
     // const posts = client.fetch()
     //// for local carousel logic
     //// fetch comments
@@ -155,14 +167,17 @@ const nextPost = posts[currentPostIndex + 1];
         TbPlayerTrackPrev,
         /// blogs
         blogs,
+        setBlogs,
         // blog comments
         isLoaded,
+        setIsLoaded,
         isReviewSubmitted,
         reviewSubmit,
         handleChange,
         name,
         email,
         review,
+        handleCategoryFetch,
       }}
     >
       {children}
