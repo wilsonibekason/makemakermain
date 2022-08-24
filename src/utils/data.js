@@ -19,18 +19,22 @@ export const navLinks = [
   {
     id: "home",
     title: "Home",
+    link: "/",
   },
   {
     id: "features",
     title: "Features",
+    link: "/blog",
   },
   {
     id: "product",
     title: "Product",
+    link: "/product",
   },
   {
     id: "clients",
-    title: "Clients",
+    title: "clients",
+    link: "/aboutus",
   },
 ];
 
@@ -89,17 +93,20 @@ export const morePages = [
   {
     id: "blog",
     title: "blog",
-    img: people03,
+    img: "https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg",
+    link: "/blog",
   },
   {
     id: "shop",
     title: "ecommerce",
-    img: people02,
+    img: "https://media.istockphoto.com/photos/shopping-online-concept-shopping-service-on-the-online-web-with-by-picture-id1133980246?k=20&m=1133980246&s=612x612&w=0&h=bwut2YUV7gtnjrv354523xU_9S-TtKQOqGTdiGMsPfs=",
+    link: "/product",
   },
   {
     id: "aboutus",
     title: "About Us",
-    img: people01,
+    img: "https://img.freepik.com/premium-vector/about-us-website-banner-concept-with-thin-line-flat-design_56103-96.jpg?w=2000",
+    link: "aboutus",
   },
 ];
 

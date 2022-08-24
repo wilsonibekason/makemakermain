@@ -46,11 +46,11 @@ const Navbar = ({ specificCategory }) => {
                 return (
                   <li className="nav-item" key={index}>
                     <NavLink
-                      className="px-3 py-2 flex items-center text-xs uppercase font-normal font-raleway leading-snug text-black hover:text-yellow-300 hover:border-b-4 hover:border-yellow-300 "
+                      className="px-3 py-2 flex items-center text-xs uppercase font-normal font-raleway leading-snug text-black hover:text-gray-300 hover:border-b-2 hover:border-gray-300 "
                       to={`/blog/category/${name}`}
                     >
                       {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75 "></i> */}
-                      <span className="ml-2 text-xs lg:text-lg capitalize tracking-wide  font-black">
+                      <span className="ml-2 text-xs lg:text-sm capitalize tracking-wide  font-black">
                         {name}
                       </span>
                     </NavLink>

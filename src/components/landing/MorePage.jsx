@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { quotes } from "../../assets/assets";
 import styles from "../../style";
 
-const MorePage = ({ content, title, name, img }) => {
+const MorePage = ({ content, title, name, img, link }) => {
   return (
     // <div className="flex justify-between flex-col px-10 py-12 rounded-[25px] max-w-[370px] md:mr-10 sm:mr-5 mr-0 my-5 feedback-card">
     //   <img
@@ -42,13 +43,16 @@ const MorePage = ({ content, title, name, img }) => {
         >
           {title}
         </p>
-        <img
-          src={
-            "https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
-          }
-          alt={title}
-          className="align-middle border-none max-w-full h-auto rounded-lg hover:scale-105"
-        />
+        <Link to={`${link}`}>
+          <img
+            src={img}
+            // src={
+            //   "https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+            // }
+            alt={title}
+            className="align-middle border-none max-w-full h-auto rounded-lg hover:scale-105"
+          />
+        </Link>
       </div>
     </div>
   );
