@@ -20,6 +20,7 @@
   --blue-palette: #468ed5;
   --red-palette:  #ce282c;
   --pink-palette:  #e59293;
+  --black-palette: #000000;
 
 }
 
@@ -56,6 +57,12 @@
 }
 .pink__txt{
   color: var(--pink-palette);
+}
+.black__txt{
+  color: var(--black-palette);
+}
+.black__bg{
+  background-color: var(--black-palette);
 }
 
 

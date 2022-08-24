@@ -8,6 +8,7 @@ import {
   Layout,
   PostDetail,
   PostWidget,
+  PageView,
 } from "../components";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import MoreBlogs from "../components/moreBlogs/MoreBlogs";
@@ -31,6 +32,8 @@ const PostDetails = () => {
   const [blogRelated, setBlogRelated] = useState([]);
   const [currentPosts, setCurrentPosts] = useState([]);
   const [adjacentPosts, setAdjacentPosts] = useState([]);
+
+  ////
 
   const fetchBlogDetails = () => {
     const query = blogDetailQuery(blogId);
@@ -128,7 +131,11 @@ const PostDetails = () => {
   return (
     <>
       <Layout>
+      <div className="max-h-[calc(80vh-100px)] min-h-[60vh] blue__bg  relative">
+            <PageView />
+          </div>
         <div className="container mx-auto px-10 mb-8">
+          
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="col-span-1 lg:col-span-8">
               {/**pass the post from the CMS */}

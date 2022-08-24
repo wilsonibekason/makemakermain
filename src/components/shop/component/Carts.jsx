@@ -80,12 +80,14 @@ const Carts = () => {
               </div>
             </div>
             <div>
-              <button
-                type="button"
-                className={`border border-blue-400 text-gray-300 mt-2 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-full`}
-              >
-                checkout
-              </button>
+              <form action="/create-checkout-session" method="POST">
+                <button
+                  type="submit"
+                  className={`border border-blue-400 text-gray-300 mt-2 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-full`}
+                >
+                  checkout
+                </button>
+              </form>
             </div>
           </div>
         </main>

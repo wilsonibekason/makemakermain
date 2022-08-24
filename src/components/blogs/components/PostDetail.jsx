@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import moment from "moment";
 import PortableText from "react-portable-text";
+import { formatDistance, subDays } from "date-fns";
 import styles from "../../../style";
 import { urlFor } from "../../../client";
 
@@ -17,9 +18,11 @@ const PostDetail = ({
   publishedAt,
 }) => {
   const date = moment(publishedAt).utc().format("YYYY-MMM-DD");
+  const calender = moment(publishedAt).utc().format("dddd");
+  formatDistance(subDays(new Date(), 3), new Date(), { addSuffix: true });
   console.log(mainImage);
   console.log(author);
-  // add logic to render the data when a blog is clicked
+  // add logic to erender the data when a blog is clicked
   const getContentFragment = (index, text, obj, type) => {
     // define the modified text
     let modifiedText = text;
@@ -74,6 +77,21 @@ const PostDetail = ({
         return "";
     }
   };
+  // const [time, setTime] = useState(0);
+  // function readingTime() {
+  //   // const text = articleRef?.crrent?.getElementById("article").innerText;
+  //   let text = "jjjrjrjrj";
+  //   const wpm = 265;
+  //   // const words = parseInt(text.trim().split(/\s+/).length);
+  //   const words = text.trim().length;
+  //   console.log("generatedWords", words);
+  //   //const time = Math.ceil(words / wpm);
+  //   const time = Math.ceil(words / wpm);
+  //   setTime(time);
+  // }
+  // useEffect(() => {
+  //   readingTime();
+  // }, []);
   return (
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
@@ -82,7 +100,7 @@ const PostDetail = ({
             <h1 className={`${styles.BlogHeading1} text-center`}>{title}</h1>
           </div>
           <div className="flex-1 flex flex-row justify-evenly">
-            <p className={`${styles.span1}`}>2 days ago</p>
+            <p className={`${styles.span1}`}>{calender}</p>
             <h1 className={`${styles.span1}`}>9 minutes read</h1>
             <span className={`${styles.span2}`}>{category}</span>
           </div>
@@ -129,6 +147,7 @@ const PostDetail = ({
               <h1 className={`${styles.span1} align-middle`}>{date}</h1>
             </div>
           </div>
+
           {/**render the main post here*/}
           <PortableText
             dataset={"production"}
