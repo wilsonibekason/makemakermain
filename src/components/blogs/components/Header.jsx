@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { close, makelogo, menu } from "../../../assets/assets";
-import { navLinks } from "../../../utils/data";
+import { categories } from "../../../utils/data";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
@@ -35,17 +35,22 @@ const Navbar = () => {
           </div>
           <div className="hidden lg:flex">
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto ">
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-normal font-raleway leading-snug text-black hover:text-yellow-300 hover:border-b-4 hover:border-yellow-300 "
-                  href="#pablo"
-                >
-                  {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75 "></i> */}
-                  <span className="ml-2 text-xs lg:text-xl capitalize tracking-wide  font-black">
-                    Contact us
-                  </span>
-                </a>
-              </li>
+              {categories?.map((item, index) => {
+                const { image, name } = item;
+                return (
+                  <li className="nav-item" key={index}>
+                    <a
+                      className="px-3 py-2 flex items-center text-xs uppercase font-normal font-raleway leading-snug text-black hover:text-yellow-300 hover:border-b-4 hover:border-yellow-300 "
+                      href="#pablo"
+                    >
+                      {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75 "></i> */}
+                      <span className="ml-2 text-xs lg:text-xl capitalize tracking-wide  font-black">
+                        {name}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

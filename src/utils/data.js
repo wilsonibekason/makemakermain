@@ -233,3 +233,26 @@ export const shopImages = [
   "https://img.freepik.com/premium-vector/e-commerce-icon-robotic-hand-internet-shopping-online-purchase-add-cart_127544-586.jpg?w=2000",
   "https://thumbs.dreamstime.com/b/e-commerce-online-shopping-business-technology-concept-screen-e-commerce-online-shopping-business-technology-concept-screen-207950081.jpg",
 ];
+
+export const categories = [
+  {
+    name: "science",
+    image:
+      "https://img.freepik.com/free-vector/colorful-science-education-background_23-2148490697.jpg?w=2000",
+  },
+  {
+    name: "programming",
+    image:
+      "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg",
+  },
+  {
+    name: "design",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4iuyes2MSfFiDj9mHu-VViQHooNATd4EE7Woq70xns1tFc4yt1g_uw2CyQRFkLQzxakw&usqp=CAU",
+  },
+  {
+    name: "productivity",
+    image:
+      "https://images.unsplash.com/photo-1507099985932-87a4520ed1d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdGl2aXR5fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+  },
+];
