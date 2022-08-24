@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../../../style";
 
 const PostWidget = ({ related }) => {
@@ -10,12 +11,14 @@ const PostWidget = ({ related }) => {
         {/** render the  related post */}
         {related?.length >= 1 &&
           related?.map((post, index) => {
-            const { title, publishedAt } = post;
+            const { title, publishedAt, _id } = post;
             return (
               <div className="flex flex-col mt-4">
-                <div className={`${styles.paragraph2} w-full `}>
-                  What is Techology ..{" "}
-                </div>
+                <Link to={`/blog/${_id}`}>
+                  <div className={`${styles.paragraph2} w-full `}>
+                    What is Techology ..{" "}
+                  </div>
+                </Link>
                 <div className="flex flex-1 flex-row">
                   <p className={`${styles.span1} mr-2`}>2 mins ago</p>
                   <span className={`${styles.span1} mr-2`}>.</span>

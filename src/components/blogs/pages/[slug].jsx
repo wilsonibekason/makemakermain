@@ -151,7 +151,11 @@ const PostDetails = () => {
             <div className="col-span-1 lg:col-span-4">
               <div className="relative lg:sticky top-8">
                 {/** pass the post slug and the post category slug */}
-                <PostWidget related={blogRelated} />
+                {/* <PostWidget related={blogRelated} /> */}
+                {blogDetail &&
+                  blogDetail?.map((blog) => (
+                    <PostWidget related={blogRelated} {...blog} />
+                  ))}
                 {blogDetail &&
                   blogDetail?.map((blog) => <Categories {...blog} />)}
               </div>
