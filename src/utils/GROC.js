@@ -194,7 +194,30 @@ export const blogDetailQuery = (postId) => {
     }`;
   return query;
 };
-
+/// querying foBlogr categories blogs
+export const getBlogCategories = (productspecificCategory) => {
+  const query = `*[_type == "post" && specificCategory == '${productspecificCategory}']{
+    _id,
+    title,
+       slug,
+       publishedAt,
+       author->{
+   name,
+   image
+     },
+   description,
+   mainImage,
+   slug,
+   category,
+  categories[] {
+    categorys->{ 
+     title,
+     slug 
+    },
+   },
+  }`;
+  return query;
+};
 export const getBlogComments = (productId) => {
   const query = `*[_type == "post" && slug.current == '${productId}'] | order(_updatedAt desc) {
  

@@ -5,7 +5,11 @@ import { client } from "../client";
 import { TbPlayerTrackNext, TbPlayerTrackPrev } from "react-icons/tb";
 import { useRef } from "react";
 import { shopImages } from "../utils/data";
-import { getBlogComments, postBlogQuery } from "../utils/GROC";
+import {
+  getBlogComments,
+  postBlogQuery,
+  getBlogCategories,
+} from "../utils/GROC";
 const BlogContext = createContext({});
 
 export const BlogProvider = ({ children }) => {
@@ -71,7 +75,16 @@ const nextPost = posts[currentPostIndex + 1];
     let cancelled = false;
     // const blogQuery = '*[_type == "post"]';
     let blogQuery = postBlogQuery;
-    client.fetch(blogQuery).then((data) => !cancelled && setBlogs(data));
+    client.fetch(blogQuery).then((data) => {
+      if (!cancelled) setBlogs(data);
+      else if (data[0]) {
+        let categoryQuery = getBlogCategories(data[0]?.specificCategory);
+        client
+          .fetch(categoryQuery)
+          .then((data) => !cancelled && setBlogs(data));
+      }
+    });
+
     // const posts = client.fetch()
     //// for local carousel logic
     //// fetch comments
