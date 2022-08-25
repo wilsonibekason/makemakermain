@@ -21,6 +21,7 @@ export const ShopProvider = ({ children }) => {
   ///
   const [showCart, setShowCart] = useState(false);
   const [products, setProducts] = useState([]);
+  const [mainProducts, setMainProducts] = useState([]);
   const [productBanner, setProductBanner] = useState([]);
 
   // for randomizing ratings
@@ -298,6 +299,7 @@ console.log(priceSplitter(72500));
         rating,
         reviewSubmit,
         isLoaded,
+        setIsLoaded,
         isReviewSubmitted,
         handleOpenDropDown,
         isDropDownOpen,
@@ -316,6 +318,9 @@ console.log(priceSplitter(72500));
         onRemove,
         toggleCartItemsQuantities,
         cartItems,
+        // for the main porducts
+        mainProducts,
+        setMainProducts,
       }}
     >
       {children}

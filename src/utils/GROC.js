@@ -369,6 +369,28 @@ export const moreProductQuery = (product) => {
   return query;
 };
 
+/// qeruying for product categories
+export const fetchProductsCategory = (categoryId) => {
+  const query = `*[_type == "product" && specificCategory == '${categoryId}'] {
+    _id,
+    title,
+    tags,
+    slug,
+    body,
+    specificCategory,
+    defaultProductVariant,
+    categories[] {
+      category->{
+         title,
+         description,
+         slug,
+         family,
+      },
+    },
+}`;
+  return query;
+};
+
 // initialising productDetailMoreQuery
 // export const moreProductQuery = (product) => {
 //   const query = `*[_type == "product" && category == '${product?.category}' && _id != '${product?._id}']{

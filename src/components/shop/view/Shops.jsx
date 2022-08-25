@@ -11,6 +11,7 @@ import {
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import { fetchProductsQuery, fetchProductsCategory } from "../../../utils/GROC";
+import { client } from "../../../client";
 const Shops = () => {
   let id;
   id = useParams();
@@ -19,11 +20,39 @@ const Shops = () => {
   const { products, MainProducts, setMainProducts, setIsLoaded } =
     useStateShopContext();
   useEffect(() => {
+    let cancelled = false;
     if (productID) {
       setIsLoaded(true);
       let query = fetchProductsCategory(productID);
+      client
+        .fetch(query)
+        .then(
+          (data) =>
+            data && !cancelled && setMainProducts(data) && setIsLoaded(false)
+        );
+    } else {
+      setIsLoaded(true);
+      client.fetch(fetchProductsQuery).then((data) => {
+        console.table(data);
+        const timer = setTimeout(() => {
+          setMainProducts(data);
+        }, [2000]);
+        setIsLoaded(false);
+        return () => clearTimeout(timer);
+      });
     }
+
+    return () => {
+      console.log("products fetched and cancelled ");
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productID]);
+  // TODO:
+  //CANCEL ALL CONSOLE LOGS
+  console.log(MainProducts);
+  console.group(MainProducts);
+  console.table(MainProducts);
   return (
     <>
       <div className={`${blogLayout.section} `}>
