@@ -3,20 +3,25 @@ import { blogLayout, layout } from "../../../style";
 import {
   Banner,
   Banners,
-  // BannerShop,
+  // BannerShop,t
+  HomeSwiper,
   Categories,
   // ShopCard,
   ShopCardMain,
   ShopWidgets,
 } from "../component";
-
+import { useStateBlogContext } from "../../../state/OnBlogContext";
+import { useStateShopContext } from "../../../state/OnShopContext";
 const Shops = () => {
+  const { blogs, blogMore } = useStateBlogContext();
+  const { products } = useStateShopContext();
+  console.log("shop blogs", blogs);
+  console.log("shop blogs", blogMore);
   return (
     <>
       <div className={`${blogLayout.section} `}>
-        {/* <BannerShop /> */}
-        <Banners />
-
+        <HomeSwiper />
+        {/* <Banners /> */}
         <div className={`${layout.grid} mt-4 mx-[1rem]`}>
           <div className={`${layout.gridContents}`}>
             {/* <ShopCard /> */}
@@ -29,8 +34,10 @@ const Shops = () => {
           </div>
           <div className={`${layout.gridSidebar}`}>
             <div className={`${layout.gridSideStatus}`}>
-              <ShopWidgets />
-              <Categories />
+              {blogMore && <ShopWidgets blogs={blogMore} />}
+              {/* {blogMore && blogMore?.map((blog) => <Categories {...blog} />)} */}
+              {products &&
+                products?.map((product) => <Categories {...product} />)}
             </div>
           </div>
         </div>

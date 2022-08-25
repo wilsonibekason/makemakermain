@@ -15,6 +15,7 @@ const BlogContext = createContext({});
 export const BlogProvider = ({ children }) => {
   const [DataLoaded, setDataLoaded] = useState(false);
   const [blogs, setBlogs] = useState([]);
+  const [blogMore, setBlogMore] = useState([]);
   const [comments, setComments] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideRef = useRef();
@@ -86,20 +87,20 @@ const nextPost = posts[currentPostIndex + 1];
     /// for generating blogs
     let cancelled = false;
     // const blogQuery = '*[_type == "post"]';
-    // let blogQuery = postBlogQuery;
-    // client.fetch(blogQuery).then((data) => {
-    //   if (!cancelled) setBlogs(data);
-    //   // else if (data[0]) {
-    //   //   let categoryQuery = getBlogCategories(data[0]?.specificCategory);
-    //   //   client
-    //   //     .fetch(categoryQuery)
-    //   //     .then((data) => !cancelled && setBlogs(data) && setIsLoaded(true));
-    //   // }
-    // });
-    // if (!cancelled) handleCategoryFetch();
-    // const posts = client.fetch()
-    //// for local carousel logic
-    //// fetch comments
+    let blogQuery = postBlogQuery;
+    client.fetch(blogQuery).then((data) => {
+      if (!cancelled) setBlogMore(data);
+      // else if (data[0]) {
+      //   let categoryQuery = getBlogCategories(data[0]?.specificCategory);
+      //   client
+      //     .fetch(categoryQuery)
+      //     .then((data) => !cancelled && setBlogs(data) && setIsLoaded(true));
+      // }
+    });
+    if (!cancelled) handleCategoryFetch();
+    const posts = client.fetch();
+    // for local carousel logic
+    // fetch comments
     let commentQuery = getBlogComments();
     client
       .fetch(commentQuery)
@@ -168,6 +169,7 @@ const nextPost = posts[currentPostIndex + 1];
         /// blogs
         blogs,
         setBlogs,
+        blogMore,
         // blog comments
         isLoaded,
         setIsLoaded,

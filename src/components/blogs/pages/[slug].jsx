@@ -120,7 +120,7 @@ const PostDetails = () => {
       <Layout>
         <div className="relative min-h-[calc(80vh-100px)] lg:min-h-[60vh] pt-16 pb-32 flex content-center items-center justify-center border border-solid border-gray-300 rounded-lg">
           {/* <PageView /> */}
-          <PageView />
+          {blogDetail && blogDetail?.map((blog) => <PageView {...blog} />)}
         </div>
 
         <div className="container mx-auto px-10 mb-8">

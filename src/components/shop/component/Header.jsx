@@ -37,9 +37,12 @@ const Navbar = () => {
             >
               open cart
             </button>
-            <span className="border border-solid bg-white p-2 mx-2 rounded-full font-poppins font-semibold text-lg text-center ">
+            <div
+              className=" rounded-full  text-gray-200 cursor-pointer font-poppins text-[14px]  
+         flex items-center  justify-center  px-2 mx-2 text-lg"
+            >
               {totalQuantities}
-            </span>
+            </div>
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
