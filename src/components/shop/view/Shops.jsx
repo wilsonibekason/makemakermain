@@ -36,8 +36,7 @@ const Shops = () => {
             <div className={`${layout.gridSideStatus}`}>
               {blogMore && <ShopWidgets blogs={blogMore} />}
               {/* {blogMore && blogMore?.map((blog) => <Categories {...blog} />)} */}
-              {products &&
-                products?.map((product) => <Categories {...product} />)}
+              {products && <Categories products={products} />}
             </div>
           </div>
         </div>

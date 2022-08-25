@@ -2,17 +2,23 @@ import React from "react";
 import styles from "../../../style";
 import { logo } from "../../../assets/assets";
 import { footerLinks, socialMedia } from "../../../utils/data";
+import { useStateContext } from "../../../state/OnLandingContext";
+import { urlFor } from "../../../client";
 const Footer = () => {
+  const { logoIMG } = useStateContext();
   return (
     <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
       <div className={`${styles.flexStart} flex-col mb-8 w-full `}>
         {/** first layout */}
         <div className={`flex flex-1 flex-col justify-start mr-10`}>
-          <img
-            src={logo}
-            alt="hoobank"
-            className="w-[266px] h-[72px] object-contain"
-          />
+          {logoIMG && (
+            <img
+              src={urlFor(logoIMG)}
+              alt="hoobank"
+              className="w-[266px] h-[72px] object-contain"
+            />
+          )}
+
           <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
             voluptatibus, voluptatem explicabo pariatur dignissimos natus!

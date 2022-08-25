@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { urlFor } from "../../../client";
 import { useStateContext } from "../../../state/OnLandingContext";
 import { useStateShopContext } from "../../../state/OnShopContext";
-import { navLinks } from "../../../utils/data";
+import { navLinks, shopCategories } from "../../../utils/data";
 import Carts from "./Carts";
 
 const Navbar = () => {
@@ -70,16 +70,16 @@ const Navbar = () => {
             className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky"
           >
-            <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-              {navLinks.map((navLink, index) => (
+            <ul className="list-none sm:flex hidden justify-end items-center flex-1 uppercase ">
+              {shopCategories.map((navLink, index) => (
                 <li key={index + navLink.id} className={"font-poppins"}>
                   <a
                     href={`#${navLink.id}`}
                     className={`font-normal cursor-pointer font-poppins text-[16px]   ${
                       index === navLinks.length - 1 ? "mr-0" : "mr-10"
-                    } text-indigo-500`}
+                    } text-indigo-500 hover:text-gray-500 hover:border-b-2 hover:border-solid hover:border-gray-500`}
                   >
-                    {navLink.title}
+                    {navLink.name}
                   </a>
                 </li>
               ))}

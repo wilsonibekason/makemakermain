@@ -263,3 +263,18 @@ export const categories = [
       "https://images.unsplash.com/photo-1507099985932-87a4520ed1d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdGl2aXR5fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
   },
 ];
+
+export const shopCategories = [
+  {
+    name: "science kit",
+    id: 1,
+  },
+  {
+    name: "Cad kit",
+    id: 2,
+  },
+  {
+    name: "stem kit",
+    id: 1,
+  },
+];
