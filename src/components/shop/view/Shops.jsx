@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { blogLayout, layout } from "../../../style";
 import {
   Banner,
-  Banners,
-  // BannerShop,t
   HomeSwiper,
   Categories,
-  // ShopCard,
   ShopCardMain,
   ShopWidgets,
 } from "../component";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { useStateShopContext } from "../../../state/OnShopContext";
+import { fetchProductsQuery, fetchProductsCategory } from "../../../utils/GROC";
 const Shops = () => {
-  const { blogs, blogMore } = useStateBlogContext();
-  const { products } = useStateShopContext();
-  console.log("shop blogs", blogs);
-  console.log("shop blogs", blogMore);
+  let id;
+  id = useParams();
+  let productID = id;
+  const { blogMore } = useStateBlogContext();
+  const { products, MainProducts, setMainProducts, setIsLoaded } =
+    useStateShopContext();
+  useEffect(() => {
+    if (productID) {
+      setIsLoaded(true);
+      let query = fetchProductsCategory(productID);
+    }
+  }, [productID]);
   return (
     <>
       <div className={`${blogLayout.section} `}>
