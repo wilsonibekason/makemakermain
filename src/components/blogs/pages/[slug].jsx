@@ -114,28 +114,16 @@ const PostDetails = () => {
   }, [blogId]);
 
   console.log(blogDetail);
-  // console.log(blogs);
-  // console.log(blogRelated);
-  // const currentBlog = blogDetail.map((item) => item);
-  // const currentBlog2 = blogDetail.map((item) => item?._id);
 
-  // console.log("blogcurrnt", currentBlog[0]?._id);
-  // console.log("blogcurrnt2", currentBlog2);
-  //// grabing the previous and next posts{post?._id === currentBlog?._id}
-  // const currentPostIndex = blogs.findIndex((post) => post._id === currentBlog2);
-  // const previousPosts = currentPosts[currentPostIndex - 1];
-  // const nextPosts = currentPosts[currentPostIndex + 1];
-  /// log for the prevouspost and nextpost
-  // console.log("the previous blog post", previousPosts);
-  // console.log("the next blog post", nextPosts);
   return (
     <>
       <Layout>
-      <div className="max-h-[calc(80vh-100px)] min-h-[60vh] blue__bg  relative">
-            <PageView />
-          </div>
+        <div className="relative min-h-[calc(80vh-100px)] lg:min-h-[60vh] pt-16 pb-32 flex content-center items-center justify-center border border-solid border-gray-300 rounded-lg">
+          {/* <PageView /> */}
+          <PageView />
+        </div>
+
         <div className="container mx-auto px-10 mb-8">
-          
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="col-span-1 lg:col-span-8">
               {/**pass the post from the CMS */}

@@ -8,7 +8,6 @@ const Testimonials = () => {
       id="client"
       className={`${styles.paddingY} ${styles.flexCenter} flex-col relative`}
     >
-      //TODO:
       <div className="absolute z-[0] w-[60%] -right-[50%] blue__gradient" />
       <div
         className={`w-full items-center justify-between md:flex-row flex-col sm:mb-16 mb-6 relative z-[1]`}

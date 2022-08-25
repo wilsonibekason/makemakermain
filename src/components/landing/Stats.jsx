@@ -1,7 +1,9 @@
 import React from "react";
-import { stats } from "../../utils/data";
+import { useStateContext } from "../../state/OnLandingContext";
+// import { stats } from "../../utils/data";
 import styles from "../../style";
 const Stats = () => {
+  const { stats } = useStateContext();
   return (
     <section
       className={`${styles.flexCenter} flex-row flex-wrap sm;mb-20 mb-6`}
