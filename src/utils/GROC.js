@@ -35,6 +35,25 @@ export const postBlogQuery = `*[_type == "post"]{
      },
     },
     }`;
+
+/// query for fetching products
+export const fetchProductsQuery = `*[_type == "product"]{
+      _id,
+      title,
+      tags,
+      slug,
+      body,
+      specificCategory,
+      defaultProductVariant,
+      categories[] {
+        category->{
+           title,
+           description,
+           slug,
+           family,
+        },
+      },
+  }`;
 /// quering to get featuredBlog post
 export const getFeaturedPosts = () => {
   const query = `*[_type == "post"]{
