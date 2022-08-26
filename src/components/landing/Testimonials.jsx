@@ -12,12 +12,12 @@ const Testimonials = () => {
       <div
         className={`w-full items-center justify-between md:flex-row flex-col sm:mb-16 mb-6 relative z-[1]`}
       >
-        <h1 className={styles.heading2}>
+        <h1 className={styles.heading4}>
           What people are saying <br className="sm:block hidden" />
           on our Product
         </h1>
         <div className="w-full md:mt-0 mt-6 ">
-          <p className={`${styles.paragraph} max-w-[470px] mt-5 `}>
+          <p className={`${styles.paragraph2} max-w-[470px] mt-5 `}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sequi
             quos iste non vel deserunt.
           </p>

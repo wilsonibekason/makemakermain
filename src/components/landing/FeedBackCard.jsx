@@ -9,7 +9,7 @@ const FeedBackCard = ({ content, title, name, img }) => {
         alt="double_quotes"
         className="w-[42px] h-[27px] object-contain"
       />
-      <p className="font-poppins font-medium text-[10px] leading-[23px] text-white my-10">
+      <p className="font-poppins font-medium text-[10px] leading-[23px] text-black my-10">
         {content}
       </p>
       {/** author testimonials */}
@@ -20,10 +20,10 @@ const FeedBackCard = ({ content, title, name, img }) => {
           className="w-[48px] h-[48px] rounded-full"
         />
         <div className="flex flex-col ml-4">
-          <h4 className="font-poppins font-semibold text-[20px] leading-[20px] text-white ">
+          <h4 className="font-poppins font-semibold text-[20px] leading-[20px] text-black">
             {name}
           </h4>
-          <h4 className="font-poppins font-normal text-[16px] leading-[24px] text-dimWhite ">
+          <h4 className="font-poppins font-normal text-[16px] leading-[24px] text-black">
             {title}
           </h4>
         </div>

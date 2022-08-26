@@ -7,11 +7,11 @@ const CardDeal = () => {
   return (
     <section className={layout.section}>
       <div className={layout.sectionInfo}>
-        <h2 className={styles.heading2}>
+        <h2 className={styles.heading4}>
           Find an easy card deal <br className="sm:block hidden" />
           with the following steps
         </h2>
-        <p className={`${styles.paragraph} max-w-[470px] mt-5 `}>
+        <p className={`${styles.paragraph2} max-w-[470px] mt-5 `}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
           quaerat nobis maxime quisquam veritatis consequuntur temporibus!
         </p>
