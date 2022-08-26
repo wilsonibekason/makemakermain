@@ -1,8 +1,12 @@
 import React from "react";
 import styles from "../../style";
 import { logo } from "../../assets/assets";
+import { useStateContext } from "../../state/OnLandingContext";
 import { footerLinks, socialMedia } from "../../utils/data";
 const Footer = () => {
+  const { footerAbout } = useStateContext();
+  const { message } = footerAbout();
+  console.log("the footerabout output", message);
   return (
     <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
       <div className={`${styles.flexStart} flex-col mb-8 w-full `}>

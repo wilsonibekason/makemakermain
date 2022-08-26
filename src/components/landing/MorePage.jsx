@@ -50,7 +50,7 @@ const MorePage = ({ content, title, name, img, link }) => {
             //   "https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
             // }
             alt={title}
-            className="align-middle border-none max-w-full h-auto rounded-lg hover:scale-105 hover:opacity-5 hover:backdrop-blur-md"
+            className="align-middle border-none max-w-full h-auto rounded-lg hover:scale-105 hover:opacity-[0.03] hover:backdrop-blur-sm"
           />
         </Link>
       </div>

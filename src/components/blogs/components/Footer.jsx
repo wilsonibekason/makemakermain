@@ -5,7 +5,9 @@ import { footerLinks, socialMedia } from "../../../utils/data";
 import { useStateContext } from "../../../state/OnLandingContext";
 import { urlFor } from "../../../client";
 const Footer = () => {
-  const { logoIMG } = useStateContext();
+  const { logoIMG, footerAbout } = useStateContext();
+  const { message } = footerAbout;
+  console.log(message);
   return (
     <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
       <div className={`${styles.flexStart} flex-col mb-8 w-full `}>
