@@ -46,7 +46,6 @@ export const HomeProvider = ({ children }) => {
       .fetch(socialQuery)
       .then((data) => {
         !cancelled && setSocialMedia(data);
-  ;
       })
       .catch((err) => console.log(err));
     const clientQuery = `*[_type == "clients"]`;
@@ -60,7 +59,7 @@ export const HomeProvider = ({ children }) => {
     const footerAboutQuery = '*[_type == "footerMain"]';
     client
       .fetch(footerAboutQuery)
-      .then((data) => !cancelled && setFooterAbout(data))
+      .then((data) => !cancelled && setFooterAbout(data[0]))
       .catch((error) => console.log(error?.response?.body?.error?.description));
     return () => {
       console.log("Everything is cancelled");
@@ -81,6 +80,7 @@ export const HomeProvider = ({ children }) => {
         socialMedia,
         clients,
         logoIMG,
+        footerAbout,
       }}
     >
       {children}
