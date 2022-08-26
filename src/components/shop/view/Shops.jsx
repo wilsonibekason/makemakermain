@@ -55,8 +55,9 @@ const Shops = () => {
   // console.table(mainProducts);
   return (
     <>
+      <HomeSwiper />
       <div className={`${blogLayout.section} `}>
-        <HomeSwiper />
+        {/* <HomeSwiper /> */}
         {/* <Banners /> */}
         <div className={`${layout.grid} mt-4 mx-[1rem]`}>
           <div className={`${layout.gridContents}`}>

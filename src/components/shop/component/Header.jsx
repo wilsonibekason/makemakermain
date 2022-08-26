@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { urlFor } from "../../../client";
 import { useStateContext } from "../../../state/OnLandingContext";
 import { useStateShopContext } from "../../../state/OnShopContext";
@@ -18,13 +18,13 @@ const Navbar = () => {
     <>
       <nav className="bg-white px-2 sm:px-4 dark:bg-gray-900 absolute w-full h-20 z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="https://jambekcom.com" className="flex items-center">
+          <NavLink to="/" className="flex items-center">
             {logoIMG ? (
               <img
                 src={urlFor(logoIMG)}
                 className="w-32"
                 alt="makemake logo"
-                onClick={() => navigate("/", { replace: true })}
+                // onClick={() => navigate("/", { replace: true })}
               />
             ) : (
               <img
@@ -33,7 +33,7 @@ const Navbar = () => {
                 alt="MakeMaker Logo"
               />
             )}
-          </a>
+          </NavLink>
           <div className="flex md:order-2">
             <button
               type="button"
