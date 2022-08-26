@@ -19,7 +19,7 @@ import {
 const App = () => {
   return (
     <>
-      <div className="bg-primary w-full overflow-hidden">
+      <div className="blue__bg w-full overflow-hidden">
         {/** navbar */}
         <div className={`${styles.paddingX} ${styles.flexCenter}`}>
           <div className={`${styles.boxWidth}`}>
@@ -44,7 +44,7 @@ const App = () => {
 
             <ClientSections />
             <CTA />
-            <div className="bg-primary">
+            <div className="bg-primary rounded-t-xl">
               <Footer />
             </div>
           </div>
