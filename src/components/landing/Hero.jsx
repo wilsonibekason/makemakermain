@@ -26,9 +26,9 @@ const Hero = () => {
         <div className="flex flex-row justify-between items-center w-full">
           <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100px] leading-[75px]">
             {/* The Next <br className="sm:block  block hidkden " /> {"  "}{" "} */}
-            The Next <br />
+            Bringing <br />
             {""}
-            <span className="text-gradient">Generation</span>{" "}
+            <span className="text-gradient">Science</span>{" "}
             <br className="hidden lg:block" />
           </h1>
           <div className="ss:flex hidden md:mr-4 m-0">
@@ -36,7 +36,7 @@ const Hero = () => {
           </div>
         </div>
         <h1 className="font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100px] leading-[75px] w-full">
-          payment Method
+          to reality
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic expedita

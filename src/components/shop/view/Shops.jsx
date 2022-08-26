@@ -17,7 +17,7 @@ const Shops = () => {
   id = useParams();
   let productID = id;
   const { blogMore } = useStateBlogContext();
-  const { products, MainProducts, setMainProducts, setIsLoaded } =
+  const { products, mainProducts, setMainProducts, setIsLoaded } =
     useStateShopContext();
   useEffect(() => {
     let cancelled = false;
@@ -50,9 +50,9 @@ const Shops = () => {
   }, [productID]);
   // TODO:
   //CANCEL ALL CONSOLE LOGS
-  console.log(MainProducts);
-  console.group(MainProducts);
-  console.table(MainProducts);
+  console.log(mainProducts);
+  // console.group(mainProducts);
+  // console.table(mainProducts);
   return (
     <>
       <div className={`${blogLayout.section} `}>
