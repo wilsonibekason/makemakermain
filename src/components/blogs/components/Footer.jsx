@@ -21,7 +21,7 @@ const Footer = () => {
             />
           )}
 
-          <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+          <p className={`${styles.paragraph2} max-w-[470px] mt-5`}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
             voluptatibus, voluptatem explicabo pariatur dignissimos natus!
           </p>
@@ -62,7 +62,7 @@ const Footer = () => {
                 src={social.icon}
                 alt="social_links"
                 key={social.id + index}
-                className={` w-[21px] h-[21px object-contain ${
+                className={` w-[21px] h-[21px object-contain blue__bg  ${
                   index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
                 }`}
               />

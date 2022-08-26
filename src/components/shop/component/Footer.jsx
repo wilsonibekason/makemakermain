@@ -10,7 +10,7 @@ const Footer = () => {
   //const { message } = footerAbout;
   return (
     <section
-      className={`${styles.flexCenter} ${styles.paddingY} flex-col bg-gray-400 px-4`}
+      className={`${styles.flexCenter} ${styles.paddingY} flex-col bg-white px-4`}
     >
       <div className={`${styles.flexStart} flex-col mb-8 w-full `}>
         {/** first layout */}
@@ -22,7 +22,7 @@ const Footer = () => {
               className="w-[266px] h-[72px] object-contain"
             />
           )}
-          <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+          <p className={`${styles.paragraph2} max-w-[470px] mt-5`}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
             voluptatibus, voluptatem explicabo pariatur dignissimos natus!
           </p>
@@ -63,7 +63,7 @@ const Footer = () => {
                 src={social.icon}
                 alt="social_links"
                 key={social.id + index}
-                className={` w-[21px] h-[21px object-contain ${
+                className={` w-[21px] h-[21px object-contain blue__bg ${
                   index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
                 }`}
               />
