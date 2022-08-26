@@ -2,13 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 // components
+import { Navbar, Footer } from "../components/landing";
 
-import Navbar from "../components/Navbars/AuthNavbar.js";
-import Footer from "../components/Footers/Footer.js";
-import { useStateContextAbout } from "../oncontext/aboutContext/onAboutContext";
-import { useStateContext } from "../oncontext/OnLandingContext";
+import { useStateContextAbout } from "../state/OnAboutContext";
 import { urlFor } from "../client";
-import { useStateContextContact } from "../oncontext/contactContext/onContactContext";
+import { useStateContextContact } from "../state/OnLandingContext";
 
 export default function AboutUs() {
   const {
@@ -16,7 +14,7 @@ export default function AboutUs() {
     sectionItem1,
     sectionItem2,
     sectionItem3,
-    sectionItem4,
+    // sectionItem4,
     aboutSection,
     aboutTip,
     aboutTeamCard,
@@ -26,18 +24,17 @@ export default function AboutUs() {
   const {
     contactHeader,
     handleSubmit,
-    error,
+    // error,
     isFormSubmitted,
     fullName,
     message,
-    handleChangeInput,
+    // handleChangeInput,
     loading,
     contactCard,
     email,
-    handleMessageInput,
+    // handleMessageInput,
     handleChange,
   } = useStateContextContact();
-  const { sectionContents } = useStateContext();
   return (
     <>
       <Navbar transparent />

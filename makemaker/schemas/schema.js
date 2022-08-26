@@ -29,6 +29,13 @@ import newsletter from "./blogs/newsletter";
 import blogComments from "./blogs/blogComments";
 import logo from "./logo";
 import review from "./review";
+/// make import for about schemas
+import aboutHeader from "./about/aboutHeader";
+import sectionContent from "./about/sectionContent";
+import aboutSection from "./about/aboutSection";
+import aboutTip from "./about/aboutTip";
+import cardContent from "./about/cardContent";
+import aboutTeam from "./about/aboutTeam";
 // import { features, feedback, footerLinks } from '../../src/utils/data'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -67,7 +74,13 @@ export default createSchema({
     comment,
     newsletter,
     post,
-
+    ///// about schemas
+    aboutHeader,
+    sectionContent,
+    aboutSection,
+    aboutTip,
+    cardContent,
+    aboutTeam,
     // logo
     logo,
   ]),
