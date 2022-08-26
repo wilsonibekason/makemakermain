@@ -18,6 +18,7 @@ import clients from "./landing/clients";
 import features from "./landing/features";
 import feedback from "./landing/feedback";
 import footerlink from "./landing/footerlink";
+import footerMain from "./landing/footerMain";
 import socialmedia from "./landing/socialmedia";
 import stats from "./landing/stats";
 import author from "./blogs/author";
@@ -58,6 +59,7 @@ export default createSchema({
     socialmedia,
     stats,
     productBanner,
+    footerMain,
     /// blog schemas
     author,
     blockContents,

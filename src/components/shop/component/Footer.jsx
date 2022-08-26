@@ -6,7 +6,7 @@ import { useStateContext } from "../../../state/OnLandingContext";
 import { urlFor } from "../../../client";
 const Footer = () => {
   const { logoIMG, footerAbout } = useStateContext();
-  const { message } = footerAbout;
+  //const { message } = footerAbout;
   return (
     <section
       className={`${styles.flexCenter} ${styles.paddingY} flex-col bg-gray-400 px-4`}
