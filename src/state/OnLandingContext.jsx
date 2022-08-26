@@ -10,6 +10,7 @@ export const HomeProvider = ({ children }) => {
   const [socialMedia, setSocialMedia] = useState([]);
   const [logoImage, setlogoImage] = useState([]);
   const [clients, setClients] = useState([]);
+  const [footerAbout, setFooterAbout] = useState([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -45,6 +46,7 @@ export const HomeProvider = ({ children }) => {
       .fetch(socialQuery)
       .then((data) => {
         !cancelled && setSocialMedia(data);
+  ;
       })
       .catch((err) => console.log(err));
     const clientQuery = `*[_type == "clients"]`;
@@ -54,7 +56,12 @@ export const HomeProvider = ({ children }) => {
         !cancelled && setClients(data);
       })
       .catch((err) => console.log(err));
-
+    //// footer about section
+    const footerAboutQuery = '*[_type == "footerMain"]';
+    client
+      .fetch(footerAboutQuery)
+      .then((data) => !cancelled && setFooterAbout(data))
+      .catch((error) => console.log(error?.response?.body?.error?.description));
     return () => {
       console.log("Everything is cancelled");
       cancelled = true;
