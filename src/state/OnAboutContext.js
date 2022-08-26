@@ -18,7 +18,7 @@ export const AboutProvider = ({ children }) => {
     email: "",
     message: "",
   });
-  
+
   const { fullName, email, message } = formData;
 
   const handleChange = (event) => {
@@ -28,11 +28,31 @@ export const AboutProvider = ({ children }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading((prev) => !prev);
-    setError((prev) => !prev );
+    setError((prev) => !prev);
     const aboutComment = {
-        _type = ""
-    }
-  }
+      _type: "aboutComment",
+      fullName,
+      email,
+      message,
+    };
+    if (!fullName | !email | !message)
+      setIsFormSubmitted(false) &&
+        setError((prev) => !prev) &&
+        setLoading(false);
+    client
+      .create(aboutComment)
+      .then(() => {
+        setIsFormSubmitted(true);
+        setLoading(false);
+        setError(false);
+        setFormData({
+          fullName: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => console.log(error?.response?.body?.error?.description));
+  };
   useEffect(() => {
     // querying for aboutHeader
     const headerQuery = '*[_type == "aboutHeader"]';
@@ -75,13 +95,22 @@ export const AboutProvider = ({ children }) => {
         aboutHeader,
         sectionItem1,
         sectionItem2,
-        sectionItem3, 
+        sectionItem3,
         aboutSection,
         aboutTip,
         aboutTeam,
         aboutTeamCard,
         aboutTeamTitle,
         aboutTeamDesc,
+        //// comment
+        message,
+        fullName,
+        email,
+        handleChange,
+        handleSubmit,
+        error,
+        loading,
+        isFormSubmitted,
       }}
     >
       {children}

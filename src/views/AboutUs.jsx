@@ -20,21 +20,30 @@ export default function AboutUs() {
     aboutTeamCard,
     aboutTeamTitle,
     aboutTeamDesc,
+    email,
+    handleSubmit,
+    handleChange,
+    fullName,
+    error,
+    message,
+    isFormSubmitted,
+    loading,
   } = useStateContextAbout();
   const {
+    //TODO:
     contactHeader,
-    handleSubmit,
-    // error,
-    isFormSubmitted,
-    fullName,
-    message,
-    // handleChangeInput,
-    loading,
     contactCard,
-    email,
     // handleMessageInput,
-    handleChange,
   } = useStateContextContact();
+
+  const timer = setTimeout(() => {
+    error && (
+      <h1 className="font-railway font-semibold text-2xl text-center w-[50%] ">
+        Invalid input
+      </h1>
+    );
+  }, 3000);
+  clearTimeout(timer);
   return (
     <>
       <Navbar transparent />
