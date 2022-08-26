@@ -10,7 +10,29 @@ export const AboutProvider = ({ children }) => {
   const [aboutTip, setAboutTip] = useState();
   const [aboutTeamCard, setAboutTeamCard] = useState();
   const [aboutTeam, setAboutTeam] = useState();
+  const [loading, setLoading] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    message: "",
+  });
+  
+  const { fullName, email, message } = formData;
 
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setLoading((prev) => !prev);
+    setError((prev) => !prev );
+    const aboutComment = {
+        _type = ""
+    }
+  }
   useEffect(() => {
     // querying for aboutHeader
     const headerQuery = '*[_type == "aboutHeader"]';
@@ -53,7 +75,7 @@ export const AboutProvider = ({ children }) => {
         aboutHeader,
         sectionItem1,
         sectionItem2,
-        sectionItem3,
+        sectionItem3, 
         aboutSection,
         aboutTip,
         aboutTeam,
