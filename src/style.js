@@ -7,6 +7,8 @@ const styles = {
     "font-poppins font-medium xs:text-[50px] text-[42px] text-white xs:leading-[80px] leading-[68px] w-full uppercase",
   heading3:
     "font-poppins font-medium xs:text-[15px] text-[14px] green__txt xs:leading-[30px] leading-[28px] w-full uppercase",
+  heading4:
+    "font-poppins font-medium xs:text-[50px] text-[42px] text-black xs:leading-[80px] leading-[68px] w-full uppercase",
   BlogHeading1:
     "font-poppins font-medium xs:text-2xl text-2xl text-black xs:leading-[80px] leading-[68px] w-full uppercase",
   CheckoutHeading:

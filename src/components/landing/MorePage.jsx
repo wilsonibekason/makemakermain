@@ -39,7 +39,7 @@ const MorePage = ({ content, title, name, img, link }) => {
       </h5>
       <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-200 feedback-card">
         <p
-          className={`${styles.paragraph}  max-w-[470px] absolute top-[50%] left-[35%] transform translate-x-1 text-center text-white`}
+          className={`${styles.paragraph}  max-w-[470px] absolute top-[50%] left-[35%] transform translate-x-1 text-center text-white capitalize`}
         >
           {title}
         </p>

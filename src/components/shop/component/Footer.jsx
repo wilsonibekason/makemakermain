@@ -6,6 +6,7 @@ import { useStateContext } from "../../../state/OnLandingContext";
 import { urlFor } from "../../../client";
 const Footer = () => {
   const { logoIMG, footerAbout } = useStateContext();
+  console.log("footer Main Output ", footerAbout);
   //const { message } = footerAbout;
   return (
     <section

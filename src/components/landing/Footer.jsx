@@ -5,10 +5,12 @@ import { useStateContext } from "../../state/OnLandingContext";
 import { footerLinks, socialMedia } from "../../utils/data";
 const Footer = () => {
   const { footerAbout } = useStateContext();
-  const { message } = footerAbout();
-  console.log("the footerabout output", message);
+  //const { message } = footerAbout();
+  console.log("the footerabout output", footerAbout);
   return (
-    <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
+    <section
+      className={`${styles.flexCenter} ${styles.paddingY} flex-col mx-4`}
+    >
       <div className={`${styles.flexStart} flex-col mb-8 w-full `}>
         {/** first layout */}
         <div className={`flex flex-1 flex-col justify-start mr-10`}>

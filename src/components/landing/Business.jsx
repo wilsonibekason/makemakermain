@@ -18,10 +18,10 @@ const FeatureCard = ({ icon, title, content, id }) => (
       />
     </div>
     <div className="flex-1 flex flex-col ml-3 ">
-      <h4 className="font-poppins font-semibold text-white text-[10px] leading-[23px] mb-1">
+      <h4 className="font-poppins font-semibold text-black text-[10px] leading-[23px] mb-1">
         {title}
       </h4>
-      <p className="font-poppins font-normal text-white text-[16px] leading-[24px] mb-1">
+      <p className="font-poppins font-normal text-black text-[16px] leading-[24px] mb-1">
         {content}
       </p>
     </div>
@@ -31,11 +31,11 @@ const Business = () => {
   return (
     <section id="features" className={layout.section}>
       <div className={layout.sectionInfo}>
-        <h2 className={styles.heading2}>
+        <h2 className={styles.heading4}>
           You Do The business <br className="sm:block hidden" />
           We Handle the rest
         </h2>
-        <p className={`${styles.paragraph} max-w-[470px] mt-5 `}>
+        <p className={`${styles.paragraph2} max-w-[470px] mt-5 `}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut illo eum,
           omnis consectetur ipsa magni quasi est corrupti rerum mollitia?
         </p>

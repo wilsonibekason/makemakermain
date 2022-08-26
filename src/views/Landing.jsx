@@ -27,13 +27,13 @@ const App = () => {
           </div>
         </div>
         {/** hEADER or HERO*/}
-        <div className={`bg-primary ${styles.flexStart}`}>
+        <div className={`white__bg ${styles.flexStart}`}>
           <div className={`${styles.boxWidth}`}>
             <Hero />
           </div>
         </div>
         {/** hEADER or HERO*/}
-        <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
+        <div className={` white__bg ${styles.paddingX} ${styles.flexStart}`}>
           <div className={`${styles.boxWidth}`}>
             <Stats />
             <Business />
@@ -44,7 +44,9 @@ const App = () => {
 
             <ClientSections />
             <CTA />
-            <Footer />
+            <div className="bg-primary">
+              <Footer />
+            </div>
           </div>
         </div>
       </div>
