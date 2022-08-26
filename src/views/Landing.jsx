@@ -44,7 +44,7 @@ const App = () => {
 
             <ClientSections />
             <CTA />
-            <div className="bg-primary rounded-t-xl">
+            <div className="blue__bg rounded-t-xl">
               <Footer />
             </div>
           </div>

@@ -20,7 +20,12 @@ const Navbar = () => {
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="https://jambekcom.com" className="flex items-center">
             {logoIMG ? (
-              <img src={urlFor(logoIMG)} className="w-32" alt="makemake logo" />
+              <img
+                src={urlFor(logoIMG)}
+                className="w-32"
+                alt="makemake logo"
+                onClick={() => navigate("/", { replace: true })}
+              />
             ) : (
               <img
                 src="https://MakeMaker.com/docs/images/logo.svg"

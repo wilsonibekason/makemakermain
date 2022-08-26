@@ -22,7 +22,7 @@ const Navbar = ({ specificCategory }) => {
          >
            cinema
          </a> */}
-            <NavLink to={"/blog"}>
+            <NavLink to={"/"}>
               <img
                 src="https://i0.wp.com/cine21.ng/wp-content/uploads/2021/01/cropped-White-Horizontal-Logo-1.png?resize=1536%2C705&ssl=1"
                 //src={makelogo}
