@@ -4,7 +4,7 @@ import PostDetails from "./components/blogs/pages/[slug]";
 import Cart from "./components/shop/component/Cart";
 import Carts from "./components/shop/component/Carts";
 import ShopDetails from "./components/shop/pages/[slug]";
-import { Landing, Shop, Blog } from "./views";
+import { Landing, Shop, Blog, AboutUs } from "./views";
 const App = () => {
   return (
     <>
@@ -13,10 +13,11 @@ const App = () => {
         <Route path="/product/:id" element={<ShopDetails />} />
         <Route path="/product/carts" element={<Cart />} />
         <Route path="/product/cart" element={<Carts />} />
-        {/* <Route path="/product/productdetails/:id" element={<ShopDetails />} /> */}
+        {/* <Route path="/product/productdetails/:izd" element={<ShopDetails />} /> */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<PostDetails />} />
         <Route path="/blog/category/:category" element={<Blog />} />
+        <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/" element={<Landing />} />
       </Routes>
     </>

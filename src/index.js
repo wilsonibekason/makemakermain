@@ -9,6 +9,7 @@ import Layout from "./wrapper/Layout";
 import { HomeProvider } from "./state/OnLandingContext";
 import { BlogProvider } from "./state/OnBlogContext";
 import { ShopProvider } from "./state/OnShopContext";
+import { AboutProvider } from "./state/OnAboutContext";
 import { store } from "./app/store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -17,11 +18,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Layout>
         <Provider store={store}>
           <HomeProvider>
-            <BlogProvider>
-              <ShopProvider>
-                <Toaster /> <App /> 
-              </ShopProvider>
-            </BlogProvider>
+            <AboutProvider>
+              <BlogProvider>
+                <ShopProvider>
+                  <Toaster /> <App />
+                </ShopProvider>
+              </BlogProvider>
+            </AboutProvider>
           </HomeProvider>
         </Provider>
       </Layout>
