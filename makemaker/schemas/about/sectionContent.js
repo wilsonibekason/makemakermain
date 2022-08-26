@@ -1,41 +1,45 @@
+import { TbNewSection } from "react-icons/tb";
+
 export default {
-  name: "aboutSection",
-  title: "About Section",
+  name: "sectionContent",
+  title: "SectionContent",
+  icon: TbNewSection,
   type: "document",
-  description: "These is the artticle section of makemakers about page",
+  description: "Length must be four",
   fields: [
     {
-      name: "articleTitle",
-      title: "Article Title",
+      name: "title",
+      title: "Title",
       type: "string",
+      required: true,
     },
     {
-      name: "articleDesc",
-      title: "Article Description",
-      type: "string",
+      name: "description",
+      title: "Description",
+      type: "text",
+      required: true,
+      display: {
+        render: (text, context) => {
+          return `<p>${text}</p>`;
+        },
+      },
+      elements: [
+        {
+          name: "title",
+          type: "text",
+          display: {
+            render: (text, context) => {
+              return `<h3>${text}</h3>`;
+            },
+          },
+        },
+      ],
     },
     {
-      name: "comapanyName",
-      title: "Company Name",
+      name: "icons",
       type: "string",
-    },
-    {
-      name: "cardTitle",
-      title: "Card Title",
-      type: "string",
-    },
-    {
-      name: "cardDesc",
-      title: "Card Description",
-      type: "string",
-    },
-    {
-      name: "cardImgUrl",
-      title: "Card Image Url",
-      type: "image",
-      description:
-        "image size must be at least 800-1500px for proper adjustment",
-      options: { hotspot: true },
+      required: true,
+      title: "Description for FontAwesome Icons",
     },
   ],
 };
