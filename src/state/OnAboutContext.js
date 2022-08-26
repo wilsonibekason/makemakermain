@@ -12,6 +12,8 @@ export const AboutProvider = ({ children }) => {
   const [aboutTeam, setAboutTeam] = useState();
   const [loading, setLoading] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [contactCard, setContactCard] = useState([]);
+  const [contactHeader, setContactHeader] = useState([]);
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -54,6 +56,7 @@ export const AboutProvider = ({ children }) => {
       .catch((error) => console.log(error?.response?.body?.error?.description));
   };
   useEffect(() => {
+    let cancelled = false;
     // querying for aboutHeader
     const headerQuery = '*[_type == "aboutHeader"]';
     client.fetch(headerQuery).then((data) => setAboutHeader(data));
@@ -72,6 +75,22 @@ export const AboutProvider = ({ children }) => {
     // querying for the aboutCard contents
     const aboutTeamCardQuery = '*[_type == "CardContent"]';
     client.fetch(aboutTeamCardQuery).then((data) => setAboutTeamCard(data));
+    /// querying for the contacthEADER schema
+    const contactHeaderQuery = '*[_type == "contactHeader"]';
+    client
+      .fetch(contactHeaderQuery)
+      .then((data) => !cancelled && setContactHeader(data));
+
+    // querying for the contactCard schema
+    const contactCardQuery = '*[_type == "contactCard"]';
+    client
+      .fetch(contactCardQuery)
+      .then((data) => !cancelled && setContactCard(data));
+    // clean up
+    return () => {
+      console.log("fetfched and cenecelled");
+      cancelled = true;
+    };
   }, []);
 
   // destructuring for section contents
@@ -102,6 +121,8 @@ export const AboutProvider = ({ children }) => {
         aboutTeamCard,
         aboutTeamTitle,
         aboutTeamDesc,
+        contactCard,
+        contactHeader,
         //// comment
         message,
         fullName,

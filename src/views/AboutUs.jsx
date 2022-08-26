@@ -6,7 +6,6 @@ import { Navbar, Footer } from "../components/landing";
 
 import { useStateContextAbout } from "../state/OnAboutContext";
 import { urlFor } from "../client";
-import { useStateContextContact } from "../state/OnLandingContext";
 
 export default function AboutUs() {
   const {
@@ -28,13 +27,9 @@ export default function AboutUs() {
     message,
     isFormSubmitted,
     loading,
-  } = useStateContextAbout();
-  const {
-    //TODO:
     contactHeader,
     contactCard,
-    // handleMessageInput,
-  } = useStateContextContact();
+  } = useStateContextAbout();
 
   const timer = setTimeout(() => {
     error && (
@@ -618,6 +613,7 @@ export default function AboutUs() {
                             </div>
                           )}
                         </>
+                        {error && timer}
                       </div>
                     </div>
                   </div>
