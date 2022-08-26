@@ -12,7 +12,17 @@ const CommentForm = () => {
     name,
     email,
     review,
+    error,
   } = useStateBlogContext();
+
+  const timer = setTimeout(() => {
+    return (
+      <h1 className="text-lg lg:text-2xl font-robotoCondensed font-semibold text-red-400 text-center capitalize ">
+        Invalid Input
+      </h1>
+    );
+  }, 3000);
+  clearTimeout(timer);
   return (
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 p-4">
@@ -79,6 +89,7 @@ const CommentForm = () => {
             Thanks for your Feedback
           </h1>
         )}
+        {error && timer}
       </div>
     </>
   );

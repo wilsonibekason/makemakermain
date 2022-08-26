@@ -22,6 +22,7 @@ export const BlogProvider = ({ children }) => {
   let count = 0;
   let slideInterval;
   const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState(false);
   const [isReviewSubmitted, setIsReviewSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -33,16 +34,22 @@ export const BlogProvider = ({ children }) => {
   const reviewSubmit = (e) => {
     e.preventDefault();
     setIsLoaded(true);
+    setError(false);
     const reviewDetails = {
       _type: "comment",
       name,
       email,
       review,
     };
+    if (!name | !email | !review)
+      setIsReviewSubmitted(false) &&
+        setError((prev) => !prev) &&
+        setIsLoaded(false);
     client
       .create(reviewDetails)
       .then(() => {
         setIsReviewSubmitted(true);
+        setError(false);
         setIsLoaded(true);
         setFormData({
           name: "",
@@ -53,7 +60,8 @@ export const BlogProvider = ({ children }) => {
       .catch(
         (error) =>
           console.log(error?.response?.body?.error?.description) &&
-          setIsLoaded(false)
+          setIsLoaded(false) &&
+          setError(false)
       );
   };
   const handleChange = (event) => {
@@ -174,6 +182,8 @@ const nextPost = posts[currentPostIndex + 1];
         isLoaded,
         setIsLoaded,
         isReviewSubmitted,
+        setError,
+        error,
         reviewSubmit,
         handleChange,
         name,
