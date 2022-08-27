@@ -14,7 +14,7 @@ const styles = {
   CheckoutHeading:
     "font-poppins font-medium xs:text-2xl text-2xl text-black xs:leading-[80px] leading-[68px]  uppercase",
   linkText:
-    "font-poppins font-semibold xs:text-[45px] text-[40px] text-white xs:leading-[60px] leading-[50px] cursor-pointer align-middle mt-2 md:float-right mj-4  ",
+    "font-poppins font-semibold xs:text-[45px] text-[40px] text-white xs:leading-[60px] leading-[50px] cursor-pointer align-middle mt-2 md:float-right m-4  ",
   paragraph:
     "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px]",
   paragraph2: "font-poppins font-normal text-black text-sm leading-[30.8px]",

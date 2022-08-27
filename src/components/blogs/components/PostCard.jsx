@@ -2,7 +2,7 @@ import React from "react";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { urlFor } from "../../../client";
 import moment from "moment";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import styles from "../../../style";
 const PostCard = ({
   title,
@@ -72,14 +72,14 @@ const PostCard = ({
       <div className=" block md:hidden lg:hidden bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8  ">
         <div className="relative overflow-hidden shadow-md pb-80 mb-6">
           <img
-            src={""}
+            src={urlFor(mainImage)}
             alt=""
             className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
           />
         </div>
 
         <h1 className="transition duration-700 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
-          <a href={`/post/`}>dkddkd</a>
+          <a href={`/post/`}>{title}</a>
         </h1>
         <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
           <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 ">
@@ -87,11 +87,11 @@ const PostCard = ({
               height="30px"
               width="30px"
               className="align-middle rounded-full"
-              src={""}
+              src={urlFor(author?.image)}
               alt="post_card"
             />
             <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
-              jddjdjddj
+              {author?.name}
             </p>
           </div>
           <div className="font-medium text-gray-700">
@@ -111,19 +111,19 @@ const PostCard = ({
             </svg>
             <span className="align-middle">
               {/* {moment(post.createdAt).format('MMM DD, YYYY')} */}
-              20020-2002-22
+              {date}
             </span>
           </div>
         </div>
         <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8">
-          'dpd
+          {description}
         </p>
         <div className="text-center">
-          <a href={`/post/`}>
+          <NavLink to={`/blog/${slug?.current}`}>
             <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">
               Continue Reading
             </span>
-          </a>
+          </NavLink>
         </div>
       </div>
       {/** small device postcard component */}
