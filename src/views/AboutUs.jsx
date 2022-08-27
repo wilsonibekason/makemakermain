@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 // components
-import { Navbar, Footer } from "../components/landing";
+import { Navbar } from "../components/landing";
+import { Footer } from "../components/blogs/components";
 
 import { useStateContextAbout } from "../state/OnAboutContext";
 import { urlFor } from "../client";
@@ -30,7 +31,8 @@ export default function AboutUs() {
     contactHeader,
     contactCard,
   } = useStateContextAbout();
-
+  //TODO:
+  /// populate date to abutHeader sectionContent aboutSection aboutTip aboutTeAM cARD ABOUTtEAM contactCard contactHeader
   const timer = setTimeout(() => {
     error && (
       <h1 className="font-railway font-semibold text-2xl text-center w-[50%] ">
@@ -41,7 +43,9 @@ export default function AboutUs() {
   clearTimeout(timer);
   return (
     <>
-      <Navbar transparent />
+      <div className="blue__bg">
+        <Navbar />
+      </div>
       <main>
         {aboutHeader?.map((item, index) => {
           const { image, description, title } = item;
@@ -118,6 +122,7 @@ export default function AboutUs() {
                 </svg>
               </div>
             </div>
+            /** component 1 */
           );
         })}
 
@@ -314,6 +319,7 @@ export default function AboutUs() {
             })}
           </div>
         </section>
+        {/* component two */}
         {/** initialsing sanity schema for client */}
         {aboutTip?.map((item, index) => {
           const { headName, headDesc, headImageUrl } = item;
@@ -407,6 +413,7 @@ export default function AboutUs() {
                 </div>
               </div>
             </section>
+            // component three
           );
         })}
         <section className="pt-20 pb-48">
@@ -472,7 +479,7 @@ export default function AboutUs() {
             </div>
           </div>
         </section>
-
+        {/* component four */}
         <section className="pb-20 relative block bg-gray-800">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
@@ -525,6 +532,7 @@ export default function AboutUs() {
             );
           })}
         </section>
+        {/* component five */}
         {contactHeader?.map((item, index) => {
           const { name, description } = item;
           return (
@@ -620,6 +628,7 @@ export default function AboutUs() {
                 </div>
               </div>
             </section>
+            //component six
           );
         })}
       </main>
