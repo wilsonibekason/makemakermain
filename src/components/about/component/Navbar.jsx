@@ -1,24 +1,31 @@
 import React from "react";
 import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { close, logo, menu } from "../../../assets/assets";
 import { aboutLinks } from "../../../utils/data";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="logo" className="w-[124px] h-[32px]" />
+    <nav className="w-full flex py-6 justify-between items-center navbar px-40">
+      <img
+        src={logo}
+        alt="logo"
+        className="w-[124px] h-[32px]"
+        onClick={() => navigate("/", { replace: true })}
+      />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {aboutLinks.map((navLink, index) => (
           <li key={index + navLink.id} className={"font-poppins"}>
-            <a
-              href={`#${navLink.id}`}
+            <NavLink
+              to={`${navLink.link}`}
               className={`font-normal cursor-pointer font-poppins text-[16px] capitalize   ${
                 index === aboutLinks.length - 1 ? "mr-0" : "mr-10"
               } text-white`}
             >
               {navLink.title}
-            </a>
+            </NavLink>
           </li>
         ))}
       </ul>

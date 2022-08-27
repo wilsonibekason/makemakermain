@@ -37,25 +37,25 @@ export const navLinks = [
     link: "/aboutus",
   },
 ];
-export const AboutLinks = [
+export const aboutLinks = [
   {
     id: "home",
     title: "Home",
     link: "/",
   },
   {
-    id: "features",
-    title: "Features",
+    id: "blog",
+    title: "blog",
     link: "/blog",
   },
   {
-    id: "our team",
-    title: "our team",
+    id: "product",
+    title: "product",
     link: "/product",
   },
   {
-    id: "contact us",
-    title: "contact us",
+    id: "contactus",
+    title: "contactus",
     link: "/aboutus",
   },
 ];

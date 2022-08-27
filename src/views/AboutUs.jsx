@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaFacebookF, FaTwitter, FaLinkedin } from "react-icons/fa";
 // components
 // import { Navbar } from "../components/landing";
 import { Navbar } from "../components/about/component";
@@ -189,7 +190,7 @@ export default function AboutUs() {
               >
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg ease-linear transition-all duration-150">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
                       <i className={`fas ${sectionItem2?.icons}`}></i>
                     </div>
                     <h6 className="text-xl font-semibold">
@@ -303,7 +304,7 @@ export default function AboutUs() {
                         >
                           <polygon
                             points="-30,95 583,95 583,65"
-                            className="text-lightBlue-500 fill-current"
+                            className="text-blue-500 fill-current"
                           ></polygon>
                         </svg> */}
                         <h4 className="text-xl font-bold text-white">
@@ -358,7 +359,7 @@ export default function AboutUs() {
                   </div>
                   <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                     <div className="md:pr-12">
-                      <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
+                      <div className="text-blue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blue-300">
                         <i className="fas fa-rocket text-xl"></i>
                       </div>
                       <h3 className="text-3xl font-semibold">{headName}</h3>
@@ -369,7 +370,7 @@ export default function AboutUs() {
                         <li className="py-2">
                           <div className="flex items-center">
                             <div>
-                              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
                                 <i className="fas fa-fingerprint"></i>
                               </span>
                             </div>
@@ -383,7 +384,7 @@ export default function AboutUs() {
                         <li className="py-2">
                           <div className="flex items-center">
                             <div>
-                              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
                                 <i className="fab fa-html5"></i>
                               </span>
                             </div>
@@ -397,7 +398,7 @@ export default function AboutUs() {
                         <li className="py-2">
                           <div className="flex items-center">
                             <div>
-                              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
+                              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
                                 <i className="far fa-paper-plane"></i>
                               </span>
                             </div>
@@ -452,24 +453,27 @@ export default function AboutUs() {
                         <p className="mt-1 text-sm text-gray-400 uppercase font-semibold">
                           {cardDesc}
                         </p>
-                        <div className="mt-6">
+                        <div className="mt-6 ml-4">
                           <button
-                            className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                            className="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-2 pl-2"
                             type="button"
                           >
-                            <i className="fab fa-twitter"></i>
+                            {/* <i className="fab fa-twitter"></i> */}
+                            <FaFacebookF />
                           </button>
                           <button
-                            className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                            className="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 pl-2"
                             type="button"
                           >
-                            <i className="fab fa-facebook-f"></i>
+                            {/* <i className="fab fa-facebook-f"></i> */}
+                            <FaTwitter />
                           </button>
                           <button
-                            className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                            className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 pl-2 "
                             type="button"
                           >
-                            <i className="fab fa-dribbble"></i>
+                            {/* <i className="fab fa-dribbble"></i> */}
+                            <FaLinkedin />
                           </button>
                         </div>
                       </div>
