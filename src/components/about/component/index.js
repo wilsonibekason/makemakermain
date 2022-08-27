@@ -4,3 +4,5 @@ export { default as AboutTip } from "./AboutTip";
 export { default as AboutTeam } from "./AboutTeam";
 export { default as ContactCard } from "./ContactCard";
 export { default as ContactHeader } from "./ContactHeader";
+export { default as Layout } from "./Layout";
+export { default as Navbar } from "./Navbar";

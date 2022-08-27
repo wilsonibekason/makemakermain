@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 // components
-import { Navbar } from "../components/landing";
+// import { Navbar } from "../components/landing";
+import { Navbar } from "../components/about/component";
 import { Footer } from "../components/blogs/components";
 
 import { useStateContextAbout } from "../state/OnAboutContext";
 import { urlFor } from "../client";
-
+import style from "../style";
 export default function AboutUs() {
   const {
     aboutHeader,
@@ -87,15 +88,15 @@ export default function AboutUs() {
                       }}
                     >
                       <motion.h1
-                        className="text-white font-semibold text-5xl"
+                        className="text-white font-bold text-5xl font-raleway capitalize"
                         animate={{
                           fontSize: "35px",
-                          color: "blue",
+                          color: "white",
                         }}
                       >
                         {title}
                       </motion.h1>
-                      <p className="mt-4 text-lg text-gray-200">
+                      <p className="mt-4 text-lg lg:text-2xl font-raleway font-medium text-gray-200">
                         {description}
                       </p>
                     </motion.div>
@@ -632,7 +633,9 @@ export default function AboutUs() {
           );
         })}
       </main>
-      <Footer />
+      <div className="mx-4">
+        <Footer />
+      </div>
     </>
   );
 }

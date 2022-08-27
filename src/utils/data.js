@@ -37,6 +37,28 @@ export const navLinks = [
     link: "/aboutus",
   },
 ];
+export const AboutLinks = [
+  {
+    id: "home",
+    title: "Home",
+    link: "/",
+  },
+  {
+    id: "features",
+    title: "Features",
+    link: "/blog",
+  },
+  {
+    id: "our team",
+    title: "our team",
+    link: "/product",
+  },
+  {
+    id: "contact us",
+    title: "contact us",
+    link: "/aboutus",
+  },
+];
 
 export const features = [
   {

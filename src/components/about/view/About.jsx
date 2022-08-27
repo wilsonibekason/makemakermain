@@ -7,7 +7,7 @@ import {
   AboutTeam,
   ContactCard,
   ContactHeader,
-} from "./component";
+} from "../component";
 const About = () => {
   return (
     <>
