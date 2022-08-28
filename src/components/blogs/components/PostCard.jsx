@@ -69,7 +69,7 @@ const PostCard = ({
         </div>
       </div>
       {/** small device postcard component */}
-      <div className=" block md:hidden lg:hidden bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8  ">
+      <div className=" block md:hidden lg:hidden bg-white shadow-lg rounded-lg p-0  pb-12 mb-8  w-full">
         <div className="relative overflow-hidden shadow-md pb-80 mb-6">
           <img
             src={urlFor(mainImage)}

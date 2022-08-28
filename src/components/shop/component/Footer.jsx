@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../../style";
 import { logo } from "../../../assets/assets";
-import { footerLinks, socialMedia } from "../../../utils/data";
+import { footerLinks, socialMedia, blogFooterLinks } from "../../../utils/data";
 import { useStateContext } from "../../../state/OnLandingContext";
 import { urlFor } from "../../../client";
 const Footer = () => {
@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
         {/** link layout */}
         <div className="flex flex-row flex-[1.5] w-full justify-between md:mt-0 mt-10">
-          {footerLinks.map((footerLink, index) => (
+          {blogFooterLinks.map((footerLink, index) => (
             <div
               key={index}
               className="flex flex-col sm:my-0 my-4 min-w-[150px]"

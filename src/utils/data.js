@@ -150,6 +150,25 @@ export const stats = [
   },
 ];
 
+export const blogFooterLinks = [
+  {
+    title: "UseFul Links",
+    links: [
+      {
+        name: "blog",
+        link: "/blog",
+      },
+      {
+        name: "products",
+        link: "/product",
+      },
+      {
+        name: "aboutus",
+        link: "/aboutus",
+      },
+    ],
+  },
+];
 export const footerLinks = [
   {
     title: "Useful Links",
