@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../../../style";
 import { logo } from "../../../assets/assets";
 import { footerLinks, socialMedia, blogFooterLinks } from "../../../utils/data";
@@ -38,14 +39,16 @@ const Footer = () => {
               </h4>
               <ul className="list-none mt-4">
                 {footerLink.links.map((link, index) => (
-                  <li
-                    key={link.name}
-                    className={`font-poppins font-normal text-[14px] leading-[24px] text-dimblue-300 hover:text-secondary cursor-pointer ${
-                      index !== footerLink.links.length ? "mb-4" : "mb-0"
-                    }`}
-                  >
-                    {link.name}
-                  </li>
+                  <NavLink to={`${link?.link}`}>
+                    <li
+                      key={link.name}
+                      className={`font-poppins font-normal text-[14px] leading-[24px] text-dimblue-300 hover:text-secondary cursor-pointer ${
+                        index !== footerLink.links.length ? "mb-4" : "mb-0"
+                      }`}
+                    >
+                      {link.name}
+                    </li>
+                  </NavLink>
                 ))}
               </ul>
             </div>
