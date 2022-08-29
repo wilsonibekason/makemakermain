@@ -54,8 +54,8 @@ export const aboutLinks = [
     link: "/product",
   },
   {
-    id: "contactus",
-    title: "contactus",
+    id: "aboutus",
+    title: "about us",
     link: "/aboutus",
   },
 ];
@@ -114,13 +114,13 @@ export const feedback = [
 export const morePages = [
   {
     id: "blog",
-    title: "blog",
+    title: "our blog",
     img: "https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg",
     link: "/blog",
   },
   {
     id: "shop",
-    title: "ecommerce",
+    title: "our products",
     img: "https://media.istockphoto.com/photos/shopping-online-concept-shopping-service-on-the-online-web-with-by-picture-id1133980246?k=20&m=1133980246&s=612x612&w=0&h=bwut2YUV7gtnjrv354523xU_9S-TtKQOqGTdiGMsPfs=",
     link: "/product",
   },
@@ -159,12 +159,23 @@ export const blogFooterLinks = [
         link: "/blog",
       },
       {
-        name: "products",
+        name: "our products",
         link: "/product",
       },
       {
-        name: "aboutus",
+        name: "about us",
         link: "/aboutus",
+      },
+    ],
+  },
+];
+//TODO:
+export const linkfoot = [
+  {
+    links: [
+      {
+        name: "",
+        link: "",
       },
     ],
   },
