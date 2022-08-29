@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../../style";
+import { BsBullseye, BsEyedropper, BsEyeglasses } from "react-icons/bs";
 
 const ValueCard = () => {
   return (
@@ -13,11 +14,17 @@ const ValueCard = () => {
             }}
           ></div>
           <div className="absolute flex flex-col rounded-lg p-4 items-center justify-center w-full h-full ">
+            <div className="mb-4">
+              <BsEyedropper className="text-white w-10 h-10" />
+            </div>
             <h1
               className={`font-raleway font-bold text-4xl text-white capitalize`}
             >
               Our vision
             </h1>
+            <div className="mt-4">
+              <BsEyedropper className="text-white w-10 h-10" />
+            </div>
           </div>
           <div class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden rounded-lg ">
             <div class="text-center flex flex-col items-center justify-center h-full blue__bg px-2 py-auto px-auto">
