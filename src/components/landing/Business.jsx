@@ -31,15 +31,15 @@ const Business = () => {
   return (
     <section id="features" className={layout.section}>
       <div className={layout.sectionInfo}>
-        <h2 className={styles.heading4}>
-          You Do The business <br className="sm:block hidden" />
-          We Handle the rest
+        <h2 className={styles.heading5}>
+          A new technology <br className="sm:block hidden" />
+          for your business
         </h2>
         <p className={`${styles.paragraph2} max-w-[470px] mt-5 `}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut illo eum,
-          omnis consectetur ipsa magni quasi est corrupti rerum mollitia?
+          We boost your productivity with our science kit, to enhance your
+          productivity and improve your academic performance
         </p>
-        <Button styles="mt-10" />
+        {/* <Button styles="mt-10" /> */}
       </div>
       {/** cards  */}
       <div className={`${layout.sectionImg} flex-col `}>

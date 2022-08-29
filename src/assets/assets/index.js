@@ -25,7 +25,11 @@ import people02 from "./people02.png";
 import people03 from "./people03.png";
 import emptyCart from "./emptycart.png";
 import makelogo from "./makemaker.png";
+import makeLogo from "./Make_maker.png";
+import bg from "./bg.png";
 export {
+  makeLogo,
+  bg,
   makelogo,
   emptyCart,
   airbnb,

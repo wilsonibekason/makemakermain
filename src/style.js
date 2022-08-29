@@ -9,6 +9,8 @@ const styles = {
     "font-poppins font-medium xs:text-[15px] text-[14px] green__txt xs:leading-[30px] leading-[28px] w-full uppercase",
   heading4:
     "font-poppins font-medium xs:text-[50px] text-[42px] text-black xs:leading-[80px] leading-[68px] w-full uppercase",
+  heading5:
+    "font-poppins font-bold xs:text-[50px] text-[42px] text-gray-600 xs:leading-[80px] leading-[68px] w-full capitalize",
   BlogHeading1:
     "font-poppins font-medium xs:text-2xl text-2xl text-black xs:leading-[80px] leading-[68px] w-full uppercase",
   CheckoutHeading:
@@ -17,6 +19,8 @@ const styles = {
     "font-poppins font-semibold xs:text-[45px] text-[40px] text-white xs:leading-[60px] leading-[50px] cursor-pointer align-middle mt-2 md:float-right m-4  ",
   paragraph:
     "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px]",
+  paragraph1:
+    "font-poppins font-normal text-gray-500 text-[18px] leading-[30.8px]",
   paragraph2: "font-poppins font-normal text-black text-sm leading-[30.8px]",
   span1: "text-[12px] text-gray-400 font-semibold font-poppins uppercase",
   span2: "text-[12px] text-blue-400 font-semibold font-poppins uppercase",

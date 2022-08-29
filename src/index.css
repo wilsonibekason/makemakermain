@@ -14,6 +14,8 @@
     #6d6d6d -78.47%,
     #11101d 91.61%
   );
+  --blue-gradient: linear-gradient(180deg, rgba(13,20,54,1) 0%, rgba(40,57,119,1) 30%, rgba(63,69,125,1) 50%, rgba(40,57,119,1) 70%, rgba(20,36,93,1) 100%);
+  --white-gradient: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(212,224,222,0.8547794117647058) 0%, rgba(0,212,255,1) 100%);
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
   --white-palette: #fefffe;
   --green-palette: #5cb757;
@@ -28,6 +30,10 @@
   scroll-behavior: smooth;
 }
 /** palette collection definition*/
+.white__gradient{
+  background: var(--white-gradient);
+}
+
 .white__bg{
   background: var(--white-palette);
 }
@@ -156,7 +162,8 @@
 }
 
 .feature-card:hover {
-  background: var(--black-gradient);
+  /* background: var(--black-gradient); */
+  background: var(--blue-gradient);
   box-shadow: var(--card-shadow);
 }
 
@@ -169,7 +176,7 @@
 }
 
 .feedback-card:hover {
-  background: var(--black-gradient);
+  background: var(--blue-gradient)
 }
 
 .blue__gradient {

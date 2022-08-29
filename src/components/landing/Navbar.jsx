@@ -1,24 +1,25 @@
 import React from "react";
 import { useState } from "react";
-import { close, logo, menu } from "../../assets/assets";
-import { navLinks } from "../../utils/data";
+import { NavLink } from "react-router-dom";
+import { close, logo, menu, makeLogo } from "../../assets/assets";
+import { navLinks, aboutLinks } from "../../utils/data";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="logo" className="w-[124px] h-[32px]" />
+    <nav className="w-full flex py-4 justify-between items-center navbar">
+      <img src={makeLogo} alt="logo" className="w-[124px] h-[62px]" />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinks.map((navLink, index) => (
+        {aboutLinks.map((navLink, index) => (
           <li key={index + navLink.id} className={"font-poppins"}>
-            <a
-              href={`#${navLink.id}`}
-              className={`font-normal cursor-pointer font-poppins text-[16px]   ${
+            <NavLink
+              to={`${navLink.id}`}
+              className={`font-normal cursor-pointer font-poppins text-[16px] capitalize ${
                 index === navLinks.length - 1 ? "mr-0" : "mr-10"
               } text-white`}
             >
               {navLink.title}
-            </a>
+            </NavLink>
           </li>
         ))}
       </ul>
@@ -43,7 +44,7 @@ const Navbar = () => {
                   index === navLinks.length - 1 ? "mr-0" : "mb-4"
                 } text-white`}
               >
-                <a href={`#${navLink.id}`}>{navLink.title}</a>
+                <NavLink to={`${navLink.id}`}>{navLink.title}</NavLink>
               </li>
             ))}
           </ul>

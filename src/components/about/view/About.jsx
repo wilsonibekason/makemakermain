@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "../../../style";
 import {
   Layout,
   AboutHeader,
-  AboutContent,
+  AboutContact,
   AboutTip,
   AboutTeam,
   ContactCard,
@@ -13,11 +14,15 @@ const About = () => {
     <>
       <Layout>
         <AboutHeader />
-        <AboutContent />
-        <AboutTip />
-        <AboutTeam />
-        <ContactCard />
-        <ContactHeader />
+        <div className={` white__bg ${styles.paddingX} ${styles.flexStart}`}>
+          <div className={`${styles.boxWidth}`}>
+            <AboutContact />
+            <AboutTip />
+            <AboutTeam />
+            <ContactCard />
+            <ContactHeader />
+          </div>
+        </div>
       </Layout>
     </>
   );

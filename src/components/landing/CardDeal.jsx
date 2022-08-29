@@ -1,27 +1,36 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { card } from "../../assets/assets";
 import styles from "../../style";
 import { layout } from "../../style";
 import Button from "./Button";
 const CardDeal = () => {
+  const navigate = useNavigate();
+  const link = () => navigate("/product", { replace: true });
   return (
     <section className={layout.section}>
       <div className={layout.sectionInfo}>
-        <h2 className={styles.heading4}>
-          Find an easy card deal <br className="sm:block hidden" />
+        <h2 className={styles.heading5}>
+          We are working to make the earth a better place for everyone to live{" "}
+          <br className="sm:block hidden" />
           with the following steps
         </h2>
         <p className={`${styles.paragraph2} max-w-[470px] mt-5 `}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-          quaerat nobis maxime quisquam veritatis consequuntur temporibus!
+          All the energy we generate comes from 100% renewable sources. We
+          believe renewable energy is the only way forward for the future of our
+          planet. Make Maker is working to make energy more affordable to small
+          businesses and households.
         </p>
-        <Button styles="mt-10" />
+        <Button styles="mt-10" navigate={link} />
       </div>
       <div className={layout.sectionImg}>
         <img
-          src={card}
+         // src={card}
+          src={
+            "https://jambekcom.com/wp-content/uploads/2022/05/Customer-with-smiling-JP200-in-office_Jambekcom-1.jpg"
+          }
           alt="card"
-          className="w-[100%] h-[100%] relative z-[50]"
+          className="w-[100%] h-[100%] relative z-[50] rounded-lg "
         />
       </div>
     </section>
