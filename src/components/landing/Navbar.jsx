@@ -7,8 +7,10 @@ import { navLinks, aboutLinks } from "../../utils/data";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   return (
-    <nav className="w-full flex py-4 justify-between items-center navbar">
-      <img src={makeLogo} alt="logo" className="w-[124px] h-[62px]" />
+    <nav className="w-full flex py-1 justify-between items-center navbar">
+      <NavLink to="/">
+        <img src={makeLogo} alt="logo" className="w-[124px] h-[62px]" />
+      </NavLink>
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {aboutLinks.map((navLink, index) => (
           <li key={index + navLink.id} className={"font-poppins"}>
