@@ -10,8 +10,7 @@ const AboutTeam = () => {
         <div className="items-center justify-center mb-8">
           <h1 className={`${styles.heading5} text-center`}>Meet the Team</h1>
         </div>
-        <div className="relative flex flex-wrap basis-full flex-col lg:flex-row mx-4 lg:mx-16 gap-40">
-          <TeamCard />
+        <div className="relative flex flex-wrap basis-full flex-col lg:flex-row mx-4 lg:mx-16 gap-4">
           <TeamCard />
           <TeamCard />
           <TeamCard />
