@@ -38,7 +38,7 @@ const ProductDetailsMore = ({
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center w-40">
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal font-poppins" +
                   (openTab === 1
                     ? "text-white bg-blue-600"
                     : "text-blue-600 bg-white")
@@ -57,7 +57,7 @@ const ProductDetailsMore = ({
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center w-36 lg:w-40 md:w-40">
               <a
                 className={
-                  " text-xs  font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  " text-xs  font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal font-poppins" +
                   (openTab === 2
                     ? "text-white bg-blue-600"
                     : "text-blue-600 bg-white")
@@ -76,7 +76,7 @@ const ProductDetailsMore = ({
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center w-40">
               <a
                 className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal font-poppins" +
                   (openTab === 3
                     ? "text-white bg-blue-600"
                     : "text-blue-600 bg-white")
@@ -89,8 +89,7 @@ const ProductDetailsMore = ({
                 href="#link3"
                 role="tablist"
               >
-                reviews{" "}
-                <span className="text-teal-600 font-semibold"> (0)</span>
+                reviews <span className="text-black  font-semibold"> (0)</span>
               </a>
             </li>
           </ul>
@@ -98,7 +97,6 @@ const ProductDetailsMore = ({
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                
                   {/* TODO: REMOVE THIS COMMENTED CODE */}
                   {/* <PortableText
                     dataset={"production"}
@@ -138,10 +136,12 @@ const ProductDetailsMore = ({
                       ),
                     }}
                   /> */}
-                  This is a description section
+                  <p className="font-poppins font-semibold text-">
+                    This is a descripruo{" "}
+                  </p>
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <p className="text-blueGray-500 text-sm font-semibold font-sans">
+                  <p className="text-blueGray-500 text-sm font-semibold  font-poppins">
                     Completely synergize resource taxing relationships via
                     premier niche markets. Professionally cultivate one-to-one
                     customer service with robust ideas.
@@ -154,7 +154,7 @@ const ProductDetailsMore = ({
                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                   {/** Title */}
                   <div className="mb-4">
-                    <p className="text-blueGray-400 text-lg font-semibold uppercase">
+                    <p className="text-blueGray-400 text-lg font-semibold uppercase font-poppins">
                       send us a review it's worth it
                     </p>
                   </div>
@@ -209,12 +209,11 @@ const ProductDetailsMore = ({
                   {!isReviewSubmitted ? (
                     <div className="relative flex w-full flex-wrap items-stretch mb-3">
                       <button
-                        className=" border border-blue-500 text-blueGray-600 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        className=" border border-blue-500 py-2 px-3 md:py-3 md:px-6 bg-blue-200 font-medium font-poppins text-[18px] text-primary outline-none rounded-[10px] active:bg-blue-400 shadow hover:shadow-lg focus:outline-none ease-linear transition-all duration-150 capitalize"
                         type="button"
                         onClick={reviewSubmit}
                       >
                         {`${!isLoaded ? "submit review" : "sending"} `}
-                        submit review
                       </button>
                     </div>
                   ) : (
