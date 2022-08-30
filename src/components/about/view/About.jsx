@@ -14,7 +14,7 @@ const About = () => {
   return (
     <>
       <Layout>
-        <AboutHeader />
+        <AboutHeader message={"about us"} />
         <div className={` white__bg ${styles.paddingX} ${styles.flexStart}`}>
           <div className={`${styles.boxWidth}`}>
             <AboutContact />

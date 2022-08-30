@@ -8,10 +8,12 @@ import {
   ShopCardMain,
   ShopWidgets,
 } from "../component";
+import { AboutHeader } from "../../about/component";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { useStateShopContext } from "../../../state/OnShopContext";
 import { fetchProductsQuery, fetchProductsCategory } from "../../../utils/GROC";
 import { client } from "../../../client";
+
 const Shops = () => {
   let id;
   id = useParams();
@@ -55,7 +57,8 @@ const Shops = () => {
   // console.table(mainProducts);
   return (
     <>
-      <HomeSwiper />
+      {/* <HomeSwiper /> */}
+      <AboutHeader message={"our products"} />
       <div className={`${blogLayout.section} `}>
         {/* <HomeSwiper /> */}
         {/* <Banners /> */}

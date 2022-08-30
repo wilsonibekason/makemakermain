@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../../style";
 
-const AboutHeader = () => {
+const AboutHeader = ({ message }) => {
   return (
     <>
       <div className="relative max-h-[100vh] min-h-[70vh]">
@@ -15,7 +15,7 @@ const AboutHeader = () => {
           <h2
             className={`text-5xl text-white font-raleway font-medium capitalize text-center `}
           >
-            about us{" "}
+            {message}{" "}
           </h2>
         </div>
       </div>

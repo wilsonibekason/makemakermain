@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import { TbShoppingCartPlus } from "react-icons/tb";
+import { AiOutlineMenuFold, AiOutlineCloseCircle } from "react-icons/ai";
 import { urlFor } from "../../../client";
 import { useStateContext } from "../../../state/OnLandingContext";
 import { useStateShopContext } from "../../../state/OnShopContext";
@@ -12,11 +14,10 @@ const Navbar = () => {
   const { totalQuantities } = useStateShopContext();
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-  const handleOpen = () => setToggle(true);
-  toggle && <Carts />;
+
   return (
     <>
-      <nav className="bg-white px-2 sm:px-4 dark:bg-gray-900 absolute w-full h-20 z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+      <nav className="bg-white px-2 sm:px-4 blue__bg absolute w-full h-20 z-20 top-0 left-0 border-b border-gray-200 ">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <NavLink to="/" className="flex items-center">
             {logoIMG ? (
@@ -35,41 +36,37 @@ const Navbar = () => {
             )}
           </NavLink>
           <div className="flex md:order-2">
-            <button
-              type="button"
-              onClick={() => navigate("/product/cart", { replace: true })}
-              className={`border border-blue-400 text-gray-300  active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
-            >
-              open cart
-            </button>
             <div
-              className=" rounded-full  text-gray-200 cursor-pointer font-poppins text-[14px]  
-         flex items-center  justify-center  px-2 mx-2 text-lg"
+              className="relative bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2"
+              onClick={() => navigate("/product/cart", { replace: true })}
             >
-              {totalQuantities}
+              <TbShoppingCartPlus
+                className="flex justify-center items-center text-white"
+                size={30}
+              />
+              <div className="absolute  w-0.5 h-0.5 p-4 bg-white flex justify-center items-center -top-4 left-4 rounded-full ">
+                <span className={" font-bold text-gray-600 "}>
+                  {totalQuantities}
+                </span>
+              </div>
             </div>
-            <button
-              data-collapse-toggle="navbar-sticky"
-              type="button"
-              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-sticky"
-              aria-expanded="false"
+            <div
+              className="relative bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 transition duration-200 ease-linear"
+              //onClick={() => navigate("/product/cart", { replace: true })}
+              onClick={() => setToggle((prev) => !prev)}
             >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
+              {toggle ? (
+                <AiOutlineCloseCircle
+                  className="flex justify-center items-center text-white "
+                  size={30}
+                />
+              ) : (
+                <AiOutlineMenuFold
+                  className="flex justify-center items-center text-white"
+                  size={30}
+                />
+              )}
+            </div>
           </div>
           <div
             className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
@@ -82,63 +79,55 @@ const Navbar = () => {
                     href={`#${navLink.id}`}
                     className={`font-normal cursor-pointer font-poppins text-[16px]   ${
                       index === navLinks.length - 1 ? "mr-0" : "mr-10"
-                    } text-indigo-500 hover:text-gray-500 hover:border-b-2 hover:border-solid hover:border-gray-500`}
+                    } text-white hover:text-green-300 hover:border-b-2 hover:border-solid hover:border-green-500 capitalize `}
                   >
                     {navLink.name}
                   </a>
                 </li>
               ))}
             </ul>
+
+            {/* <div
+                className={`${
+                  !toggle ? "hidden" : "flex"
+                }  p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px ] rounded-xl sidebar`}
+              >
+                <ul className="list-none  flex flex-col  justify-end items-center flex-1">
+                  {navLinks.map((navLink, index) => (
+                    <li
+                      key={index + navLink.id}
+                      className={`font-medium cursor-pointer font-poppins text-[16px]   ${
+                        index === navLinks.length - 1 ? "mr-0" : "mb-4"
+                      } text-white`}
+                    >
+                      <NavLink to={`${navLink.id}`}>{navLink.title}</NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div> */}
+          </div>
+          <div className="sm:hidden flex flex-1 justify-end items-center ">
+            <div
+              className={`${
+                toggle ? "flex" : "hidden"
+              } p-6 bg-black-gradient overflow-visible absolute top-[70px] right-0  my-2 min-w-full rounded-b-xl sidebar`}
+            >
+              <ul className="list-none  flex flex-col  justify-end items-center flex-1">
+                {shopCategories.map((navLink, index) => (
+                  <li
+                    key={index + navLink.id}
+                    className={`font-medium cursor-pointer font-poppins text-[16px]   ${
+                      index === shopCategories.length - 1 ? "mr-0" : "mb-4"
+                    } text-white`}
+                  >
+                    <NavLink to={`${navLink.id}`}>{navLink.title}</NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
-      {/* <nav classNameName="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="logo" className="w-[124px] h-[32px]" />
-      <div className="items-center ">
-        <BiCartAlt size={25} />
-      </div>
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinks.map((navLink, index) => (
-          <li key={index + navLink.id} className={"font-poppins"}>
-            <a
-              href={`#${navLink.id}`}
-              className={`font-normal cursor-pointer font-poppins text-[16px]   ${
-                index === navLinks.length - 1 ? "mr-0" : "mr-10"
-              } text-indigo-500`}
-            >
-              {navLink.title}
-            </a>
-          </li>
-        ))}
-      </ul> */}
-      {/** small device navbar preference */}
-      {/* <div className="sm:hidden flex flex-1 justify-end items-center">
-        <img
-          src={toggle ? close : menu}
-          alt="nav_logo"
-          className="w-[28px] h-[28px] object-contain"
-          onClick={() => setToggle((prev) => !prev)}
-        />
-        <div
-          className={`${
-            !toggle ? "hidden" : "flex"
-          }  p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px ] rounded-xl sidebar`}
-        >
-          <ul className="list-none  flex flex-col  justify-end items-center flex-1">
-            {navLinks.map((navLink, index) => (
-              <li
-                key={index + navLink.id}
-                className={`font-medium cursor-pointer font-poppins text-[16px]   ${
-                  index === navLinks.length - 1 ? "mr-0" : "mb-4"
-                } text-white`}
-              >
-                <a href={`#${navLink.id}`}>{navLink.title}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </nav> */}
     </>
   );
 };

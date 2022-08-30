@@ -27,7 +27,7 @@ const ContactCard = () => {
             <div
               className={"grid grid-cols-1 md:grid-cols-12 gap-4 mt-16 mx-4"}
             >
-              <div className="grid col-span-1 md:col-span-12">
+              <div className="grid col-span-12 md:col-span-12">
                 <div className="relative flex w-full flex-wrap items-stretch mb-3">
                   <input
                     type="text"
@@ -42,7 +42,7 @@ const ContactCard = () => {
                   </span>
                 </div>
               </div>
-              <div className="grid col-span-1 md:col-span-12">
+              <div className="grid col-span-12 md:col-span-12">
                 <div className="relative flex w-full flex-wrap items-stretch mb-3">
                   <input
                     type="email"
