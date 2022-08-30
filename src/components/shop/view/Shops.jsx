@@ -8,6 +8,7 @@ import {
   ShopCardMain,
   ShopWidgets,
 } from "../component";
+import ProductCard from "../component/ShopCardMain2";
 import { AboutHeader } from "../../about/component";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { useStateShopContext } from "../../../state/OnShopContext";
@@ -65,6 +66,10 @@ const Shops = () => {
         <div className={`${layout.grid} mt-4 mx-[1rem]`}>
           <div className={`${layout.gridContents}`}>
             {/* <ShopCard /> */}
+            <div className="flex flex-wrap gap-4 mx-4 lg:mx-16 flex-col lg:flex-row basis-full ">
+              <ProductCard />
+              <ProductCard />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16 mx-4">
               <ShopCardMain />
             </div>

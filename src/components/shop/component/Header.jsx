@@ -51,7 +51,7 @@ const Navbar = () => {
               </div>
             </div>
             <div
-              className="relative bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 transition duration-200 ease-linear"
+              className="relative md:hidden bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 transition duration-200 ease-linear"
               //onClick={() => navigate("/product/cart", { replace: true })}
               onClick={() => setToggle((prev) => !prev)}
             >
@@ -110,7 +110,7 @@ const Navbar = () => {
             <div
               className={`${
                 toggle ? "flex" : "hidden"
-              } p-6 bg-black-gradient overflow-visible absolute top-[70px] right-0  my-2 min-w-full rounded-b-xl sidebar`}
+              } p-6 bg-blue-gradient overflow-visible absolute top-[70px] right-0  my-2 min-w-full rounded-b-xl sidebar`}
             >
               <ul className="list-none  flex flex-col  justify-end items-center flex-1">
                 {shopCategories.map((navLink, index) => (
@@ -120,7 +120,7 @@ const Navbar = () => {
                       index === shopCategories.length - 1 ? "mr-0" : "mb-4"
                     } text-white`}
                   >
-                    <NavLink to={`${navLink.id}`}>{navLink.title}</NavLink>
+                    <NavLink to={`${navLink.id}`}>{navLink.name}</NavLink>
                   </li>
                 ))}
               </ul>
