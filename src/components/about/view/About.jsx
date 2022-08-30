@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../../style";
+import { Testimonials } from "../../../components/landing";
 import {
   Layout,
   AboutHeader,
@@ -19,6 +20,7 @@ const About = () => {
             <AboutContact />
             <AboutTip />
             <AboutTeam />
+            <Testimonials />
             <ContactCard />
             <ContactHeader />
           </div>
