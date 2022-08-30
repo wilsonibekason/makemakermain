@@ -1,6 +1,8 @@
 import React from "react";
 import { Header } from ".";
-import Footer from "./Footer";
+import { Footer } from "../../../components/landing";
+import styles from "../../../style";
+// import Footer from "./Footer";
 import HomeSwiper from "./HomeSwiper";
 
 const Layout = ({ children }) => {
@@ -14,7 +16,13 @@ const Layout = ({ children }) => {
         {/* <div className="border-t bg-black" /> */}
         <div>{children}</div>
         {/* <div className="mx-[2rem]"> */}
-        <Footer />
+        <div className={` white__bg ${styles.paddingX} ${styles.flexStart}`}>
+          <div className={`${styles.boxWidth}`}>
+            <div className="blue__bg rounded-t-xl">
+              <Footer />
+            </div>
+          </div>
+        </div>
         {/* </div> */}
       </div>
     </>
