@@ -75,7 +75,7 @@ const ShopDetails = () => {
   return (
     <>
       <Layout>
-        <div className={`${shopLayout.section} mt-24`}>
+        <div className={`${shopLayout.section} mt-32`}>
           <div className={`${shopLayout.sectionGrid}`}>
             <div className={`${shopLayout.sectionGridDivider}`}>
               {productDetails &&

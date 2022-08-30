@@ -10,7 +10,7 @@ const Categories = ({ products }) => {
         <div className="border-t bg-black mt-4 my-2" />
         {products &&
           products?.map((category) => (
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between mb-1">
               {/* {category?.productCategories
                 ?.sort((a, b) => a - b)
                 .map((categoryItem) => (
@@ -20,13 +20,13 @@ const Categories = ({ products }) => {
                     </p>
                   </div>
                 ))} */}
-              <div>
-                <p className={`${styles.paragraph2}`}>
+              <div className="">
+                <p className={`${styles.paragraph2} `}>
                   {category?.specificCategory}
                 </p>
               </div>
-              <div className="bg-blue-500 rounded-full  text-white cursor-pointer font-poppins text-[14px]  flex items-center  justify-center  px-2">
-                9
+              <div className="bg-blue-500 rounded-full flex items-center justify-center">
+                <p className="font-semidold text-[9px] px-3 ">9</p>
               </div>
             </div>
           ))}
