@@ -1,5 +1,5 @@
 import styles from "../../../style";
-
+import { AiOutlineMail } from "react-icons/ai";
 const ContactCard = () => {
   return (
     <>
@@ -87,17 +87,26 @@ const ContactCard = () => {
                   </button>
                 </div>
               </div>
-              <div className="grid col-span-12 mx-auto mt-4">
-                <div className="flex flex-col justify-center items-start w-full">
-                  <h1 className="font-poppins font-semibold text-lg capitalize text-gray-600">
-                    contact information
-                  </h1>
-                  <div className="flex flex-row justify-between items-center">
-                    <p>he</p>
-                    <p className={`${styles.span2}`}>
-                      wilsonibekason@gmail.com
-                    </p>
-                  </div>
+              {/* <div className="grid col-span-12 mx-auto mt-4">
+                <h1 className="font-poppins font-semibold text-lg capitalize text-gray-600">
+                  contact information
+                </h1>{" "}
+              </div> */}
+            </div>
+            {/*** contact information */}
+            <div className={`${styles.flexStart} ${styles.paddingY} `}>
+              <div className="flex flex-col justify-center items-start">
+                {" "}
+                <h1 className="font-poppins font-semibold text-lg capitalize text-gray-600 ">
+                  contact information
+                </h1>{" "}
+                <div className="flex justify-between items-center gap-4 my-4">
+                  <AiOutlineMail />
+                  <p
+                    className={`font-poppins text-sm font-medium text-gray-300 `}
+                  >
+                    wilsonibekason@gmail.com
+                  </p>
                 </div>
               </div>
             </div>
