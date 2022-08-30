@@ -11,7 +11,7 @@ const Footer = () => {
   console.log("the footerabout output", footerAbout);
   return (
     <section
-      className={`${styles.flexCenter} ${styles.paddingY} flex-col mx-4`}
+      className={`${styles.flexCenter} ${styles.paddingY} flex-col mx-0 md:mx-4 `}
     >
       <div className={`flex flex-col mb-8 w-full `}>
         {/** first layout */}

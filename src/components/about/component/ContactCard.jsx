@@ -27,12 +27,12 @@ const ContactCard = () => {
             <div
               className={"grid grid-cols-1 md:grid-cols-12 gap-4 mt-16 mx-4"}
             >
-              <div className="grid col-span-1 md:col-span-6">
+              <div className="grid col-span-1 md:col-span-12">
                 <div className="relative flex w-full flex-wrap items-stretch mb-3">
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
+                    className="px-2 py-4 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10 shadow"
                     //  value={state.name}
                     name="name"
                     // onChange={handleChange}
@@ -42,13 +42,13 @@ const ContactCard = () => {
                   </span>
                 </div>
               </div>
-              <div className="grid col-span-1 md:col-span-6">
+              <div className="grid col-span-1 md:col-span-12">
                 <div className="relative flex w-full flex-wrap items-stretch mb-3">
                   <input
                     type="email"
                     placeholder="Email Address"
                     className="px-2 py-4 placeholder-blueGray-300 text-blueGray-600
-                      bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full  pr-10"
+                      bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full  pr-10 shadow"
                     name="email"
                     // value={state.email}
                     required
@@ -66,7 +66,7 @@ const ContactCard = () => {
                     cols={6}
                     type="text"
                     placeholder="type in your review ..."
-                    className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10 placeholder:capitalize"
+                    className="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10 placeholder:capitalize shadow"
                     name="review"
                     // value={state.review}
                     // onChange={handleChange}
