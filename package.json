@@ -5,6 +5,8 @@
   "description": "this is a makemakers projects fully optimised",
   "repository": "https//github.com/wilsonibekason/MAKERMAKER",
   "dependencies": {
+    "@headlessui/react": "^1.6.6",
+    "@heroicons/react": "^2.0.10",
     "@popperjs/core": "^2.11.6",
     "@portabletext/react": "^1.0.6",
     "@reduxjs/toolkit": "^1.8.4",

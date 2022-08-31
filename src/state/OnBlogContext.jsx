@@ -48,7 +48,7 @@ export const BlogProvider = ({ children }) => {
   };
 
   const closeDropDownPopover = () => {
-    setDropDownPopover((prev) => !prev);
+    setDropDownPopover(false);
   };
   const { name, email, review } = formData;
   const reviewSubmit = (e) => {

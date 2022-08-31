@@ -39,22 +39,22 @@ export const navLinks = [
 ];
 export const aboutLinks = [
   {
-    id: "home",
+    id: "1",
     title: "Home",
     link: "/",
   },
   {
-    id: "blog",
+    id: "2",
     title: "blog",
     link: "/blog",
   },
   {
-    id: "product",
+    id: "3",
     title: "product",
     link: "/product",
   },
   {
-    id: "aboutus",
+    id: "4",
     title: "about us",
     link: "/aboutus",
   },
