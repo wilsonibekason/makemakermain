@@ -1,5 +1,8 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
+import { BiCategory, BiTimer } from "react-icons/bi";
+import { GiBuyCard } from "react-icons/gi";
+
 import Currency from "react-currency-formatter";
 import { useStateShopContext } from "../../../state/OnShopContext";
 const ShopDetail = ({
@@ -85,7 +88,8 @@ const ShopDetail = ({
               <div className="flex items-center">
                 <div>
                   <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                    <i className="fas fa-fingerprint"></i>
+                    {/* <i className="fas fa-fingerprint"></i> */}
+                    <BiCategory />
                   </span>
                 </div>
                 <div>
@@ -107,7 +111,8 @@ const ShopDetail = ({
               <div className="flex items-center">
                 <div>
                   <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                    <i className="fab fa-html5"></i>
+                    {/* <i className="fab fa-html5"></i> */}
+                    <GiBuyCard />
                   </span>
                 </div>
                 <div>
@@ -124,7 +129,8 @@ const ShopDetail = ({
               <div className="flex items-center">
                 <div>
                   <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
-                    <i className="far fa-paper-plane"></i>
+                    {/* <i className="far fa-paper-plane"></i> */}
+                    <BiTimer />
                   </span>
                 </div>
                 <div>

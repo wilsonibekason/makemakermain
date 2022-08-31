@@ -10,6 +10,7 @@ import { HomeProvider } from "./state/OnLandingContext";
 import { BlogProvider } from "./state/OnBlogContext";
 import { ShopProvider } from "./state/OnShopContext";
 import { AboutProvider } from "./state/OnAboutContext";
+import { ScrollToTop } from "./hooks";
 import { store } from "./app/store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -21,7 +22,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <AboutProvider>
               <BlogProvider>
                 <ShopProvider>
-                  <Toaster /> <App />
+                  <ScrollToTop>
+                    <Toaster /> <App />
+                  </ScrollToTop>
                 </ShopProvider>
               </BlogProvider>
             </AboutProvider>

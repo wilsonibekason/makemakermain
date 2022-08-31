@@ -28,7 +28,7 @@ const Banner = () => {
               <div>
                 <button
                   type="button"
-                  className={`${styles.buttonOutline} text-black border-black`}
+                  className={`${styles.buttonOutline} text-black border-black font-poppins`}
                   onClick={() =>
                     navigate(`/product/${randomizer?.slug?.current}`, {
                       replace: true,
