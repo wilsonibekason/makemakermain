@@ -1,8 +1,9 @@
 import React from "react";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
-
+import styles from "../../../style";
+import { Footer } from "../../../components/landing";
 import { Navbar } from "../../landing";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import Header from "./Header";
 
 const Layout = ({ children }) => {
@@ -18,7 +19,13 @@ const Layout = ({ children }) => {
           ))} */}
         <Header {...blogs[0]} />
         <div className="my-8">{children}</div>
-        <Footer />
+        <div className={` white__bg ${styles.paddingX} ${styles.flexStart}`}>
+          <div className={`${styles.boxWidth}`}>
+            <div className="blue__bg rounded-t-xl">
+              <Footer />
+            </div>
+          </div>
+        </div>{" "}
       </div>
     </>
   );
