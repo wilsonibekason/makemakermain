@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 import styles from "../../../style";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 const PostWidget = ({ related }) => {
@@ -13,16 +14,18 @@ const PostWidget = ({ related }) => {
         {/** render the  related post */}
         {related?.length >= 1 &&
           related?.map((post, index) => {
-            const { title, publishedAt, _id } = post;
+            const { title, publishedAt, slug } = post;
             return (
               <div className="flex flex-col mt-4">
-                <Link to={`/blog/${_id}`}>
+                <Link to={`/blog/${slug?.current}`}>
                   <div className={`${styles.paragraph2} w-full `}>
-                    What is Techology ..{" "}
+                    {title}..{" "}
                   </div>
                 </Link>
                 <div className="flex flex-1 flex-row">
-                  <p className={`${styles.span1} mr-2`}>2 mins ago</p>
+                  <p className={`${styles.span1} mr-2`}>
+                    {moment(publishedAt).format("MMM DD, YYYY")}
+                  </p>
                   <span className={`${styles.span1} mr-2`}>.</span>
                   <span className={`${styles.span2} `}>9 mins Read</span>
                 </div>
@@ -31,16 +34,18 @@ const PostWidget = ({ related }) => {
           })}
         {oldPosts?.length >= 1 &&
           oldPosts?.map((post, index) => {
-            const { title, publishedAt, _id } = post;
+            const { title, publishedAt, slug } = post;
             return (
               <div className="flex flex-col mt-4" key={index}>
-                <Link to={`/blog/${_id}`}>
+                <Link to={`/blog/${slug?.current}`}>
                   <div className={`${styles.paragraph2} w-full `}>
-                    What is Techology ..{" "}
+                    {title} ..{" "}
                   </div>
                 </Link>
                 <div className="flex flex-1 flex-row">
-                  <p className={`${styles.span1} mr-2`}>2 mins ago</p>
+                  <p className={`${styles.span1} mr-2`}>
+                    {moment(publishedAt).format("MMM DD, YYYY")}
+                  </p>
                   <span className={`${styles.span1} mr-2`}>.</span>
                   <span className={`${styles.span2} `}>9 mins Read</span>
                 </div>
