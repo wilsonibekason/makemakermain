@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
 import { urlFor } from "../../../client";
 import { blogLayout } from "../../../style";
 import { Link } from "react-router-dom";
@@ -33,9 +34,10 @@ const AdjacentPostCard = ({ post, position }) => {
       </Link>
       {position === "LEFT" && (
         <div
-          className={` ${blogLayout.adjacentButton} absolute bottom-5 text-center py-3 cursor-pointer bg-pink-600 left-4 rounded-full`}
+          className={` ${blogLayout.adjacentButton} absolute bottom-5 text-center py-3 cursor-pointer blue__bg left-4 rounded-full flex justify-center items-center `}
         >
-          <svg
+          <BsArrowLeftCircle className="h-6 lg:w-6 text-white w-full" />
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 lg:w-6 text-white w-full"
             fill="none"
@@ -48,14 +50,15 @@ const AdjacentPostCard = ({ post, position }) => {
               strokeWidth="2"
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
-          </svg>
+          </svg> */}
         </div>
       )}
       {position === "RIGHT" && (
         <div
-          className={`absolute arrow-btn bottom-5 text-center py-3 cursor-pointer bg-pink-600 left-4 rounded-full ${blogLayout.adjacentButton}`}
+          className={`absolute arrow-btn bottom-5 text-center py-3 cursor-pointer blue__bg left-4 rounded-full ${blogLayout.adjacentButton} flex justify-center items-center `}
         >
-          <svg
+          <BsArrowRightCircle className="h-6 lg:w-6 text-white w-full" />
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 lg:w-6 text-white w-full"
             fill="none"
@@ -68,7 +71,7 @@ const AdjacentPostCard = ({ post, position }) => {
               strokeWidth="2"
               d="M14 5l7 7m0 0l-7 7m7-7H3"
             />
-          </svg>
+          </svg> */}
         </div>
       )}
     </>

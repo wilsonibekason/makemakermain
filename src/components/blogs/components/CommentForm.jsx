@@ -39,12 +39,12 @@ const CommentForm = () => {
                   cols={6}
                   type="text"
                   placeholder="type in your review ..."
-                  class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
+                  class="px-2 py-1 placeholder-gray-300 text-gray-600 bg-white rounded text-sm border border-gray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
                   name="review"
                   value={review}
                   onChange={handleChange}
                 />
-                <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
+                <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-300  bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1">
                   <i class="fas fa-star"></i>
                 </span>
               </div>
@@ -55,8 +55,8 @@ const CommentForm = () => {
               <input
                 type="email"
                 placeholder="Email Address"
-                class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600
-                      bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
+                class="px-2 py-1 placeholder-gray-300 text-gray-600
+                      bg-white rounded text-sm border border-gray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
                 name="email"
                 value={email}
                 required
@@ -65,8 +65,8 @@ const CommentForm = () => {
               <input
                 type="text"
                 placeholder="Enter Your Name"
-                class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600
-                      bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
+                class="px-2 py-1 placeholder-gray-300 text-gray-600
+                      bg-white rounded text-sm border border-gray-300 outline-none focus:outline-none focus:shadow-outline w-full pr-10"
                 name="name"
                 value={name}
                 required
@@ -76,7 +76,7 @@ const CommentForm = () => {
             {/** store in localStorage access */}
             <div className="grid grid-cols-1 gap-4 mb-8 ">
               <button
-                className=" border border-blue-500 text-blueGray-600 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                className=" border border-blue-500 text-gray-600 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button"
                 onClick={reviewSubmit}
               >

@@ -1,5 +1,7 @@
 import React from "react";
-import { Header, Footer } from ".";
+import { Header } from ".";
+import { Footer } from "../../../components/landing";
+import styles from "../../../style";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { shopLayout } from "../../../style";
 import Button from "./Button";
@@ -31,9 +33,13 @@ const Cart = () => {
         {/** left side */}
         <div className="bg-black" />
       </div>
-      <div className="mx-4">
-        <Footer />
-      </div>
+      <div className={` white__bg ${styles.paddingX} ${styles.flexStart}`}>
+        <div className={`${styles.boxWidth}`}>
+          <div className="blue__bg rounded-t-xl">
+            <Footer />
+          </div>
+        </div>
+      </div>{" "}
     </>
   );
 };

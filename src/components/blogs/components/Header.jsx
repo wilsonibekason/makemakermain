@@ -13,21 +13,15 @@ const Navbar = ({ specificCategory }) => {
   // const [toggle, setToggle] = useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-0 lg:px-12 py-3  mb-3 border-b-4">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <nav className="relative flex flex-wrap items-center justify-between px-0 lg:px-12 py-1  mb-3 border-b-4">
+        <div className="container px-4  mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            {/* <a
-           className="text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-           href="#pablo"
-         >
-           cinema
-         </a> */}
             <NavLink to={"/"}>
               <img
                 src="https://i0.wp.com/cine21.ng/wp-content/uploads/2021/01/cropped-White-Horizontal-Logo-1.png?resize=1536%2C705&ssl=1"
-                //src={makelogo}
+                // src={makelogo}
                 alt=""
-                className="w-32  object-contain"
+                className="w-[124px]"
               />
             </NavLink>
             <button
@@ -46,11 +40,11 @@ const Navbar = ({ specificCategory }) => {
                 return (
                   <li className="nav-item" key={index}>
                     <NavLink
-                      className="px-3 py-2 flex items-center text-xs uppercase font-normal font-raleway leading-snug text-black hover:text-gray-300 hover:border-b-2 hover:border-gray-300 "
+                      className="px-3 py-2 flex items-center text-[16px] uppercase font-normal font-raleway leading-snug text-black hover:text-gray-300"
                       to={`/blog/category/${name}`}
                     >
                       {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75 "></i> */}
-                      <span className="ml-2 text-xs lg:text-sm capitalize tracking-wide  font-black">
+                      <span className="ml-2 text-[16px] lg:text-sm capitalize tracking-wide  font-black">
                         {name}
                       </span>
                     </NavLink>
@@ -76,7 +70,7 @@ const Navbar = ({ specificCategory }) => {
             return (
               <li className="nav-item">
                 <NavLink
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold font-robotoMain leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-[16px] uppercase font-bold font-robotoMain leading-snug text-white hover:opacity-75"
                   to={`/blog/category/${name}`}
                 >
                   {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75 "></i> */}

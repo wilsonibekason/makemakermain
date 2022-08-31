@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { blogLayout, layout } from "../../../style";
 import {
   Banner,
-  HomeSwiper,
+  // HomeSwiper,
   Categories,
   ShopCardMain,
   ShopWidgets,

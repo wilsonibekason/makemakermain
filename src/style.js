@@ -6,7 +6,7 @@ const styles = {
   heading1:
     "font-poppins font-medium xs:text-[50px] text-[42px] text-white xs:leading-[80px] leading-[68px] w-full uppercase",
   heading3:
-    "font-poppins font-medium xs:text-[15px] text-[14px] green__txt xs:leading-[30px] leading-[28px] w-full uppercase",
+    "font-poppins font-medium xs:text-[15px] text-[14px] blue__txt xs:leading-[30px] leading-[28px] w-full uppercase",
   heading4:
     "font-poppins font-medium xs:text-[50px] text-[42px] text-black xs:leading-[80px] leading-[68px] w-full uppercase",
   heading5:
@@ -24,6 +24,7 @@ const styles = {
   paragraph2: "font-poppins font-normal text-black text-sm leading-[30.8px]",
   span1: "text-[12px] text-gray-400 font-semibold font-poppins uppercase",
   span2: "text-[12px] text-blue-400 font-semibold font-poppins uppercase",
+  span: "text-[12px] text-gray-400 font-normal font-poppins capitalize",
   span3: "text-[12px] text-dimwhite font-semibold font-poppins uppercase",
   span4: "text-[12px] text-white font-semibold font-poppins uppercase",
   flexCenter: "flex justify-center items-center",

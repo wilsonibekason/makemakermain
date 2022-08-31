@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { HiBadgeCheck } from "react-icons/hi";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import styles, { blogLayout } from "../../../style";
 
@@ -8,7 +9,7 @@ const Comments = ({ blogComments }) => {
   return (
     <>
       <div className={`${blogLayout.section2} `}>
-        <h3 className={` text-xl font-poppins font-medium green__txt `}>
+        <h3 className={` text-xl font-poppins font-medium blue__txt `}>
           {blogComments ? `${blogComments?.length} Comment(s)` : "No Comment"}
         </h3>
         {/** MAIN POST DETAILS  */}
@@ -48,9 +49,11 @@ const Comments = ({ blogComments }) => {
                 </p>
                 <div className="flex flex-row flex-wrap justify-between my-2">
                   <div>
-                    <AiOutlineLike className="w-[30px] h-[30px]" />
+                    <AiOutlineLike className="w-[30px] h-[30px] blue__txt" />
                   </div>
-                  <div>hello</div>
+                  <div>
+                    <HiBadgeCheck className="w-[30px] h-[30px] text-blue-400" />
+                  </div>
                 </div>
               </div>
             );

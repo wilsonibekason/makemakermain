@@ -1,5 +1,6 @@
 import React from "react";
-import { Header, Footer } from ".";
+import { Header } from ".";
+import { Footer } from "../../../components/landing";
 import { useNavigate } from "react-router-dom";
 import Currency from "react-currency-formatter";
 import styles, { shopLayout } from "../../../style";
@@ -45,7 +46,7 @@ const Carts = () => {
                       <button
                         type="button"
                         onClick={() => navigate("/product", { replace: true })}
-                        className={`border border-blue-400 text-gray-400  active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 xt-linear transition-all duration-150`}
+                        className={`border border-blue-400 text-gray-400  active:bg-blue-600 font-bold capitalize text-sm px-6 py-3 rounded-[12px] shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 xt-linear transition-all duration-150 font-poppins`}
                       >
                         back to shop
                       </button>
@@ -83,7 +84,7 @@ const Carts = () => {
               <form action="/create-checkout-session" method="POST">
                 <button
                   type="submit"
-                  className={`border border-blue-400 text-gray-300 mt-2 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-full`}
+                  className={`border border-blue-400 text-gray-300 mt-2 active:bg-blue-600 font-bold capitalize text-sm px-6 py-3 rounded-[12px] shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 w-full font-poppins `}
                 >
                   checkout
                 </button>
@@ -92,7 +93,13 @@ const Carts = () => {
           </div>
         </main>
         <div className="border-t bg-black" />
-        <Footer />
+        <div className={` white__bg ${styles.paddingX} ${styles.flexStart}`}>
+          <div className={`${styles.boxWidth}`}>
+            <div className="blue__bg rounded-t-xl">
+              <Footer />
+            </div>
+          </div>
+        </div>{" "}
       </div>
     </>
   );

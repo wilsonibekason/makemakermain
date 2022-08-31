@@ -2,7 +2,7 @@ import React from "react";
 import { useStateBlogContext } from "../../../state/OnBlogContext";
 import { urlFor } from "../../../client";
 import moment from "moment";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import styles from "../../../style";
 const PostCard = ({
   title,
@@ -22,12 +22,14 @@ const PostCard = ({
       <div className="hidden lg:block md:block bg-white rounded-lg p-0 lg:p-8 pb-12 mb-8 shadow">
         {/** image section */}
         <div className="relative overflow-hidden  pb-80 mb-6">
-          <img
-            //src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
-            src={urlFor(mainImage)}
-            alt=""
-            className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
-          />
+          <Link to={`/blog/${slug?.current}`}>
+            <img
+              //src="https://leadership.ng/wp-content/uploads/2022/06/STEM-education.jpeg"
+              src={urlFor(mainImage)}
+              alt=""
+              className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg"
+            />
+          </Link>
         </div>
         {/** end of image section */}
         <div>

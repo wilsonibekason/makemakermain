@@ -27,12 +27,12 @@ const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
                 onClick={() => setToggleModal((prev) => !prev)}
               >
                 <MdCancel className="w-5 h-5" />
-                <span className="sr-only">Close modal</span>
+                <span className="sr-only font-poppins">Close modal</span>
               </button>
               <div className="p-6 text-center">
                 <BsShieldExclamation className="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" />
 
-                <h3 className="mb-5 text-sm lg:text-lg font-normal text-gray-500 dark:text-gray-400">
+                <h3 className="mb-5 text-sm lg:text-lg font-normal text-gray-500 font-poppins dark:text-gray-400">
                   {`Are you sure you want to remove`}{" "}
                   <span className="text-white uppercase font-poppins font-semibold ">
                     {title}
@@ -88,7 +88,7 @@ const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
             type="button"
             // onClick={() => onRemove(cartItem)}
             onClick={() => setToggleModal((prev) => !prev)}
-            className={`border border-blue-400 text-gray-300 active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
+            className={`border border-blue-400 text-gray-300 active:bg-blue-600 font-bold uppercase font-poppins text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
           >
             remove
           </button>{" "}
