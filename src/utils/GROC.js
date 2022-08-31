@@ -36,6 +36,31 @@ export const postBlogQuery = `*[_type == "post"]{
     },
     }`;
 
+/// query for recent post and categories
+export const fetchBeforePosts = () => {
+  const query = `*[_type == "post"]{
+        _id,
+        title,
+           slug,
+           publishedAt,
+           author->{
+       name,
+       image
+         },
+       description,
+       mainImage,
+       slug,
+       tags,
+       category,
+      categories[] {
+        categorys->{ 
+         title,
+         slug 
+        },
+       },
+      }`;
+  return query;
+};
 /// query for fetching products
 export const fetchProductsQuery = `*[_type == "product"]{
       _id,

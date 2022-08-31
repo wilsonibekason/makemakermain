@@ -1,14 +1,21 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  useRef,
+} from "react";
+import { createPopper } from "@popperjs/core";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
 import { client } from "../client";
 import { TbPlayerTrackNext, TbPlayerTrackPrev } from "react-icons/tb";
-import { useRef } from "react";
 import { shopImages } from "../utils/data";
 import {
   getBlogComments,
   postBlogQuery,
   getBlogCategories,
+  fetchBeforePosts,
 } from "../utils/GROC";
 const BlogContext = createContext({});
 
@@ -17,6 +24,7 @@ export const BlogProvider = ({ children }) => {
   const [blogs, setBlogs] = useState([]);
   const [blogMore, setBlogMore] = useState([]);
   const [comments, setComments] = useState([]);
+  const [oldPosts, setOldPosts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideRef = useRef();
   let count = 0;
@@ -29,7 +37,19 @@ export const BlogProvider = ({ children }) => {
     email: "",
     review: "",
   });
+  const btnDropDownRef = useRef();
+  const popoverDropDownRef = useRef();
+  const [dropDownPopover, setDropDownPopover] = useState(false);
+  const openDropDownPopover = () => {
+    createPopper(btnDropDownRef.current, popoverDropDownRef.current, {
+      placement: "bottom-start",
+    });
+    setDropDownPopover((prev) => !prev);
+  };
 
+  const closeDropDownPopover = () => {
+    setDropDownPopover((prev) => !prev);
+  };
   const { name, email, review } = formData;
   const reviewSubmit = (e) => {
     e.preventDefault();
@@ -113,7 +133,10 @@ const nextPost = posts[currentPostIndex + 1];
     client
       .fetch(commentQuery)
       .then((data) => !cancelled && setComments(data?.[0]));
-
+    ////// fetch post home categories tags and recent posts reviewed
+    let beforeQuery = fetchBeforePosts();
+    client.fetch(beforeQuery).then((data) => !cancelled && setOldPosts(data));
+    /////// end of old post fetch
     slideRef.current?.addEventListener("animationend", removeAnimation);
     slideRef.current?.addEventListener("mouseenter", clearSlider);
     slideRef.current?.addEventListener("mouseleave", startSlider);
@@ -190,6 +213,14 @@ const nextPost = posts[currentPostIndex + 1];
         email,
         review,
         handleCategoryFetch,
+        // pass blog home oldposts
+        oldPosts,
+        // export global popover logic
+        btnDropDownRef,
+        popoverDropDownRef,
+        dropDownPopover,
+        openDropDownPopover,
+        closeDropDownPopover,
       }}
     >
       {children}

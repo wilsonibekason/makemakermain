@@ -67,7 +67,7 @@ const Carts = () => {
           </div>
           <div className="col-span-1 lg:col-span-3 mx-4">
             <div className="border border-solid border-gray-400 mx-auto p-auto mt-4 rounded">
-              <h1 className="text-center font-poppins font-semibold text-2xl uppercase">
+              <h1 className="text-center font-poppins font-semibold text-xl uppercase">
                 Order Summery
               </h1>
             </div>

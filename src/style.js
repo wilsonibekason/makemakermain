@@ -14,7 +14,7 @@ const styles = {
   BlogHeading1:
     "font-poppins font-medium xs:text-2xl text-2xl text-black xs:leading-[80px] leading-[68px] w-full uppercase",
   CheckoutHeading:
-    "font-poppins font-medium xs:text-2xl text-2xl text-black xs:leading-[80px] leading-[68px]  uppercase",
+    "font-poppins font-medium xs:text-xl text-xl text-black xs:leading-[65px] leading-[58px]  uppercase",
   linkText:
     "font-poppins font-semibold xs:text-[45px] text-[40px] text-white xs:leading-[60px] leading-[50px] cursor-pointer align-middle mt-2 md:float-right m-4  ",
   paragraph:
