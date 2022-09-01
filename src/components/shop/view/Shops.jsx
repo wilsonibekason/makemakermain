@@ -66,13 +66,12 @@ const Shops = () => {
         <div className={`${layout.grid} mt-4 mx-[1rem]`}>
           <div className={`${layout.gridContents}`}>
             {/* <ShopCard /> */}
-            <div className="flex flex-wrap gap-4 mx-4 lg:mx-16 flex-col lg:flex-row basis-full ">
-              <ProductCard />
+            <div className="flex flex-wrap gap-4 mx-4 lg:mx-16 flex-col lg:flex-row basis-full mb-20">
               <ProductCard />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16 mx-4">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16 mx-4">
               <ShopCardMain />
-            </div>
+            </div> */}
             <div className="block md:block mt-2 mb-16">
               <Banner />
             </div>
