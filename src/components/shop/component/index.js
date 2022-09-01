@@ -13,3 +13,4 @@ export { default as Banner } from "./Banner";
 export { default as ShopImages } from "./ShopImages";
 export { default as MoreProductCard } from "./MoreProductCard";
 export { default as HomeSwiper } from "./HomeSwiper";
+export { default as MainCardProduct } from "./MainProductCard2";

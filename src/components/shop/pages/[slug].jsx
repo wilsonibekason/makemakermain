@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { client } from "../../../client";
 import { productDetailQuery, moreProductQuery } from "../../../utils/GROC";
-import { shopLayout } from "../../../style";
+import styles, { shopLayout } from "../../../style";
 // import { useStateShopContext } from "../../../state/OnShopContext";
 import {
   Banner,
@@ -10,6 +10,7 @@ import {
   MoreProductCard,
   ShopDetail,
   ShopImages,
+  MainCardProduct,
 } from "../component";
 import ProductDetailsMore from "../component/ProductDetailsMore";
 
@@ -106,10 +107,26 @@ const ShopDetails = () => {
             </div>
             <div className={`${shopLayout.sectionTripplix3}`} />
           </div>
-          <div className={`${shopLayout.sectionGridMultix}`}>
+          {/* <div className={`${shopLayout.sectionGridMultix}`}>
             {products ? (
               products.map((product, index) => (
-                <MoreProductCard {...product} key={index} product={product} />
+                // <MoreProductCard {...product} key={index} product={product} />
+                <MainCardProduct {...product} key={index} product={product} />
+              ))
+            ) : (
+              <h1>none </h1>
+            )}
+          </div> */}
+          <div className="flex justify-center items-center ">
+            <h1 className={`${styles.heading5} text-center`}>
+              More products like this{" "}
+            </h1>
+          </div>
+          <div className="flex flex-wrap gap-4 mx-4 lg:mx-16 flex-col lg:flex-row basis-full mb-20">
+            {products ? (
+              products.map((product, index) => (
+                // <MoreProductCard {...product} key={index} product={product} />
+                <MainCardProduct {...product} key={index} product={product} />
               ))
             ) : (
               <h1>none </h1>
