@@ -1,7 +1,9 @@
 import React from "react";
 import styles, { layout } from "../../../style";
+import { useStateContextAbout } from "../../../state/OnAboutContext";
 import ValueCard from "./ValueCard";
 const AboutContact = () => {
+  const { aboutValues } = useStateContextAbout();
   return (
     <>
       <div className="min-h-[120vh] max-w-auto">
@@ -37,9 +39,10 @@ const AboutContact = () => {
         {/* <section class="bg-gray-900 h-screen flex justify-center items-center gap-x-16 text-white"> */}
         <div className="flex flex-wrap gap-4 mx-4 lg:mx-16 flex-col lg:flex-row basis-full mt-28">
           {/* <div className="flex-auto w-full lg:h-[25%]"> */}
-          <ValueCard />
-          <ValueCard />
-          <ValueCard />
+          {aboutValues &&
+            aboutValues?.map((item, index) => (
+              <ValueCard key={index} {...item} />
+            ))}
         </div>
       </div>
       {/* </section> */}

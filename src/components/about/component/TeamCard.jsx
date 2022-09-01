@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsBullseye, BsEyedropper, BsEyeglasses } from "react-icons/bs";
+import { BsBullseye, BsEyedropper, BsEyeglasses, BsLinkedin, BsTwitter } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { urlFor } from "../../../client";
 import styles from "../../../style";
@@ -17,12 +17,10 @@ const TeamCard = ({ cardDesc, cardImage, cardTitle }) => {
             className="relative max-w-full h-auto border-4 rounded-xl bg-center bg-cover bg-no-repeat shadow-lg"
             style={{
               backgroundImage: `url("${urlFor(cardImage)}")`,
-              //backgroundImage: `url("https://cdn.sanity.io/images/yfhcl1lq/production/20657711fc7f5d17c437a24790eb531922eea3fe-864x1080.jpg")`,
+
               width: 800,
               height: 450,
             }}
-            //onMouseEnter={() => setEnter((prev) => !prev)}
-            //onMouseLeave={() => setEnter((prev) => prev)}
           >
             <div
               className={`flex flex-row flex-wrap justify-around absolute left-[56px] ${
@@ -50,8 +48,11 @@ const TeamCard = ({ cardDesc, cardImage, cardTitle }) => {
               <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2">
                 <FaFacebook className="flex justify-center items-center text-white" />
               </div>
-              <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4">
-                <FaFacebook className="flex justify-center items-center text-white" />
+              <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2">
+                <BsTwitter className="flex justify-center items-center text-white" />
+              </div>
+              <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2">
+                <BsLinkedin className="flex justify-center items-center text-white" />
               </div>
             </div>
           </div>

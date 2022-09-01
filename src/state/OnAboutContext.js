@@ -87,14 +87,14 @@ export const AboutProvider = ({ children }) => {
     client
       .fetch(contactCardQuery)
       .then((data) => !cancelled && setContactCard(data));
-    //// querying for sboutvalues schema
-    const aboutValueQuery = '*[_type == "aboutValue"]';
+    //// querying for aboutvalues schema
+    const aboutValueQuery = '*[_type == "aboutValues"]';
     client
       .fetch(aboutValueQuery)
       .then((data) => !cancelled && setAboutValues(data));
     // clean up
     return () => {
-      console.log("fetfched and cenecelled");
+      console.log("fetched and cencelled");
       cancelled = true;
     };
   }, []);
