@@ -117,7 +117,7 @@ const ShopDetails = () => {
               <h1>none </h1>
             )}
           </div> */}
-          <div className="flex justify-center items-center ">
+          <div className="flex justify-center items-center mb-16 mt-8 py-4 px-4  bg-blue-gradient rounded-lg shadow-lg">
             <h1 className={`${styles.heading5} text-center`}>
               More products like this{" "}
             </h1>

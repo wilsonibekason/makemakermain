@@ -14,6 +14,7 @@ export const AboutProvider = ({ children }) => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [contactCard, setContactCard] = useState([]);
   const [contactHeader, setContactHeader] = useState([]);
+  const [aboutValues, setAboutValues] = useState([]);
   const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -86,6 +87,11 @@ export const AboutProvider = ({ children }) => {
     client
       .fetch(contactCardQuery)
       .then((data) => !cancelled && setContactCard(data));
+    //// querying for sboutvalues schema
+    const aboutValueQuery = '*[_type == "aboutValue"]';
+    client
+      .fetch(aboutValueQuery)
+      .then((data) => !cancelled && setAboutValues(data));
     // clean up
     return () => {
       console.log("fetfched and cenecelled");
@@ -123,6 +129,7 @@ export const AboutProvider = ({ children }) => {
         aboutTeamDesc,
         contactCard,
         contactHeader,
+        aboutValues,
         //// comment
         message,
         fullName,

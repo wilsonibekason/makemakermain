@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BsBullseye, BsEyedropper, BsEyeglasses } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
-
+import { urlFor } from "../../../client";
 import styles from "../../../style";
-const TeamCard = () => {
+const TeamCard = ({ cardDesc, cardImage, cardTitle }) => {
   const [enter, setEnter] = useState(false);
   return (
     <>
@@ -16,7 +16,8 @@ const TeamCard = () => {
           <div
             className="relative max-w-full h-auto border-4 rounded-xl bg-center bg-cover bg-no-repeat shadow-lg"
             style={{
-              backgroundImage: `url("https://i0.wp.com/optimizeseo.co.uk/wp-content/uploads/2020/02/Emmanuel-eluwa-940x1000.jpg?resize=940%2C1000&ssl=1")`,
+              backgroundImage: `url("${urlFor(cardImage)}")`,
+              //backgroundImage: `url("https://cdn.sanity.io/images/yfhcl1lq/production/20657711fc7f5d17c437a24790eb531922eea3fe-864x1080.jpg")`,
               width: 800,
               height: 450,
             }}
@@ -32,9 +33,9 @@ const TeamCard = () => {
                 <h4
                   className={`${styles.span1} hover:text-black active:text-black`}
                 >
-                  wilson ibekason
+                  {cardTitle}
                 </h4>
-                <p className={`${styles.span1}`}>fullstack developer</p>
+                <p className={`${styles.span1}`}>{cardDesc}</p>
               </div>
               <div className="flex justify-center items-center mr-4">
                 <BsEyedropper className="w-8 h-8 " />

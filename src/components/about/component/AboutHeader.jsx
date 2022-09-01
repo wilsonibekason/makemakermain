@@ -4,7 +4,7 @@ import styles from "../../../style";
 const AboutHeader = ({ message }) => {
   return (
     <>
-      <div className="relative max-h-[100vh] min-h-[70vh]  ">
+      <div className="relative max-h-[70vh] min-h-[50vh]  ">
         <div
           className="bg-cover bg-no-repeat bg-scroll bg-[bottom_center_0px] bg-[#f2f2f4] min-h-[300px] mb-[60px] pt-28 pb-12"
           style={{

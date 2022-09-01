@@ -17,7 +17,7 @@ const MainCardProduct = ({
 
   return (
     <>
-      <div class="w-[350px] h-[450px] bg-transparent cursor-pointer group perspective ">
+      <div class="w-[350px] h-[400px] bg-transparent cursor-pointer group perspective ">
         <div class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
           <Link to={`/product/${slug?.current}`}>
             <div

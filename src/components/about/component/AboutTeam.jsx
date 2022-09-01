@@ -2,8 +2,10 @@ import React from "react";
 import TeamCard from "./TeamCard";
 
 import styles from "../../../style";
+import { useStateContextAbout } from "../../../state/OnAboutContext";
 
 const AboutTeam = () => {
+  const { aboutTeamCard } = useStateContextAbout();
   return (
     <>
       <div className="min-h-[100vh] my-16">
@@ -12,9 +14,9 @@ const AboutTeam = () => {
         </div>
         {/* <div className="flex flex-wrap gap-4 mx-4 lg:mx-16 flex-col lg:flex-row basis-full mt-28"> */}
         <div className=" flex flex-wrap basis-full flex-col lg:flex-row mx-4 lg:mx-16 gap-4">
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
+          {aboutTeamCard?.map((item, index) => (
+            <TeamCard {...item} key={index} />
+          ))}
         </div>
       </div>
     </>

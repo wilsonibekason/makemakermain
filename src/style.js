@@ -10,7 +10,7 @@ const styles = {
   heading4:
     "font-poppins font-medium xs:text-[50px] text-[42px] text-black xs:leading-[80px] leading-[68px] w-full uppercase",
   heading5:
-    "font-poppins font-bold text-[30px] md:text-[42px] text-gray-600 leading-[45px] md:leading-[70px]  w-full capitalize",
+    "font-poppins font-bold text-[20px] md:text-[32px] text-gray-600 leading-[35px] md:leading-[50px]  w-full capitalize",
   heading6:
     "font-poppins font-bold xs:text-[50px] text-[42px] text-gray-600 xs:leading-[80px] leading-[68px] w-full capitalize",
 
