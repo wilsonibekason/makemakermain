@@ -15,7 +15,7 @@ const Navbar = () => {
         {aboutLinks.map((navLink, index) => (
           <li key={index + navLink.id} className={"font-poppins"}>
             <NavLink
-              to={`${navLink.id}`}
+              to={`${navLink.link}`}
               className={`font-normal cursor-pointer font-poppins text-[16px] capitalize ${
                 index === navLinks.length - 1 ? "mr-0" : "mr-10"
               } text-white`}
@@ -46,7 +46,7 @@ const Navbar = () => {
                   index === navLinks.length - 1 ? "mr-0" : "mb-4"
                 } text-white`}
               >
-                <NavLink to={`${navLink.id}`}>{navLink.title}</NavLink>
+                <NavLink to={`${navLink.link}`}>{navLink.title}</NavLink>
               </li>
             ))}
           </ul>
