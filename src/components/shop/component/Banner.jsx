@@ -12,7 +12,7 @@ const Banner = () => {
 
   return (
     <>
-      <div className="border  border-gray-500 bg-gray-200 rounded-lg">
+      <div className="border  border-gray-500 bg-gray-200 rounded-lg group relative">
         {/** FIRST BANNEER UI */}
 
         {/** SECOND BANNER DESIGN */}
@@ -41,12 +41,12 @@ const Banner = () => {
             </div>
           </div>
           <div className="col-span-1 lg:col-span-6">
-            <div className=" items-center">
+            <div className=" items-center ">
               {productBanner.image && (
                 <img
                   src={urlFor(productBanner?.image)}
                   alt=""
-                  className="w-[60%] h-[60%] object-cover"
+                  className="w-[60%] h-[60%] object-cover "
                 />
               )}
             </div>

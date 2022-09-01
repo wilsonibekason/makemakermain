@@ -4,7 +4,7 @@ import { AiOutlineEye } from "react-icons/ai";
 const ProductCard = () => {
   return (
     <>
-      <div class="w-[350px] h-[500px] bg-transparent cursor-pointer group perspective ">
+      <div class="w-[350px] h-[400px] bg-transparent cursor-pointer group perspective ">
         <div class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
           <div
             class="absolute backface-hidden border-2 w-full h-full bg-no-repeat bg-cover rounded-lg shadow opacity-80 backdrop-opacity-10"
