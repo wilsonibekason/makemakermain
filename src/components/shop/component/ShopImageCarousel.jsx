@@ -70,7 +70,7 @@ const ShopImageCarousel = ({ images }) => {
         >
           {images &&
             images?.map((image, index) => (
-              <ImageItem key={index} image={image} />
+              <ImageItem mykey={index} image={image} />
             ))}
         </Carousel>
       </div>
