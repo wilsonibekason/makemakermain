@@ -12,7 +12,7 @@ const Suggestions = ({ suggestions, onClick }) => {
     suggestionArray.map((suggestion, index) => {
       return (
         <li
-          className="suggestion"
+          className="pt-[5px] pr-[10px] cursor-pointer hover:bg-[#f0f0f0]"
           key={index}
           onClick={() => handleChange(suggestion.word)}
         >
@@ -23,7 +23,7 @@ const Suggestions = ({ suggestions, onClick }) => {
       );
     });
   return (
-    <ul className="z-[999] relative bg-white mt-0 mr-auto p-0 block overfolw-y-auto border border-solid rounded-bl-[5px] text-sm text-left list-none shadow-md">
+    <ul className="z-[999] relative bg-white w-[30vw] mt-0 mr-auto p-0  overfolw-y-auto border border-solid rounded-b-[5px] text-sm text-left list-none shadow-md flex justify-center items-center py-2">
       {autocomplete}
       {suggestionArray ? (
         <li
@@ -34,7 +34,7 @@ const Suggestions = ({ suggestions, onClick }) => {
         </li>
       ) : (
         <li
-          className="suggestion"
+          className="pt-[5px] pr-[10px] cursor-pointer hover:bg-[#f0f0f0]"
           style={{ fontStyle: "italic", fontWeight: "bold" }}
         >
           No suggestions
