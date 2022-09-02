@@ -80,7 +80,7 @@ const Gallery = () => {
             <SearchForm onSearchPhoto={onSearchPhoto} />
           </div>
         </div>
-        i
+
         <Sentence stats={total} query={query} />
         <Suspense fallback={<Spinner />}>
           <div className="mt-0 mr-auto max-w-[1280px]">
