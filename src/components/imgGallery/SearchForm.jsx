@@ -39,7 +39,8 @@ const SearchForm = ({ onSearchPhoto }) => {
   const handleOutsideClick = (e) => {
     if (!ref.current || !ref.current.contains(e.target)) {
       setShowSuggestions((prev) => !prev);
-    } else if (ref.current.contains(e.target)) return;
+    }
+    //  else if (ref.current.contains(e.target)) return;
     setShowSuggestions((prev) => prev);
   };
 
