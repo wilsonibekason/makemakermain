@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 import styles from "../../../style";
 
 const ShopWidgets = ({ blogs }) => {
@@ -19,7 +20,9 @@ const ShopWidgets = ({ blogs }) => {
                   </div>
                 </Link>
                 <div className="flex flex-1 flex-row">
-                  <p className={`${styles.span1} mr-2`}>2 mins ago</p>
+                  <p className={`${styles.span1} mr-2`}>
+                    {moment(publishedAt).utc().format("YYYY-MMM-DD")}{" "}
+                  </p>
                   <span className={`${styles.span1} mr-2`}>.</span>
                   <span className={`${styles.span2} `}>9 mins Read</span>
                 </div>

@@ -77,8 +77,8 @@ const Navbar = ({ specificCategory, children }) => {
                     {categories.map((category, index) => (
                       <Menu.Item key={index}>
                         {({ active }) => (
-                          <a
-                            href="#ff"
+                          <NavLink
+                            to={`${category.link}`}
                             className={classNames(
                               active
                                 ? "bg-gray-100 text-gray-900"
@@ -87,7 +87,7 @@ const Navbar = ({ specificCategory, children }) => {
                             )}
                           >
                             {category.name}
-                          </a>
+                          </NavLink>
                         )}
                       </Menu.Item>
                     ))}

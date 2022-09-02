@@ -18,5 +18,20 @@ export default {
       required: true,
       type: "text",
     },
+    {
+      name: "email",
+      title: "Email",
+      type: "string",
+    },
+    {
+      name: "address",
+      title: "Address",
+      type: "string",
+    },
+    {
+      name: "number",
+      title: "Phone Number",
+      type: "string",
+    },
   ],
 };

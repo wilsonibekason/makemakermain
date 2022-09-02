@@ -1,9 +1,23 @@
 import React, { useState } from "react";
-import { BsBullseye, BsEyedropper, BsEyeglasses, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import {
+  BsBullseye,
+  BsEyedropper,
+  BsEyeglasses,
+  BsLinkedin,
+  BsTwitter,
+} from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { urlFor } from "../../../client";
 import styles from "../../../style";
-const TeamCard = ({ cardDesc, cardImage, cardTitle }) => {
+const TeamCard = ({
+  cardDesc,
+  cardImage,
+  cardTitle,
+  facebook,
+  Twitter,
+  LinkedIn,
+}) => {
   const [enter, setEnter] = useState(false);
   return (
     <>
@@ -39,21 +53,29 @@ const TeamCard = ({ cardDesc, cardImage, cardTitle }) => {
                 <BsEyedropper className="w-8 h-8 " />
               </div>
             </div>
-
             <div
               className={`${
                 enter ? "flex" : "hidden"
               } absolute left-[80%] w-full h-full  flex-col mt-8 transition-all ease-linear duration-200 `}
             >
-              <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2">
-                <FaFacebook className="flex justify-center items-center text-white" />
-              </div>
-              <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2">
-                <BsTwitter className="flex justify-center items-center text-white" />
-              </div>
-              <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2">
-                <BsLinkedin className="flex justify-center items-center text-white" />
-              </div>
+              <Link to={`${LinkedIn}`}>
+                {" "}
+                <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
+                  <BsLinkedin className="flex justify-center items-center text-white" />
+                </div>
+              </Link>
+              <Link to={`${Twitter}`}>
+                {" "}
+                <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
+                  <BsTwitter className="flex justify-center items-center text-white" />
+                </div>
+              </Link>
+              <Link to={`${facebook}`}>
+                {" "}
+                <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
+                  <FaFacebook className="flex justify-center items-center text-white" />
+                </div>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../../../style";
-import { BsBullseye, BsEyedropper, BsBoxArrowInRight } from "react-icons/bs";
+// import styles from "../../../style";
+import { BsBoxArrowInRight } from "react-icons/bs";
 import { urlFor } from "../../../client";
 import { GiStrongMan } from "react-icons/gi";
 
