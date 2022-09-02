@@ -14,6 +14,40 @@
     #6d6d6d -78.47%,
     #11101d 91.61%
   );
+  --gallery-gradient: linear-gradient(180deg,
+  rgba(0, 0, 0, 0.38) 0,
+  rgba(0, 0, 0, 0.38) 3.5%,
+  rgba(0, 0, 0, 0.379) 7%,
+  rgba(0, 0, 0, 0.377) 10.35%,
+  rgba(0, 0, 0, 0.375) 13.85%,
+  rgba(0, 0, 0, 0.372) 17.35%,
+  rgba(0, 0, 0, 0.369) 20.85%,
+  rgba(0, 0, 0, 0.366) 24.35%,
+  rgba(0, 0, 0, 0.364) 27.85%,
+  rgba(0, 0, 0, 0.361) 31.35%,
+  rgba(0, 0, 0, 0.358) 34.85%,
+  rgba(0, 0, 0, 0.355) 38.35%,
+  rgba(0, 0, 0, 0.353) 41.85%,
+  rgba(0, 0, 0, 0.351) 45.35%,
+  rgba(0, 0, 0, 0.35) 48.85%,
+  rgba(0, 0, 0, 0.353) 52.35%,
+  rgba(0, 0, 0, 0.36) 55.85%,
+  rgba(0, 0, 0, 0.371) 59.35%,
+  rgba(0, 0, 0, 0.385) 62.85%,
+  rgba(0, 0, 0, 0.402) 66.35%,
+  rgba(0, 0, 0, 0.42) 69.85%,
+  rgba(0, 0, 0, 0.44) 73.35%,
+  rgba(0, 0, 0, 0.46) 76.85%,
+  rgba(0, 0, 0, 0.48) 80.35%,
+  rgba(0, 0, 0, 0.498) 83.85%,
+  rgba(0, 0, 0, 0.515) 87.35%,
+  rgba(0, 0, 0, 0.529) 90.85%,
+  rgba(0, 0, 0, 0.54) 94.35%,
+  rgba(0, 0, 0, 0.547) 97.85%,
+  rgba(0, 0, 0, 0.55));
+  --masonry-details: linear-gradient(0deg,
+  rgba(0, 0, 0, 0.6755077030812324) 0%,
+  rgba(0, 0, 0, 0) 100%);
   --blue-gradient: linear-gradient(180deg, rgba(13,20,54,1) 0%, rgba(40,57,119,1) 30%, rgba(63,69,125,1) 50%, rgba(40,57,119,1) 70%, rgba(20,36,93,1) 100%);
   --white-gradient: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(212,224,222,0.8547794117647058) 0%, rgba(0,212,255,1) 100%);
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
@@ -70,7 +104,13 @@
 .black__bg{
   background-color: var(--black-palette);
 }
+.gallery-bg {
+  background: var(--gallery-gradient)
+}
 
+.masonry-bg{
+  background: var(--masonry-details)
+};
 
 .text-gradient {
   background: radial-gradient(
