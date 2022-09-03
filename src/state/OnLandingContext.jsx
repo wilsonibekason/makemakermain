@@ -5,12 +5,15 @@ const HomeContext = createContext({});
 export const HomeProvider = ({ children }) => {
   const [features, setFeatures] = useState([]);
   const [feedback, setFeedback] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [stats, setStats] = useState([]);
   const [footerLinks, setFooterLinks] = useState([]);
   const [socialMedia, setSocialMedia] = useState([]);
   const [logoImage, setlogoImage] = useState([]);
   const [clients, setClients] = useState([]);
   const [footerAbout, setFooterAbout] = useState([]);
+  const [galleryImage, setGalleryImages] = useState([]);
+  const [galleryHeader, setGalleryHeader] = useState([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -61,6 +64,23 @@ export const HomeProvider = ({ children }) => {
       .fetch(footerAboutQuery)
       .then((data) => !cancelled && setFooterAbout(data[0]))
       .catch((error) => console.log(error?.response?.body?.error?.description));
+    const galleryHeaderQuery = '*[_type == "galleryHeader"]';
+    client
+      .fetch(galleryHeaderQuery)
+      .then((data) => !cancelled && setGalleryHeader(data))
+      .catch((error) => console.log(error?.response?.body?.error?.description));
+    const galleryImagesQuery = '*[_type == "galleryImage"]';
+    client
+      .fetch(galleryImagesQuery)
+      .then(
+        (data) =>{
+        if( !cancelled) {
+          setLoading((prev) => prev)
+          setGalleryImages(data)}}).catch(
+        (error) =>
+          console.log(error?.response?.body?.error?.description) &&
+          setLoading((prev) => !prev)
+      );
     return () => {
       console.log("Everything is cancelled");
       cancelled = true;
@@ -81,6 +101,10 @@ export const HomeProvider = ({ children }) => {
         clients,
         logoIMG,
         footerAbout,
+        /// gallery
+        loading,
+        galleryImage,
+        galleryHeader,
       }}
     >
       {children}

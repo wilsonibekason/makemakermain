@@ -5,3 +5,4 @@ export { default as Footer } from "./Footer";
 export { default as AboutUs } from "./AboutUs";
 export { default as NoPage } from "./NoPage";
 export { default as Gallery } from "./Gallery";
+export { default as MainGallery } from "./MainGallery";
