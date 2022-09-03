@@ -1,5 +1,5 @@
 import React, { Suspence, lazy } from "react";
-import { useStateContext } from "../../state/OnLandingContext";
+import { useStateContext } from "../state/OnLandingContext";
 import ScrollToTop from "react-scroll-to-top";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {
@@ -7,8 +7,9 @@ import {
   HeaderText,
   Sentence,
   SearchForm,
+  Spinner,
 } from "../components/mainGallery";
-const Photos = lazy(() => import("./Photos"));
+const Photos = lazy(() => import("../components/mainGallery/Photos"));
 const MainGallery = () => {
   const { galleryImage, galleryHeader, loading } = useStateContext();
   const photoImages = galleryImage.map((item) => item?.images);
@@ -41,7 +42,7 @@ const MainGallery = () => {
           <Sentence />
         </div>
         <div className="mx-auto w-[1280px]">
-          <Suspence fallback={loading}>
+          <Suspence fallback={<Spinner />}>
             <InfiniteScroll
               dataLength={photoImages.length}
               hasMore={loading}
