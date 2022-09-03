@@ -41,7 +41,8 @@ import contactHeader from "./about/contactHeader";
 import contactCard from "./about/contactCard";
 import aboutValues from "./about/aboutValues";
 // import { features, feedback, footerLinks } from '../../src/utils/data'
-
+import image from "./gallery/image";
+import header from "./gallery/header";
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -91,5 +92,8 @@ export default createSchema({
     aboutValues,
     // logo
     logo,
+    // gallery
+    image,
+    header,
   ]),
 });
