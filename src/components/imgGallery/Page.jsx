@@ -68,16 +68,18 @@ const Page = () => {
                 : "https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDQ5Mjd8MHwxfHNlYXJjaHw3fHxUcmF2ZWx8ZW58MHx8fHwxNjYyMTA2MDI1&ixlib=rb-1.2.1&q=80&w=1080",
             }}
           />
-          <div className="w-[unset] min-w-[35vw] z-10 lg:w-[unset] mx-auto after:content-[''] after:absolute after:top-0 after:left-0 after:min-w-full after:h-full afetr:gallery-bg">
+          <span className="w-full h-[52vh] absolute opacity-75 bg-black-gradient"></span>
+          {/* after:content-[''] after:absolute after:top-0 after:left-0 after:min-w-full after:h-full after:gallery-bg */}
+          <div className="w-[unset] min-w-[35vw] z-10 lg:w-[unset] mx-auto ">
             <HeaderText />
-            <SearchForm onSearchPhotos={onSearchPhotos} />
+            <SearchForm onSearchPhoto={onSearchPhotos} />
           </div>
         </div>
         <div className="flex justify-center relative items-center">
           <Sentence stats={total} query={query} />
         </div>
         {/* <Suspence fallback={<Spinner />}> */}
-        <div className="mt-0 mr-auto w-[1280px]">
+        <div className="mt-0 mx-auto w-[1280px]">
           <InfiniteScroll
             dataLength={photos.length}
             hasMore={loading}
@@ -87,7 +89,9 @@ const Page = () => {
               <>
                 <Photos photos={photos.slice(1)} />
                 {photos.length === total && total !== 0 ? (
-                  <div className>this is the end</div>
+                  <div className="text-lg md:text-xl font-semibold text-center text-black font-poppins capitalize ">
+                    this is the end of {query}
+                  </div>
                 ) : (
                   ""
                 )}

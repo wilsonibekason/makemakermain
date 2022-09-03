@@ -4,6 +4,7 @@ import { Suggestions } from "../gallery";
 const SearchForm = ({ onSearchPhoto }) => {
   const mostSearched = [
     "STEMS",
+    "CAD",
     "Programming",
     "Science",
     "Digital Fabrication",
@@ -19,22 +20,32 @@ const SearchForm = ({ onSearchPhoto }) => {
     if (search.trim("") !== "") onSearchPhoto(search);
     setSearch("");
     setSuggestions("");
-    setShowSuggestions((prev) => prev);
+    setShowSuggestions(false);
   };
 
+  const fetchSuggestions = () => {
+    fetch(`https://api.datamuse.com/sug?s=${search}`)
+      .then((response) => response.json())
+      .then((data) => {
+        const suggestionArray = data;
+        console.log(`suggestionArray ${data}`);
+        setSuggestions({ suggestions: suggestionArray });
+      })
+      .catch((error) => console.log(error));
+  };
   const onInputChange = (e) => {
     let search = e.target.value;
     setSearch(search);
-    search.length > 2 && setSuggestions(search);
+    if (search.length > 2) fetchSuggestions(search);
   };
   const onInputClick = () => {
-    setShowSuggestions((prev) => !prev);
+    setShowSuggestions(true);
   };
   const onSuggestionClick = (e) => {
     onSearchPhoto(e);
     setSearch("");
     setSuggestions("");
-    setShowSuggestions((prev) => prev);
+    setShowSuggestions(false);
   };
   const handleOutsideClick = (e) => {
     if (!ref.current || !ref.current.contains(e.target)) {
@@ -42,6 +53,13 @@ const SearchForm = ({ onSearchPhoto }) => {
     }
     //  else if (ref.current.contains(e.target)) return;
     setShowSuggestions((prev) => prev);
+  };
+
+  const handleoutsideClick = (e) => {
+    if (ref.current.contains(e.target)) {
+      return;
+    }
+    setShowSuggestions(false);
   };
 
   const handleKeyEnter = (e) => {
@@ -60,20 +78,17 @@ const SearchForm = ({ onSearchPhoto }) => {
       setSuggestions("");
     }
   };
+
   useEffect(() => {
     if (showSuggestions) {
-      document.addEventListener("mouseenter", handleKeyEnter);
-    } else if (showSuggestions) {
-      document.addEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("mousedown", handleoutsideClick);
     } else {
-      document.addEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("mousedown", handleoutsideClick);
     }
 
     return () => {
-      document.addEventListener("mousedown", handleOutsideClick);
-      document.addEventListener("mousedown", handleKeyEnter);
+      document.addEventListener("mousedown", handleoutsideClick);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showSuggestions]);
   return (
     <>
@@ -97,18 +112,19 @@ const SearchForm = ({ onSearchPhoto }) => {
           id="query"
           onChange={onInputChange}
           onClick={(e) => onInputClick(!showSuggestions)}
-          value={search}
+          // value={search}
         />
         {showSuggestions ? (
           <Suggestions
+            autocompleted={fetchSuggestions}
             suggestions={suggestions}
             onClick={(e) => onSuggestionClick(e)}
           />
         ) : (
-          <div className="inline-block overflow-hidden text-white text-ellipsis ">
+          <div className="inline-block  text-black text-ellipsis hover:bg-black bg-white rounded mt-8 py-2 px-3 mx-auto hover:text-white">
             {mostSearched.map((suggestion, index) => (
               <span
-                className="p-1 text-white text-sm cursor-pointer font-normal transition-all  duration-500 hover:font-semibold"
+                className="p-1 text-sm cursor-pointer font-normal transition-all  duration-900 ease-linear hover:font-semibold "
                 key={index}
                 onClick={() => onSuggestionClick(suggestion)}
               >

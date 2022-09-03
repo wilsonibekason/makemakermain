@@ -34,6 +34,7 @@ const Photos = ({ photos }) => {
         <div
           key={index}
           className="relative inline-block mb-[1em] min-w-full w-full overflow-hidden "
+          rel="noopener noreferrer"
         >
           <img
             src={photo.urls.regular}
@@ -51,7 +52,7 @@ const Photos = ({ photos }) => {
                 {photo.likes}
               </p>
             </div>
-            <div className="absolute flex w-full left-0 bottom-0 before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:.masonry-bg">
+            <div className="absolute flex w-full left-0 bottom-0 before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:masonry-bg">
               {/* details-profile-image */}
               <a
                 href={photo.user.links.html}
@@ -71,7 +72,8 @@ const Photos = ({ photos }) => {
               </a>
               <a
                 href={photo.links.download + "?force=true"}
-                className="detail-profile-button"
+                // className="detail-profile-button"
+                className="absolute right-[25px] bottom-[20px] text-[#ffffff] rounded-sm flex items-center z-10"
                 target={"_self"}
                 rel="noopener noreferrer"
               >

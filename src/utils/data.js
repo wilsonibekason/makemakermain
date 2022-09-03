@@ -54,6 +54,17 @@ export const aboutLinks = [
     link: "/product",
   },
   {
+    id: "8",
+    title: "gallery",
+    link: "/gallery",
+  },
+
+  {
+    id: "4",
+    title: "about us",
+    link: "/aboutus",
+  },
+  {
     id: "4",
     title: "about us",
     link: "/aboutus",

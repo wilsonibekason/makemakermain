@@ -1,7 +1,9 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import CountUp from "react-countup";
 const Sentence = ({ stats, query }) => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="flex flex-row gap-4 py-8">
@@ -23,12 +25,24 @@ const Sentence = ({ stats, query }) => {
             sorry no results for <b>{query}</b>
           </p>
         ) : (
-          <p>
-            currently showing{" "}
-            <strong>{stats && <CountUp end={stats} />}</strong>
-            {"  "}
-            results for : <strong>{query}</strong>
-          </p>
+          <>
+            <p>
+              currently showing{" "}
+              <strong>{stats && <CountUp end={stats} />}</strong>
+              {"  "}
+              results for : <strong>{query}</strong>
+            </p>
+            <div className="bg-black py-1 px-2 text-ellipsis font-raleway font-normal text-sm rounded-lg text-white justify-center items-center">
+              powered by {/* <Link to="unsplash.com"> */}
+              <span
+                className="italic hover:text-blue-300"
+                onClick={() => navigate("unsplash.com", { replace: true })}
+              >
+                unsplash
+              </span>
+              {/* </Link> */}
+            </div>
+          </>
         )}
       </div>
     </>
