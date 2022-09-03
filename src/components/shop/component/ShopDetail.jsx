@@ -36,7 +36,8 @@ const ShopDetail = ({
             </span>
           </div>
           <h1 className=" text-2xl font-bold uppercase -mt-4">
-            <Currency quantity={price} currency="GBP" />
+            {/* <Currency quantity={price} currency="GBP" /> */}
+            {`$${price}`}
           </h1>
           <h4 className=" text-gray-500 text-sm font-semibold font-poppins">
             Description

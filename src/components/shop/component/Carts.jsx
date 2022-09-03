@@ -76,7 +76,8 @@ const Carts = () => {
                 <h1 className={`${styles.CheckoutHeading}`}>total</h1>
               </div>
               <div className={`${styles.CheckoutHeading}`}>
-                <Currency quantity={totalPrice} currency="GBP" />
+                {/* <Currency quantity={totalPrice} currency="GBP" /> */}
+                {`$${totalPrice}`}
                 {/* {parseInt(totalPrice)} */}
               </div>
             </div>

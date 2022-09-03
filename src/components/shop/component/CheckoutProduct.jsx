@@ -63,7 +63,8 @@ const CheckoutProduct = ({ title, defaultProductVariant, _id, cartItem }) => {
           <h1 className={`${styles.span1}`}>{title}</h1>
           <h3>
             {" "}
-            <Currency quantity={price} currency="GBP" />
+            {/* <Currency quantity={price} currency="GBP" /> */}
+            {`$${price}`}
           </h3>
         </div>
 

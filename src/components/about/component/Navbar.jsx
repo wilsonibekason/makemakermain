@@ -20,10 +20,11 @@ const Navbar = () => {
           <li key={index + navLink.id} className={"font-poppins"}>
             <NavLink
               to={`${navLink.link}`}
-              className={`font-normal cursor-pointer font-poppins text-[16px] capitalize   ${
-                index === aboutLinks.length - 1 ? "mr-0" : "mr-10"
-              } text-white`}
+              className={`font-normal cursor-pointer font-poppins text-[16px] capitalize   text-white mr-10`}
             >
+              {/*  ${
+                index === aboutLinks.length - 1 ? "mr-0" : "mr-10"
+              } */}
               {navLink.title}
             </NavLink>
           </li>

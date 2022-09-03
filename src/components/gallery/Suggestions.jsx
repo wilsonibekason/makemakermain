@@ -18,7 +18,7 @@ const Suggestions = ({ suggestions, onClick, autocompleted }) => {
         >
           <a
             href="#top"
-            className="text-[#111111] hover:bg-[#f0f0f0] flex flex-row  flex-start items-center justify-between "
+            className="text-[#111111] hover:bg-[#f0f0f0] flex flex-row  flex-start items-center justify-between"
           >
             <AiOutlineFileDone />
 

@@ -130,10 +130,11 @@ const Navbar = () => {
                 >
                   <a
                     href={`#${navLink.id}`}
-                    className={`font-normal cursor-pointer font-poppins text-[16px]   ${
-                      index === navLinks.length - 1 ? "mr-0" : "mr-10"
-                    } text-white hover:text-green-300 hover:border-b-2 hover:border-solid hover:border-green-500 capitalize `}
+                    className={`font-normal cursor-pointer font-poppins text-[16px]  text-white hover:text-green-300 hover:border-b-2 hover:border-solid hover:border-green-500 capitalize mr-10 `}
                   >
+                    {/*   ${
+                      index === navLinks.length - 1 ? "mr-0" : "mr-10"
+                    } */}
                     {navLink.title}
                   </a>
                 </li>
@@ -170,7 +171,7 @@ const Navbar = () => {
                   <li
                     key={index + navLink.id}
                     className={`font-medium cursor-pointer font-poppins text-[16px]   ${
-                      index === shopCategories.length - 1 ? "mr-0" : "mb-4"
+                      index === shopCategories.length - 1 ? "mr-0" : "m-4"
                     } text-white`}
                   >
                     <NavLink to={`${navLink.id}`}>{navLink.name}</NavLink>

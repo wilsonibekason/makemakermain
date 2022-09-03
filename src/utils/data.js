@@ -64,11 +64,6 @@ export const aboutLinks = [
     title: "about us",
     link: "/aboutus",
   },
-  {
-    id: "4",
-    title: "about us",
-    link: "/aboutus",
-  },
 ];
 
 export const features = [
