@@ -43,7 +43,7 @@ const Photos = ({ photos }) => {
             //alt={"Author: " + photo.user.name}
             src={urlFor(photo)}
             alt={"g"}
-            className="w-full block transition-all duration-800 cursor-zoom-in hover:opacity-100"
+            className="w-full block transition-all duration-800 cursor-zoom-in hover:opacity-100 rounded-lg shadow-lg "
           />
           {/* <div className="hover:opacity-100 hover:whitespace-nowrap hover:overflow-hidden hover:overflow-ellipsis opacity-0 transition duration-500 ">
 
