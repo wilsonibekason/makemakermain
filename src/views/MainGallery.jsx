@@ -55,27 +55,32 @@ const MainGallery = () => {
         </div>
         <div className="mx-auto w-[1280px]">
           {/* <Suspence fallback={<Spinner />}> */}
-          <InfiniteScroll
-            dataLength={photoImages.length}
+          {/* <InfiniteScroll
+            dataLength={itemImages[0].length}
             hasMore={loading}
             // next={() => getMorePhotos(page + 1)}
-          >
-            {loading ? (
-              <>
-                {/* photos.slice(1) */}
-                <Photos photos={itemImages[0]} />
-                {photoImages.length === total && total !== 0 ? (
-                  <div className="text-lg md:text-xl font-semibold text-center text-black font-poppins capitalize ">
-                    this is the end of
-                  </div>
-                ) : (
-                  ""
-                )}
-              </>
-            ) : (
-              ""
-            )}
-          </InfiniteScroll>
+          > */}
+          <Photos photos={itemImages[0]} />
+
+          {loading ? (
+            <>
+              {/* photos.slice(1) */}
+              {/* {itemImages[0].map((item, index) => {
+                  return <Photos key={index} photos={item} />;
+                })} */}
+              <Photos photos={itemImages[0]} />
+              {photoImages.length === total && totalImages.length !== 0 ? (
+                <div className="text-lg md:text-xl font-semibold text-center text-black font-poppins capitalize ">
+                  this is the end of
+                </div>
+              ) : (
+                ""
+              )}
+            </>
+          ) : (
+            ""
+          )}
+          {/* </InfiniteScroll> */}
           {/* </Suspence> */}
         </div>
         <ScrollToTop smooth viewBox="0 0 24 24" svgPath="M18 15l-6-6-6 6" />

@@ -30,7 +30,7 @@ const Photos = ({ photos }) => {
   console.log(`photos collections ${photos}`);
   const gallery =
     photos &&
-    !!photos.length &&
+    !!photos?.length &&
     photos.map((photo, index) => {
       return (
         <div
@@ -41,11 +41,12 @@ const Photos = ({ photos }) => {
           <img
             //src={photo.urls.regular}
             //alt={"Author: " + photo.user.name}
-            src={urlFor(photo.image)}
+            src={urlFor(photo)}
             alt={"g"}
             className="w-full block transition-all duration-800 cursor-zoom-in hover:opacity-100"
           />
-          <div className="hover:opacity-100 hover:whitespace-nowrap hover:overflow-hidden hover:overflow-ellipsis opacity-0 transition duration-500 ">
+          {/* <div className="hover:opacity-100 hover:whitespace-nowrap hover:overflow-hidden hover:overflow-ellipsis opacity-0 transition duration-500 ">
+
             <div className="grid absolute top-[15px] right-[15px] text-center ">
               <p className="p-2 bg-[#ffffff8f] text-[#222222] rounded-sm text-[0.9em] whitespace-nowrap overflow-hidden overflow-ellipsis text-center relative">
                 f
@@ -92,11 +93,11 @@ const Photos = ({ photos }) => {
                 </svg>
               </a>
             </div>
-          </div>
+          </div>     **/}
         </div>
       );
     });
-  let content = gallery.length && gallery;
+  let content = gallery?.length && gallery;
   return (
     <SimpleReactLightbox>
       <SRLWrapper options={Lightboxoptions}>
