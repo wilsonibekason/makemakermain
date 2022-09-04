@@ -11,7 +11,7 @@ const Footer = () => {
   console.log("the footerabout output", footerAbout);
   return (
     <section
-      className={`${styles.flexCenter} ${styles.paddingY} flex-col mx-0 md:mx-4 `}
+      className={`${styles.flexCenter} ${styles.paddingY2} flex-col mx-0 md:mx-4 `}
     >
       <div className={`flex flex-col mb-8 w-full `}>
         {/** first layout */}
@@ -64,7 +64,7 @@ const Footer = () => {
           <p className="font-poppins text-[10px] leading-[10px] text-white font-medium mb-1 text-center">
             2022 Make Maker, All Rights Reserved
             <span className="text-gray-300 capitalize font-base ">
-              designed by wilsonibekason
+             {"  "} designed by wilsonibekason
             </span>
           </p>
           <div className="flex flex-row md:mt-0 mt-6">
@@ -73,7 +73,7 @@ const Footer = () => {
                 src={social.icon}
                 alt="social_links"
                 key={social.id + index}
-                className={` w-[21px] h-[21px object-contain ${
+                className={` w-[21px] h-[21px object-contain hover:text-blue-400  ${
                   index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
                 }`}
               />

@@ -1,37 +1,31 @@
 import React from "react";
-
+import { useStateContext } from "../../state/OnLandingContext";
+import { urlFor } from "../../client";
+import { makeLogo, makelogo } from "../../assets/assets";
 import CountUp from "react-countup";
 const Sentence = ({ stats, query }) => {
+  const { logoIMG } = useStateContext();
+
+  let statsLength = stats?.length;
+  //TODO:
+  // remove log
+  console.log("_________________________--------------");
+  console.log(logoIMG);
+  console.log(urlFor(logoIMG));
+  console.log("_________________________---------------------");
   return (
     <>
-      <div className="flex flex-row gap-4 py-8">
-        <div className="z-10 w-8 h-8">
-          <svg
-            width="32"
-            height="32"
-            className="text-center "
-            version="1.1"
-            viewBox="0 0 32 32"
-            aria-hidden="false"
-          >
-            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-          </svg>
+      <div className="flex flex-row gap-4 py-8 justify-center items-center  ">
+        <div className="z-10">
+          <img src={makeLogo} alt="logo_image" className=" w-24 text-center" />
         </div>
 
-        {stats === 0 ? (
-          <p>
-            sorry no results for <b>{query}</b>
-          </p>
-        ) : (
-          <>
-            <p>
-              currently showing{" "}
-              <strong>{stats && <CountUp end={stats} />}</strong>
-              {"  "}
-              results for : <strong>{query}</strong>
-            </p>
-          </>
-        )}
+        <p className="font-poppins text-sm capitalize ">
+          Showing results of our images{" "}
+        </p>
+        <strong className="">
+          <CountUp end={statsLength} />
+        </strong>
       </div>
     </>
   );

@@ -10,7 +10,7 @@ const Footer = () => {
   const { message } = footerAbout;
   console.log(message);
   return (
-    <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
+    <section className={`${styles.flexCenter} ${styles.paddingY2} flex-col`}>
       <div className={`${styles.flexStart} flex-col mb-8 w-full `}>
         {/** first layout */}
         <div className={`flex flex-1 flex-col justify-start mr-10`}>
@@ -65,7 +65,7 @@ const Footer = () => {
                 src={social.icon}
                 alt="social_links"
                 key={social.id + index}
-                className={` w-[21px] h-[21px object-contain blue__bg  ${
+                className={` w-[21px] h-[21px object-contain blue__bg hover:text-blue-400  ${
                   index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
                 }`}
               />

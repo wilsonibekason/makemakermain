@@ -35,25 +35,25 @@ const MainGallery = () => {
     <>
       <Layout>
         <div className="flex flex-row min-w-full h-[52vh] min-h-[350px] text-md bg-cover overflow-hidden justify-center items-center ">
+          {/* <span className="w-full h-[52vh] absolute opacity-75 bg-black-gradient"></span> */}
           <div
-            className="absolute w-full h-[52vh] top-16 bottom-0 bg-no-repeat bg-cover bg-center "
+            className="absolute w-full h-[52vh] top-16 bottom-0 bg-no-repeat bg-cover bg-center opacity-75 backdrop-blur-lg"
             style={{
               backgroundImage: photoImages.length
                 ? `url("${urlFor(bgIMG)}")`
                 : `url( "https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDQ5Mjd8MHwxfHNlYXJjaHw3fHxUcmF2ZWx8ZW58MHx8fHwxNjYyMTA2MDI1&ixlib=rb-1.2.1&q=80&w=1080")`,
             }}
           />
-          <span className="w-full h-[52vh] absolute opacity-75 bg-black-gradient"></span>
           {/* after:content-[''] after:absolute after:top-0 after:left-0 after:min-w-full after:h-full after:gallery-bg */}
           <div className="w-[unset] min-w-[35vw] z-10 lg:w-[unset] mx-auto ">
             <HeaderText header={galleryHeader} />
-            <SearchForm />
+            {/* <SearchForm /> */}
           </div>
         </div>
         <div className="flex justify-center relative items-center">
-          <Sentence />
+          <Sentence stats={itemImages[0]} />
         </div>
-        <div className="mx-auto w-[1280px]">
+        <div className="mx-auto px-[2vh] md:px-[15vh] max-w-[1280px]">
           {/* <Suspence fallback={<Spinner />}> */}
           {/* <InfiniteScroll
             dataLength={itemImages[0].length}
@@ -62,7 +62,7 @@ const MainGallery = () => {
           > */}
           <Photos photos={itemImages[0]} />
 
-          {loading ? (
+          {!loading ? (
             <>
               {/* photos.slice(1) */}
               {/* {itemImages[0].map((item, index) => {
@@ -83,7 +83,12 @@ const MainGallery = () => {
           {/* </InfiniteScroll> */}
           {/* </Suspence> */}
         </div>
-        <ScrollToTop smooth viewBox="0 0 24 24" svgPath="M18 15l-6-6-6 6" />
+        <ScrollToTop
+          smooth
+          viewBox="0 0 24 24"
+          svgPath="M18 15l-6-6-6 6"
+          className="w-8 h-8 flex justify-center items-center hover:animate-bounce"
+        />
       </Layout>
     </>
   );

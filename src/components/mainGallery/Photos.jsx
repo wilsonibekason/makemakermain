@@ -22,9 +22,12 @@ const Lightboxoptions = {
 };
 
 const breakPointColumnsObj = {
-  default: 3,
+  default: 4,
+  3000: 4,
   1000: 2,
-  600: 1,
+  600: 2,
+  500: 2,
+  300: 1,
 };
 const Photos = ({ photos }) => {
   console.log(`photos collections ${photos}`);
@@ -35,7 +38,7 @@ const Photos = ({ photos }) => {
       return (
         <div
           key={index}
-          className="relative inline-block mb-[1em] min-w-full w-full overflow-hidden "
+          className="relative inline-block mb-[1em] min-w-full w-full overflow-hidden group"
           rel="noopener noreferrer"
         >
           <img
@@ -43,7 +46,7 @@ const Photos = ({ photos }) => {
             //alt={"Author: " + photo.user.name}
             src={urlFor(photo)}
             alt={"g"}
-            className="w-full block transition-all duration-800 cursor-zoom-in hover:opacity-100 rounded-lg shadow-lg "
+            className="w-full block transition-all duration-800 cursor-zoom-in hover:opacity-100 rounded-lg shadow-lg group-hover:scale-105"
           />
           {/* <div className="hover:opacity-100 hover:whitespace-nowrap hover:overflow-hidden hover:overflow-ellipsis opacity-0 transition duration-500 ">
 
@@ -103,7 +106,7 @@ const Photos = ({ photos }) => {
       <SRLWrapper options={Lightboxoptions}>
         <Masonry
           breakpointCols={breakPointColumnsObj}
-          className="flex ml-[-30px] w-auto"
+          className="flex ml-[-30px] w-auto animate-slide-forward "
           columnClassName="pl-[30px] bg-clip-padding "
         >
           {content}
