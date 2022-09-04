@@ -7,18 +7,30 @@ import {
   HeaderText,
   Sentence,
   SearchForm,
+  Photos,
   Spinner,
 } from "../components/mainGallery";
-const Photos = lazy(() => import("../components/mainGallery/Photos"));
+import { urlFor } from "../client";
+// const Photos = lazy(() => import("../components/mainGallery/Photos"));
 const MainGallery = () => {
   const { galleryImage, galleryHeader, loading } = useStateContext();
   const photoImages = galleryImage.map((item) => item?.images);
-  const total = [photoImages].slice(-1).pop();
+  const itemImages = galleryImage.map((item) => item?.images);
+  const bgImage = photoImages?.map((item) => item[0]);
+  const total = [photoImages].slice(-1).pop().length;
   const totalImages = [photoImages].slice(-1)[0];
   const last = photoImages[photoImages.length - 1];
+  const bgIMG = Object.assign({}, ...bgImage);
 
-  console.log(`totalimages in CMS ${totalImages}`);
-  console.log(`totalimages in CMS ${last}`);
+  console.log(galleryImage);
+  console.log(total);
+  // console.log(photoImages.map((item) => item[0]));
+  console.log(itemImages[0]);
+  console.log(totalImages[0]);
+  console.log(bgImage);
+  // console.log(Object.assign({}, ...bgImage));
+  console.log(totalImages.length);
+  console.log(last);
   return (
     <>
       <Layout>
@@ -27,7 +39,7 @@ const MainGallery = () => {
             className="absolute w-full h-[52vh] top-16 bottom-0 bg-no-repeat bg-cover bg-center "
             style={{
               backgroundImage: photoImages.length
-                ? `url("${photoImages[0].image}")`
+                ? `url("${urlFor(bgIMG)}")`
                 : `url( "https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMDQ5Mjd8MHwxfHNlYXJjaHw3fHxUcmF2ZWx8ZW58MHx8fHwxNjYyMTA2MDI1&ixlib=rb-1.2.1&q=80&w=1080")`,
             }}
           />
@@ -42,29 +54,29 @@ const MainGallery = () => {
           <Sentence />
         </div>
         <div className="mx-auto w-[1280px]">
-          <Suspence fallback={<Spinner />}>
-            <InfiniteScroll
-              dataLength={photoImages.length}
-              hasMore={loading}
-              // next={() => getMorePhotos(page + 1)}
-            >
-              {loading ? (
-                <>
-                  {/* photos.slice(1) */}
-                  <Photos photos={photoImages} />
-                  {photoImages.length === total && total !== 0 ? (
-                    <div className="text-lg md:text-xl font-semibold text-center text-black font-poppins capitalize ">
-                      this is the end of
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </>
-              ) : (
-                ""
-              )}
-            </InfiniteScroll>
-          </Suspence>
+          {/* <Suspence fallback={<Spinner />}> */}
+          <InfiniteScroll
+            dataLength={photoImages.length}
+            hasMore={loading}
+            // next={() => getMorePhotos(page + 1)}
+          >
+            {loading ? (
+              <>
+                {/* photos.slice(1) */}
+                <Photos photos={itemImages[0]} />
+                {photoImages.length === total && total !== 0 ? (
+                  <div className="text-lg md:text-xl font-semibold text-center text-black font-poppins capitalize ">
+                    this is the end of
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            ) : (
+              ""
+            )}
+          </InfiniteScroll>
+          {/* </Suspence> */}
         </div>
         <ScrollToTop smooth viewBox="0 0 24 24" svgPath="M18 15l-6-6-6 6" />
       </Layout>

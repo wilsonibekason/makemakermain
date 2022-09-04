@@ -1,6 +1,7 @@
 import React from "react";
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import Masonry from "react-masonry-css";
+import { urlFor } from "../../client";
 
 const Lightboxoptions = {
   setting: {
@@ -26,6 +27,7 @@ const breakPointColumnsObj = {
   600: 1,
 };
 const Photos = ({ photos }) => {
+  console.log(`photos collections ${photos}`);
   const gallery =
     photos &&
     !!photos.length &&
@@ -37,15 +39,16 @@ const Photos = ({ photos }) => {
           rel="noopener noreferrer"
         >
           <img
-            src={photo.urls.regular}
-            alt={"Author: " + photo.user.name}
+            //src={photo.urls.regular}
+            //alt={"Author: " + photo.user.name}
+            src={urlFor(photo.image)}
+            alt={"g"}
             className="w-full block transition-all duration-800 cursor-zoom-in hover:opacity-100"
           />
-          {/* items detatails */}
           <div className="hover:opacity-100 hover:whitespace-nowrap hover:overflow-hidden hover:overflow-ellipsis opacity-0 transition duration-500 ">
-            {/* details-like */}
             <div className="grid absolute top-[15px] right-[15px] text-center ">
               <p className="p-2 bg-[#ffffff8f] text-[#222222] rounded-sm text-[0.9em] whitespace-nowrap overflow-hidden overflow-ellipsis text-center relative">
+                f
                 <span role={"img"} aria-label="heart emoji">
                   ❤️
                 </span>
@@ -53,7 +56,6 @@ const Photos = ({ photos }) => {
               </p>
             </div>
             <div className="absolute flex w-full left-0 bottom-0 before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:masonry-bg">
-              {/* details-profile-image */}
               <a
                 href={photo.user.links.html}
                 className="p-[15px] flex text-white items-center z-10"
@@ -65,14 +67,12 @@ const Photos = ({ photos }) => {
                   alt={photo.user.username}
                   className="mr-2 w-[35px] rounded-full"
                 />
-                {/* details-profile-username */}
                 <div className="flex-1 overflow-hidden inline-block overflow-ellipsis whitespace-nowrap">
                   {photo.user.name}
                 </div>
               </a>
               <a
                 href={photo.links.download + "?force=true"}
-                // className="detail-profile-button"
                 className="absolute right-[25px] bottom-[20px] text-[#ffffff] rounded-sm flex items-center z-10"
                 target={"_self"}
                 rel="noopener noreferrer"

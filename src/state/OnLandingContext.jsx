@@ -69,14 +69,16 @@ export const HomeProvider = ({ children }) => {
       .fetch(galleryHeaderQuery)
       .then((data) => !cancelled && setGalleryHeader(data))
       .catch((error) => console.log(error?.response?.body?.error?.description));
-    const galleryImagesQuery = '*[_type == "galleryImage"]';
+    const galleryImagesQuery = '*[_type == "galleryImages"]';
     client
       .fetch(galleryImagesQuery)
-      .then(
-        (data) =>{
-        if( !cancelled) {
-          setLoading((prev) => prev)
-          setGalleryImages(data)}}).catch(
+      .then((data) => {
+        if (!cancelled) {
+          setLoading((prev) => prev);
+          setGalleryImages(data);
+        }
+      })
+      .catch(
         (error) =>
           console.log(error?.response?.body?.error?.description) &&
           setLoading((prev) => !prev)
