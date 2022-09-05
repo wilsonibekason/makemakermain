@@ -28,8 +28,8 @@ const App = () => {
         <Route path="/blog/:id" element={<PostDetails />} />
         <Route path="/blog/category/:category" element={<Blog />} />
         {/* <Route path="/gallerys" element={<Gallery />} /> */}
-        <Route path="/gallery" element={<Page />} />
-        <Route path="/gallerys" element={<MainGallery />} />
+        {/* <Route path="/gallery" element={<Page />} /> */}
+        <Route path="/gallery" element={<MainGallery />} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/" element={<Landing />} />
         {/* 404 page return component */}

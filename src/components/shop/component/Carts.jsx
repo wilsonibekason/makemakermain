@@ -12,6 +12,9 @@ const Carts = () => {
   let navigate = useNavigate();
 
   const { cartItems, totalPrice } = useStateShopContext();
+  //TODO:
+  //remove the log
+  console.log("the totalPrice is : " + totalPrice);
   console.log(cartItems);
   return (
     <>

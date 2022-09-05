@@ -14,6 +14,7 @@ export const HomeProvider = ({ children }) => {
   const [footerAbout, setFooterAbout] = useState([]);
   const [galleryImage, setGalleryImages] = useState([]);
   const [galleryHeader, setGalleryHeader] = useState([]);
+  const [hero, setHero] = useState([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -58,6 +59,8 @@ export const HomeProvider = ({ children }) => {
         !cancelled && setClients(data);
       })
       .catch((err) => console.log(err));
+    const heroQuery = '*[_type == "hero"]';
+    client.fetch(heroQuery).then((data) => !cancelled && setHero(data));
     //// footer about section
     const footerAboutQuery = '*[_type == "footerMain"]';
     client
@@ -103,6 +106,7 @@ export const HomeProvider = ({ children }) => {
         clients,
         logoIMG,
         footerAbout,
+        hero,
         /// gallery
         loading,
         galleryImage,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   BsBullseye,
   BsEyedropper,
@@ -18,6 +18,7 @@ const TeamCard = ({
   Twitter,
   LinkedIn,
 }) => {
+  const navigate = useNavigate();
   const [enter, setEnter] = useState(false);
   return (
     <>
@@ -58,19 +59,22 @@ const TeamCard = ({
                 enter ? "flex" : "hidden"
               } absolute left-[80%] w-full h-full  flex-col mt-8 transition-all ease-linear duration-200 `}
             >
-              <a href={`#${LinkedIn}`}>
-                {" "}
+              {/* <span onClick={() => navigate(`${LinkedIn}`, { replace: true })}> */}{" "}
+              {/* <Link to={{ pathname: `https://facebook.com` }} target="_blank"> */}
+              <a href={`${LinkedIn}`} target="_blank" rel="noreferrer">
                 <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
                   <BsLinkedin className="flex justify-center items-center text-white" />
                 </div>
               </a>
-              <a href={`#${Twitter}`}>
+              {/* </Link> */}
+              {/* </span> */}
+              <a href={`#${Twitter}`} target="_blank" rel="noreferrer">
                 {" "}
                 <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
                   <BsTwitter className="flex justify-center items-center text-white" />
                 </div>
               </a>
-              <a href={`#${facebook}`}>
+              <a href={`#${facebook}`} target="_blank" rel="noreferrer">
                 {" "}
                 <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
                   <FaFacebook className="flex justify-center items-center text-white" />

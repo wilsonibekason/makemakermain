@@ -21,6 +21,7 @@ import footerlink from "./landing/footerlink";
 import footerMain from "./landing/footerMain";
 import socialmedia from "./landing/socialmedia";
 import stats from "./landing/stats";
+import hero from "./landing/hero";
 import author from "./blogs/author";
 import blockContents from "./blogs/blockContents";
 import post from "./blogs/post";
@@ -65,6 +66,7 @@ export default createSchema({
     productVariant,
     // landing page schemas
     clients,
+    hero,
     features,
     feedback,
     footerlink,
@@ -72,6 +74,7 @@ export default createSchema({
     stats,
     productBanner,
     footerMain,
+
     /// blog schemas
     author,
     blockContents,
