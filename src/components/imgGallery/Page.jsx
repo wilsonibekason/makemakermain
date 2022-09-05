@@ -17,7 +17,6 @@ const Page = () => {
   const [photosCount, setPhotosCount] = useState(0);
   const [page, setPage] = useState(1);
   const perPage = 12;
-
   const onSearchPhotos = (searchTerm) => {
     setQuery(searchTerm);
     setLoading((prev) => prev);
