@@ -15,6 +15,7 @@ export const HomeProvider = ({ children }) => {
   const [galleryImage, setGalleryImages] = useState([]);
   const [galleryHeader, setGalleryHeader] = useState([]);
   const [hero, setHero] = useState([]);
+  const [cardDeal, setCardDeal] = useState([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -61,6 +62,8 @@ export const HomeProvider = ({ children }) => {
       .catch((err) => console.log(err));
     const heroQuery = '*[_type == "hero"]';
     client.fetch(heroQuery).then((data) => !cancelled && setHero(data));
+    const cardDealQuery = '*[_type == "cardDeal"]';
+    client.fetch(cardDealQuery).then((data) => !cancelled && setCardDeal(data));
     //// footer about section
     const footerAboutQuery = '*[_type == "footerMain"]';
     client
@@ -107,10 +110,12 @@ export const HomeProvider = ({ children }) => {
         logoIMG,
         footerAbout,
         hero,
+        cardDeal,
         /// gallery
         loading,
         galleryImage,
         galleryHeader,
+        urlFor,
       }}
     >
       {children}

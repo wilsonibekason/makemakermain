@@ -18,6 +18,7 @@ import clients from "./landing/clients";
 import features from "./landing/features";
 import feedback from "./landing/feedback";
 import footerlink from "./landing/footerlink";
+import cardDeal from "./landing/cardDeal";
 import footerMain from "./landing/footerMain";
 import socialmedia from "./landing/socialmedia";
 import stats from "./landing/stats";
@@ -68,6 +69,7 @@ export default createSchema({
     clients,
     hero,
     features,
+    cardDeal,
     feedback,
     footerlink,
     socialmedia,

@@ -2,7 +2,9 @@ import React from "react";
 import styles, { layout } from "../../style";
 import FeedBackCard from "./FeedBackCard";
 import { feedback } from "../../utils/data";
+import { useStateContext } from "../../state/OnLandingContext";
 const Testimonials = () => {
+  const { feedback } = useStateContext();
   return (
     <section
       id="client"
