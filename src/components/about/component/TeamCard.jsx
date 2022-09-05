@@ -58,24 +58,24 @@ const TeamCard = ({
                 enter ? "flex" : "hidden"
               } absolute left-[80%] w-full h-full  flex-col mt-8 transition-all ease-linear duration-200 `}
             >
-              <Link to={`${LinkedIn}`}>
+              <a href={`#${LinkedIn}`}>
                 {" "}
                 <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
                   <BsLinkedin className="flex justify-center items-center text-white" />
                 </div>
-              </Link>
-              <Link to={`${Twitter}`}>
+              </a>
+              <a href={`#${Twitter}`}>
                 {" "}
                 <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
                   <BsTwitter className="flex justify-center items-center text-white" />
                 </div>
-              </Link>
-              <Link to={`${facebook}`}>
+              </a>
+              <a href={`#${facebook}`}>
                 {" "}
                 <div className="bg-blue-400 rounded-full border-2 w-10 h-10 flex justify-center items-center mr-4 mb-2 hover:bg-blue-100 hover:border hover:border-white hover:border-solid">
                   <FaFacebook className="flex justify-center items-center text-white" />
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
