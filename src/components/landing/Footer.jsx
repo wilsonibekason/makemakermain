@@ -17,20 +17,24 @@ const Footer = () => {
         {/** first layout */}
 
         <div className="w-full flex justify-around flex-col md:flex-row ">
-          <div clasName="flex flex-row md:flex-col justify-evenly ">
-            <img
-              //src={logo}
-              src={makeLogo}
-              alt="hoobank"
-              className="w-[266px] h-[72px] object-contain"
-            />
-            <p
-              className={`font-poppins font-normal text-[14px] leading-[24px] text-dimWhite max-w-[470px] mt-5 mb-4`}
-            >
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
-              voluptatibus, voluptatem explicabo pariatur dignissimos natus!
-            </p>
-          </div>
+          {}
+          {blogFooterLinks.map((footerLink, index) => (
+            <div clasName="flex flex-row md:flex-col justify-evenly ">
+              <img
+                //src={logo}
+                src={makeLogo}
+                alt="hoobank"
+                className="w-[266px] h-[72px] object-contain"
+              />
+              <p
+                className={`font-poppins font-normal text-[14px] leading-[24px] text-dimWhite max-w-[470px] mt-5 mb-4`}
+              >
+                {/* Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam
+                voluptatibus, voluptatem explicabo pariatur dignissimos natus! */}
+                {footerLink?.desc}
+              </p>
+            </div>
+          ))}
           <div className="flex md:flex-col flex-row mx-auto md:mx-0 ">
             {blogFooterLinks.map((footerLink, index) => (
               <div

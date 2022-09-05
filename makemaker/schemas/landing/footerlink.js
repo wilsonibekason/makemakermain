@@ -25,5 +25,11 @@ export default {
         },
       ],
     },
+    {
+      name: "desc",
+      title: "CompanyDescription",
+      type: "text",
+      description: "This is the description of the company",
+    },
   ],
 };

@@ -1,7 +1,9 @@
 import React from "react";
 import { clients } from "../../utils/data";
 import styles from "../../style";
+import { useStateContext } from "../../state/OnLandingContext";
 const ClientSections = () => {
+  const { clients } = useStateContext();
   return (
     <section className={`${styles.flexCenter} my-4 `}>
       <div className={`${styles.flexCenter} flex-wrap w-full `}>

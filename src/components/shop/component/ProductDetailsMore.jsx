@@ -97,48 +97,41 @@ const ProductDetailsMore = ({
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  {/* TODO: REMOVE THIS COMMENTED CODE */}
-                  {/* <PortableText
-                    dataset={"production"}
-                    projectId={"zyte9ttg"}
-                    content={body}
-                    serializers={{
-                      h1: (props) => (
-                        <h1
-                          className="text-2xl font-bold my-5 text-white"
-                          {...props}
-                        />
-                      ),
-                      h2: (props) => (
-                        <h2
-                          className="text-xl font-bold my-5 text-white"
-                          {...props}
-                        />
-                      ),
-                      p: (props) => (
-                        <p
-                          className="text-sm font-semibold text-white"
-                          {...props}
-                        ></p>
-                      ),
-                      li: ({ children }) => (
-                        <li className="ml-4 list-none text-gray-100">
-                          {children}
-                        </li>
-                      ),
-                      link: ({ href, children }) => (
-                        <a
-                          href={href}
-                          className="inline-block py-2 text-base leading-7 text-white hover:text-gray-800 dark:text-gray-300 dark:hover hover:underline "
-                        >
-                          {children}
-                        </a>
-                      ),
-                    }}
-                  /> */}
-                  <p className="font-poppins font-semibold text-">
-                    This is a descripruo{" "}
-                  </p>
+                  {body ? (
+                    <PortableText
+                      dataset={"production"}
+                      projectId={"zyte9ttg"}
+                      content={body}
+                      serializers={{
+                        h1: (props) => (
+                          <h1
+                            className="text-2xl font-poppins font-semibold text-gray-300 "
+                            {...props}
+                          >
+                            {" "}
+                          </h1>
+                        ),
+                        span: (props) => (
+                          <span className={styles.span2} {...props}></span>
+                        ),
+                        li: ({ children }) => (
+                          <li className="ml-4 list-none text-lg font-semibold capitalize text-black ">
+                            {children}
+                          </li>
+                        ),
+                        img: (src) => (
+                          <img className="rounded" alt="post_img" />
+                        ),
+                        link: ({ href, children }) => (
+                          <a href={href}>{children}</a>
+                        ),
+                      }}
+                    />
+                  ) : (
+                    <p className="font-poppins font-semibold text-">
+                      This is a portion for the products description
+                    </p>
+                  )}
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <p className="text-blueGray-500 text-sm font-semibold  font-poppins">
