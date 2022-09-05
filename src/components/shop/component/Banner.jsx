@@ -42,10 +42,10 @@ const Banner = () => {
           </div>
           <div className="col-span-1 lg:col-span-6">
             <div className=" items-center ">
-              {productBanner.image && (
+              {productBanner?.image && (
                 <img
                   src={urlFor(productBanner?.image)}
-                  alt=""
+                  alt="banner_image"
                   className="w-[60%] h-[60%] object-cover "
                 />
               )}
