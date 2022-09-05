@@ -6,7 +6,7 @@ import { logo, makeLogo } from "../../assets/assets";
 import { useStateContext } from "../../state/OnLandingContext";
 import { footerLinks, socialMedia, blogFooterLinks } from "../../utils/data";
 const Footer = () => {
-  const { footerAbout, logoIMG } = useStateContext();
+  const { footerAbout, logoIMG, socialMedia } = useStateContext();
   //const { message } = footerAbout();
   console.log("the footerabout output", footerAbout);
   return (
@@ -64,19 +64,21 @@ const Footer = () => {
           <p className="font-poppins text-[10px] leading-[10px] text-white font-medium mb-1 text-center">
             2022 Make Maker, All Rights Reserved
             <span className="text-gray-300 capitalize font-base ">
-             {"  "} designed by wilsonibekason
+              {"  "} designed by wilsonibekason
             </span>
           </p>
           <div className="flex flex-row md:mt-0 mt-6">
             {socialMedia.map((social, index) => (
-              <img
-                src={social.icon}
-                alt="social_links"
-                key={social.id + index}
-                className={` w-[21px] h-[21px object-contain hover:text-blue-400  ${
-                  index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
-                }`}
-              />
+              <a href={`${social?.link}`} target="_blank" rel="noreferrer">
+                <img
+                  src={social.icon}
+                  alt="social_links"
+                  key={social.id + index}
+                  className={` w-[21px] h-[21px object-contain hover:text-blue-400  ${
+                    index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
+                  }`}
+                />
+              </a>
             ))}
           </div>
         </div>

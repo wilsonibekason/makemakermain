@@ -6,7 +6,7 @@ import { footerLinks, socialMedia, blogFooterLinks } from "../../../utils/data";
 import { useStateContext } from "../../../state/OnLandingContext";
 import { urlFor } from "../../../client";
 const Footer = () => {
-  const { logoIMG, footerAbout } = useStateContext();
+  const { logoIMG, footerAbout, socialMedia } = useStateContext();
   const { message } = footerAbout;
   console.log(message);
   return (
@@ -61,14 +61,16 @@ const Footer = () => {
           </p>
           <div className="flex flex-row md:mt-0 mt-6">
             {socialMedia.map((social, index) => (
-              <img
-                src={social.icon}
-                alt="social_links"
-                key={social.id + index}
-                className={` w-[21px] h-[21px object-contain blue__bg hover:text-blue-400  ${
-                  index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
-                }`}
-              />
+              <a href={`${social?.link}`} target="_blank" rel="noreferrer">
+                <img
+                  src={social.icon}
+                  alt="social_links"
+                  key={social.id + index}
+                  className={` w-[21px] h-[21px object-contain blue__bg hover:text-blue-400  ${
+                    index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
+                  }`}
+                />
+              </a>
             ))}
           </div>
         </div>
